@@ -5,7 +5,7 @@
  * @author Tom Walder <tom@docnet.nu>
  */
 require_once('../vendor/autoload.php');
-require_once('../config.php');
+// require_once('../config.php');
 
 // Filter vars
 $str_name = substr(filter_input(INPUT_POST, 'guest-name', FILTER_SANITIZE_STRING), 0, 30);
