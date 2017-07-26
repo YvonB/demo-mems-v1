@@ -31,7 +31,7 @@ if(Spammy::anyLookSpammy([$str_name, $str_message])) {
     syslog(LOG_WARNING, 'Skipping potential spam from [' . $_SERVER['REMOTE_ADDR'] . ']: ' . print_r($_POST, TRUE));
     header("Location: /?spam=maybe");
 } else {
-    syslog(LOG_DEBUG, 'Proceeding... ' . print_r($_SERVER, TRUE) . "\n\n" . print_r($_POST, TRUE));
+    syslog(LOG_DEBUG, 'Proceeding... ' . print_r($_SERVER, TRUE) . "\n\n" . print_r($_GET, TRUE));
     $obj_repo = new Repository();
     $obj_repo->createPost($str_name, $str_message, $_SERVER['REMOTE_ADDR']);
     header("Location: /");
