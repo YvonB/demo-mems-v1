@@ -5,7 +5,7 @@ define('POST_LIMIT', 10);
 
 // Pour rafraîchir la page à chaque 7 seconde
 $page = $_SERVER['PHP_SELF'];
-$sec = "7";
+$sec = "30";
 
 ?>
 
