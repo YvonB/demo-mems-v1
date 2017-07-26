@@ -1,3 +1,9 @@
+<?php
+define('GDS_ACCOUNT', ' !! your service account name here !! ');
+define('GDS_KEY_FILE', dirname(__FILE__) . '/key.p12');
+define('POST_LIMIT', 10);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,7 +76,7 @@
 
                                 // Includes
                                 require_once('../vendor/autoload.php');
-                                require_once('../config.php');
+                                // require_once('../config.php');
 
                                 // Grab posts
                                 $obj_repo = new \GDS\Demo\Repository();

@@ -6,6 +6,9 @@
  */
 require_once('../vendor/autoload.php');
 // require_once('../config.php');
+define('GDS_ACCOUNT', ' !! your service account name here !! ');
+define('GDS_KEY_FILE', dirname(__FILE__) . '/key.p12');
+define('POST_LIMIT', 10);
 
 // Filter vars
 $str_name = substr(filter_input(INPUT_POST, 'guest-name', FILTER_SANITIZE_STRING), 0, 30);
