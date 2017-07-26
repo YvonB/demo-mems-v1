@@ -65,13 +65,13 @@ define('POST_LIMIT', 10);
                     <button type="submit" class="btn btn-primary">Post</button>
                 </form>
             </div>
-            <!-- <?php -->
+            <!-- <?php 
                 // $bol_spam = FALSE;
                 // if(isset($_GET['spam']) && 'maybe' == $_GET['spam']) {
                 //     echo '<span class="alert alert-warning">Perhaps you are trying to spam? Post ignored.</spam>';
                 //     $bol_spam = TRUE;
                 // }
-            <!-- ?> -->
+             ?> -->
         </div>
         <div class="col-md-8">
             <div class="panel panel-default">
