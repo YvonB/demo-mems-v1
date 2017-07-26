@@ -4,8 +4,8 @@ define('GDS_KEY_FILE', dirname(__FILE__) . '/key.p12');
 define('POST_LIMIT', 10);
 
 // Pour rafraîchir la page à chaque 7 seconde
-$page = $_SERVER['PHP_SELF'];
-$sec = "30";
+// $page = $_SERVER['PHP_SELF'];
+// $sec = "30";
 
 ?>
 
@@ -14,7 +14,8 @@ $sec = "30";
 <head>
     <meta charset="utf-8">
     <title>Detection de pollution</title>
-    <meta http-equiv = "refresh" content = "<?php echo $sec ?> ; URL ='<?php echo $page ?>' " charset="utf-8">
+    <!-- <meta http-equiv = "refresh" content = "<?php echo $sec ?> ; URL ='<?php echo $page ?>' " charset="utf-8"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/demo.css">
