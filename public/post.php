@@ -11,8 +11,10 @@ define('GDS_KEY_FILE', dirname(__FILE__) . '/key.p12');
 define('POST_LIMIT', 10);
 
 // Filter vars
-$str_name = substr(filter_input(INPUT_POST, 'guest-name', FILTER_SANITIZE_STRING), 0, 30);
-$str_message = substr(filter_input(INPUT_POST, 'guest-message', FILTER_SANITIZE_STRING), 0, 1000);
+// $str_name = substr(filter_input(INPUT_POST, 'guest-name', FILTER_SANITIZE_STRING), 0, 30);
+$str_name = $_GET['ValeurCO2'];
+// $str_message = substr(filter_input(INPUT_POST, 'guest-message', FILTER_SANITIZE_STRING), 0, 1000);
+ $str_message = $_GET['ValeurCO'];
 
 $str_as = (string)base_convert(substr(filter_input(INPUT_POST, 'guest-as', FILTER_SANITIZE_STRING), 0, 20), 36, 10);
 if(!in_array($str_as, [date('YmdH'), date('YmdH', strtotime('-1 hour'))])) {
