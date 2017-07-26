@@ -78,7 +78,7 @@ define('POST_LIMIT', 10);
                 <div class="panel-body">
                     <?php
                         try {
-                            if(!$bol_spam) {
+                            // if(!$bol_spam) {
 
                                 // Includes
                                 require_once('../vendor/autoload.php');
@@ -110,7 +110,7 @@ define('POST_LIMIT', 10);
                                 $int_posts = count($arr_posts);
                                 echo '<div class="post"><em>Showing last ', $int_posts, '</em></div>';
 
-                            }
+                            // }
                         } catch (\Exception $obj_ex) {
                             syslog(LOG_ERR, $obj_ex->getMessage());
                             echo '<em>Whoops, something went wrong!</em>';
