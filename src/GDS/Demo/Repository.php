@@ -59,7 +59,7 @@ class Repository
     private function updateCache()
     {
         $obj_store = $this->getStore();
-        $arr_posts = $obj_store->query("SELECT * FROM Guestbook ORDER BY posted DESC")->fetchPage(POST_LIMIT);
+        $arr_posts = $obj_store->query("SELECT * FROM Gas ORDER BY posted DESC")->fetchPage(POST_LIMIT);
         $this->getCache()->set('recent', $arr_posts);
         return $arr_posts;
     }
