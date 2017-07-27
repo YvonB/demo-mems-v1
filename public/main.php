@@ -104,7 +104,7 @@ define('POST_LIMIT', 10);
 
                                     echo '<div class="post">';
                                     echo '<div class="message">', htmlspecialchars($obj_post->message), '</div>';
-                                    echo '<div class="authored">By ', htmlspecialchars($obj_post->name), ' ', '<br>' $str_date_display, '</div>';
+                                    echo '<div class="authored">By ', htmlspecialchars($obj_post->name), ' ', '<br>', $str_date_display, '</div>';
                                     echo '</div>';
                                 }
                                 $int_posts = count($arr_posts);
