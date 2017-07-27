@@ -30,13 +30,13 @@ define('POST_LIMIT', 10);
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1><img src="/img/datastore-logo.png" id="gds-logo" /> PHP & <span class="hidden-xs">Google</span> Cloud Datastore (Détéction de Pollution)</h1>
+            <h1><img src="/img/datastore-logo.png" id="gds-logo" /> PHP & <span class="hidden-xs">Google</span> Cloud Datastore <br> (Détéction de Pollution)</h1>
         </div>
     </div>
     <div class="row">
         <div class="col-md-8">
             <h2>Qu'est-ce que c'est?</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla est purus, ultrices in porttitor
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla est purus,<br> ultrices in porttitor
             in, accumsan non quam. Nam consectetur porttitor rhoncus. Curabitur eu est et leo feugiat
             auctor vel quis lorem.</p>
             <p>Ut et ligula dolor, sit amet consequat lorem. Aliquam porta eros sed
@@ -49,8 +49,8 @@ define('POST_LIMIT', 10);
     </div>
     <div class="row">
         <div class="col-md-12">
-            <h2>Voulez-vous voir plud de contenu et de fonctionnalité ?</h2>
-            <p>Dans ce cas, connectez vous ou inscrivez-vous sur le site.</p>
+            <h2>Voir plus de contenu</h2>
+            <p>Dans ce cas, connectez-vous ou inscrivez-vous sur le site.</p>
         </div>
     </div>
     <div class="row">
