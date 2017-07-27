@@ -30,14 +30,14 @@ define('POST_LIMIT', 10);
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1><img src="/img/datastore-logo.png" id="gds-logo" /> PHP & <span class="hidden-xs">Google</span> Cloud Datastore <br> (Détéction de Pollution)</h1>
+            <h1><img src="/img/datastore-logo.png" id="gds-logo" /> PHP & <span class="hidden-xs">Google</span> Cloud Datastore</h1>
         </div>
     </div>
     <div class="row">
         <div class="col-md-8">
             <h2>Qu'est-ce que c'est?</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla est purus,<br> ultrices in porttitor
-            in, accumsan non quam. Nam consectetur porttitor rhoncus. Curabitur eu est et leo feugiat
+            in, accumsan non quam. Nam consectetur porttitor rhoncus.<br> Curabitur eu est et leo feugiat
             auctor vel quis lorem.</p>
             <p>Ut et ligula dolor, sit amet consequat lorem. Aliquam porta eros sed
             velit imperdiet egestas.</p>
@@ -56,7 +56,7 @@ define('POST_LIMIT', 10);
     <div class="row">
         <div class="col-md-4">
             <div class="well">
-                <h3>Sign In</h3>
+                <h3>SignIn</h3>
                 <form method="POST" action="/post.php">
                     <div class="form-group">
                         <input type="text" class="form-control" name="guest-name" id="guest-name" placeholder="Name" maxlength="30" />
