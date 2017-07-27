@@ -1,8 +1,8 @@
 <?php
 /**
- * Repository for GDS Demo
+ * Dépôt pour GDS
  *
- * @author Tom Walder
+ * @author Yvon Benahita
  */
 namespace GDS\Demo;
 use GDS\Schema;
@@ -12,14 +12,14 @@ class Repository
 {
 
     /**
-     * Memcache instance
+     * Instance de Memcache
      *
      * @var \Memcached|null
      */
     private $obj_cache = NULL;
 
     /**
-     * GDS Store instance
+     * Instance du magasin GDS
      *
      * @var Store|null
      */
@@ -37,7 +37,7 @@ class Repository
     }
 
     /**
-     * Get the most recent posts. From memcache ideally.
+     * Prendre les valeurs insérées les plus récentes. 
      *
      * @return array
      */
@@ -52,7 +52,7 @@ class Repository
     }
 
     /**
-     * Update the cache from Datastore
+     * Mettre à jour le cache de Datastore
      *
      * @return array
      */
@@ -83,12 +83,12 @@ class Repository
             'ip' => $str_ip
         ]));
 
-        // Update the cache
+        // Mettre à jour le cache
         $this->updateCache();
     }
 
     /**
-     * Configure and return a Store
+     * Configuration et retourner un magasin
      *
      * @return Store
      */
