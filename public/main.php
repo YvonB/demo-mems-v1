@@ -1,4 +1,5 @@
 <?php
+// Définitions des constantes modèles pour l'accès au datatore
 define('GDS_ACCOUNT', ' !! your service account name here !! ');
 define('GDS_KEY_FILE', dirname(__FILE__) . '/key.p12');
 define('POST_LIMIT', 10);
@@ -65,33 +66,26 @@ define('POST_LIMIT', 10);
                     <button type="submit" class="btn btn-primary">Post</button>
                 </form>
             </div>
-            <!-- <?php 
-                // $bol_spam = FALSE;
-                // if(isset($_GET['spam']) && 'maybe' == $_GET['spam']) {
-                //     echo '<span class="alert alert-warning">Perhaps you are trying to spam? Post ignored.</spam>';
-                //     $bol_spam = TRUE;
-                // }
-             ?> -->
         </div>
         <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <?php
                         try {
-                            // if(!$bol_spam) {
+                            
 
-                                // Includes
+                                // Inclusion
                                 require_once('../vendor/autoload.php');
-                                // require_once('../config.php');
+                                
 
-                                // Grab posts
+                                // Chercher les dernières valeurs insérées
                                 $obj_repo = new \GDS\Demo\Repository();
                                 $arr_posts = $obj_repo->getRecentPosts();
 
-                                // Show them
+                                // Les afficher
                                 foreach ($arr_posts as $obj_post) {
 
-                                    // Work out a nice datetime display string
+                                    // Effectuez une belle chaîne d'affichage de date et heure
                                     $int_posted_date = strtotime($obj_post->posted);
                                     $int_date_diff = time() - $int_posted_date;
                                     if ($int_date_diff < 3600) {
@@ -110,8 +104,6 @@ define('POST_LIMIT', 10);
                                 }
                                 $int_posts = count($arr_posts);
                                 echo '<div class="post"><em>Showing last ', $int_posts, '</em></div>';
-
-                            // }
                         } catch (\Exception $obj_ex) {
                             syslog(LOG_ERR, $obj_ex->getMessage());
                             echo '<em>Whoops, something went wrong!</em>';
