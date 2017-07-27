@@ -71,13 +71,14 @@ class Repository
      * @param $str_co
      * @param $str_ip
      */
-    public function createPost($str_co2, $str_co, $str_ip)
+    public function createPost($str_co2, $str_co, $str_nh3, $str_ip)
     {
         $obj_store = $this->getStore();
         $obj_store->upsert($obj_store->createEntity([
             'posted' => date('Y-m-d H:i:s'),
             'co2' => $str_co2,
             'co' => $str_co,
+            'nh3' => $str_nh3,
             'ip' => $str_ip
         ]));
 
