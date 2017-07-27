@@ -111,6 +111,7 @@ class Repository
             ->addDatetime('posted')
             ->addString('co2', FALSE)
             ->addString('co', FALSE)
+            ->addString('nh3', FALSE)
             ->addString('ip')
         ;
     }
