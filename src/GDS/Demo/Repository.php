@@ -107,10 +107,10 @@ class Repository
      */
     private function makeSchema()
     {
-        return (new Schema('Guestbook'))
+        return (new Schema('Gas'))
             ->addDatetime('posted')
-            ->addString('name', FALSE)
-            ->addString('message', FALSE)
+            ->addString('co2', FALSE)
+            ->addString('co', FALSE)
             ->addString('ip')
         ;
     }
