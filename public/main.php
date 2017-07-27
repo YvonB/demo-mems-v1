@@ -50,7 +50,7 @@ define('POST_LIMIT', 10);
     <div class="row">
         <div class="col-md-12">
             <h2>Voir plus de contenu</h2>
-            <p>Dans ce cas, connectez-vous ou inscrivez-vous sur le site.</p>
+            <p>Dans ce cas, connectez-vous ou inscrivez-vous.</p>
         </div>
     </div>
     <div class="row">
