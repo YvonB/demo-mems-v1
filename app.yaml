@@ -22,7 +22,7 @@ handlers:
 
 # Form handler
 
-- url: /post.php?ValeurCO2=*&ValeurC0=*&ValeurNH3=*
+- url: /post.php
   script: public/post.php
 
 # Default handler
