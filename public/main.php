@@ -41,8 +41,7 @@ define('POST_LIMIT', 10);
         </div>
         <div class="col-md-4">
             <h2>Resources</h2>
-            <p><a href="https://github.com/tomwalder/php-gds" target="_blank"><span aria-hidden="true" class="glyphicon glyphicon-new-window"></span> The php-gds library on GitHub</a></p>
-            <p><a href="https://github.com/tomwalder/php-gds-demo" target="_blank"><span aria-hidden="true" class="glyphicon glyphicon-new-window"></span> The php-gds-demo application (this web site)</a></p>
+            <p><a href="https://github.com/YvonB/demo-mems-v1" target="_blank"><span aria-hidden="true" class="glyphicon glyphicon-new-window"></span> Pollution detection demo (Ce site web)</a></p>
         </div>
     </div>
     <div class="row">
