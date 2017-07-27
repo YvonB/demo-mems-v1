@@ -95,9 +95,9 @@ define('POST_LIMIT', 10);
                                     $int_posted_date = strtotime($obj_post->posted);
                                     $int_date_diff = time() - $int_posted_date;
                                     if ($int_date_diff < 3600) {
-                                        $str_date_display = round($int_date_diff / 60) . ' minutes ago';
+                                        'Il y a environ '.$str_date_display = round($int_date_diff / 60) . ' minutes';
                                     } else if ($int_date_diff < (3600 * 24)) {
-                                        $str_date_display = round($int_date_diff / 3600) . ' hours ago';
+                                        'Il y a environ '.$str_date_display = round($int_date_diff / 3600) . ' hours';
                                     } else {
                                         $str_date_display = date('\a\t jS M Y, H:i', $int_posted_date);
                                     }
