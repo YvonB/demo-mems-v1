@@ -103,8 +103,8 @@ define('POST_LIMIT', 10);
                                     }
 
                                     echo '<div class="post">';
-                                    echo '<div class="authored">', htmlspecialchars($obj_post->name), '</div>';
-                                    echo '<div class="message"> ', htmlspecialchars($obj_post->message), ' ', '<br><span class="time">Il y a ', $str_date_display, '</span></div>';
+                                    echo '<div class="authored">Taux de CO2: ', htmlspecialchars($obj_post->name),'ppm    ', '</div>';
+                                    echo '<div class="message">Taux de CO: ', htmlspecialchars($obj_post->message), 'ppm    ', '<br><span class="time">Il y a ', $str_date_display, '</span></div>';
                                     echo '</div>';
                                 }
                                 $int_posts = count($arr_posts);
