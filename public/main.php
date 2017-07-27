@@ -95,16 +95,16 @@ define('POST_LIMIT', 10);
                                     $int_posted_date = strtotime($obj_post->posted);
                                     $int_date_diff = time() - $int_posted_date;
                                     if ($int_date_diff < 3600) {
-                                        'Il y a environ '.$str_date_display = round($int_date_diff / 60) . ' minutes';
+                                        $str_date_display = round($int_date_diff / 60) . ' minutes';
                                     } else if ($int_date_diff < (3600 * 24)) {
-                                        'Il y a environ '.$str_date_display = round($int_date_diff / 3600) . ' hours';
+                                        $str_date_display = round($int_date_diff / 3600) . ' hours';
                                     } else {
                                         $str_date_display = date('\a\t jS M Y, H:i', $int_posted_date);
                                     }
 
                                     echo '<div class="post">';
                                     echo '<div class="message">', htmlspecialchars($obj_post->message), '</div>';
-                                    echo '<div class="authored">By ', htmlspecialchars($obj_post->name), ' ', '<br>', $str_date_display, '</div>';
+                                    echo '<div class="authored">By ', htmlspecialchars($obj_post->name), ' ', '<br>Il y a environ '., $str_date_display, '</div>';
                                     echo '</div>';
                                 }
                                 $int_posts = count($arr_posts);
