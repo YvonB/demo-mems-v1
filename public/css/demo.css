@@ -19,14 +19,14 @@ h1,h2,h3,h4,h5,p,td,small,div {
 .post em {
     color: #999;
 }
-.post .message{
+.post .gas{
     font-size: 18px;
     display: inline;
 }
-.post .authored {
+/*.post .authored {
     font-size: 18px;
     display: inline;
-}
+}*/
 .time{
     font-size: 16px;
     font-style: italic;
