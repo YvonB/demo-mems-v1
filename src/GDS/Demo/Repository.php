@@ -65,10 +65,11 @@ class Repository
     }
 
     /**
-     * Insert the entity (plus limit the data to the same values as the form)
+     * Insèrez l'entité
      *
      * @param $str_co2
      * @param $str_co
+     * @param $str_nh3
      * @param $str_ip
      */
     public function createPost($str_co2, $str_co, $str_nh3, $str_ip)
