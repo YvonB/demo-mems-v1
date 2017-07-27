@@ -67,17 +67,17 @@ class Repository
     /**
      * Insert the entity (plus limit the data to the same values as the form)
      *
-     * @param $str_name
-     * @param $str_message
+     * @param $str_co2
+     * @param $str_co
      * @param $str_ip
      */
-    public function createPost($str_name, $str_message, $str_ip)
+    public function createPost($str_co2, $str_co, $str_ip)
     {
         $obj_store = $this->getStore();
         $obj_store->upsert($obj_store->createEntity([
             'posted' => date('Y-m-d H:i:s'),
-            'name' => $str_name,
-            'message' => $str_message,
+            'co2' => $str_co2,
+            'co' => $str_co,
             'ip' => $str_ip
         ]));
 
