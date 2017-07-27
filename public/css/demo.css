@@ -28,6 +28,8 @@ h1,h2,h3,h4,h5,p,td,small,div {
     display: inline;
 }
 .time{
+    font-size: 16px;
+    font-style: italic;
     margin-top: 3px;
     color: #339;
 }
