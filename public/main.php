@@ -30,14 +30,17 @@ define('POST_LIMIT', 10);
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1><img src="/img/datastore-logo.png" id="gds-logo" /> PHP & <span class="hidden-xs">Google</span> Cloud Datastore</h1>
+            <h1><img src="/img/datastore-logo.png" id="gds-logo" /> PHP & <span class="hidden-xs">Google</span> Cloud Datastore (Détéction de Pollution)</h1>
         </div>
     </div>
     <div class="row">
         <div class="col-md-8">
-            <h2>What the?</h2>
-            <p>So here is a super simple web app using the <a href="https://github.com/tomwalder/php-gds">php-gds</a> library to access Google Datastore.</p>
-            <p>I'm not using any advanced features - it's just to illustrate how easy it is to get going.</p>
+            <h2>Qu'est-ce que c'est?</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla est purus, ultrices in porttitor
+            in, accumsan non quam. Nam consectetur porttitor rhoncus. Curabitur eu est et leo feugiat
+            auctor vel quis lorem.</p>
+            <p>Ut et ligula dolor, sit amet consequat lorem. Aliquam porta eros sed
+            velit imperdiet egestas.</p>
         </div>
         <div class="col-md-4">
             <h2>Resources</h2>
@@ -46,23 +49,23 @@ define('POST_LIMIT', 10);
     </div>
     <div class="row">
         <div class="col-md-12">
-            <h2>Totally Epic Web Scale Guest Book</h2>
-            <p>Yeah, you know it - the ubiquitous guest book example application.</p>
+            <h2>Voulez-vous voir plud de contenu et de fonctionnalité ?</h2>
+            <p>Dans ce cas, connectez vous ou inscrivez-vous sur le site.</p>
         </div>
     </div>
     <div class="row">
         <div class="col-md-4">
             <div class="well">
-                <h3>Sign Guest Book</h3>
+                <h3>Sign In</h3>
                 <form method="POST" action="/post.php">
                     <div class="form-group">
                         <input type="text" class="form-control" name="guest-name" id="guest-name" placeholder="Name" maxlength="30" />
                     </div>
                     <div class="form-group">
-                        <textarea rows="3" class="form-control" name="guest-message" id="guest-message" placeholder="Message" maxlength="1000"></textarea>
+                        <input type="password" class="form-control" name="guest-name" id="guest-name" placeholder="Password" />
                     </div>
                     <input type="hidden" name="guest-as" id="guest-as" value="<?php echo base_convert(date('YmdH'), 10, 36); ?>" />
-                    <button type="submit" class="btn btn-primary">Post</button>
+                    <button type="submit" class="btn btn-primary">Se Connecter</button>
                 </form>
             </div>
         </div>
