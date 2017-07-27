@@ -99,9 +99,9 @@ class Repository
     }
 
     /**
-     * Build a schema for Guest book entries
+     * Créez un schéma pour les entrées 
      *
-     * the posted datetime as an indexed field
+     * 'posted' est 'heure de la date d'entrée des valeur 
      *
      * @return Schema
      */
