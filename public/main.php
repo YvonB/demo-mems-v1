@@ -48,27 +48,6 @@ define('POST_LIMIT', 10);
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
-            <h2>Voir plus de contenu</h2>
-            <p>Dans ce cas, connectez-vous ou inscrivez-vous.</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="well">
-                <h3>SignIn</h3>
-                <form method="POST" action="/post.php">
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="guest-name" id="guest-name" placeholder="Name" maxlength="30" />
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" name="guest-name" id="guest-name" placeholder="Password" />
-                    </div>
-                    <input type="hidden" name="guest-as" id="guest-as" value="<?php echo base_convert(date('YmdH'), 10, 36); ?>" />
-                    <button type="submit" class="btn btn-primary">Se Connecter</button>
-                </form>
-            </div>
-        </div>
         <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-body">
@@ -114,6 +93,30 @@ define('POST_LIMIT', 10);
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Voir plus de contenu</h2>
+            <p>Dans ce cas, connectez-vous ou inscrivez-vous.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="well">
+                <h3>SignIn</h3>
+                <form method="POST" action="/post.php">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="guest-name" id="guest-name" placeholder="Name" maxlength="30" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="guest-name" id="guest-name" placeholder="Password" />
+                    </div>
+                    <input type="hidden" name="guest-as" id="guest-as" value="<?php echo base_convert(date('YmdH'), 10, 36); ?>" />
+                    <button type="submit" class="btn btn-primary">Se Connecter</button>
+                </form>
+            </div>
+        </div>
+
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
