@@ -33,7 +33,7 @@ define('POST_LIMIT', 10);
 <body>
     <div class="container">  <!-- Pour tout le contenu de notre site -->
 
-        <!-- Le logo et le titre -->
+        <!-- Le logo et le titre======================================================= -->
         <div class="row">
             <div class="col-md-12">
                 <h1><img src="/img/datastore-logo.png" id="gds-logo" /> PHP & <span class="hidden-xs">Google</span> Cloud Datastore</h1>
@@ -41,7 +41,7 @@ define('POST_LIMIT', 10);
         </div>
         <!-- ====================================================================== -->
 
-        <!-- La définition et la Réssource-->
+        <!-- La définition et la Réssource========================================== -->
         <div class="row">
             <div class="col-md-8">
                 <h2>Qu'est-ce que c'est?</h2>
@@ -59,7 +59,7 @@ define('POST_LIMIT', 10);
         </div>
         <!-- ========================================================================== -->
         
-        <!-- Pour visualiser les résultats -->
+        <!-- Pour visualiser les résultats============================================= -->
         <div class="row">
             <div class="col-md-8" >
                 <h2>Results</h2>
@@ -110,7 +110,7 @@ define('POST_LIMIT', 10);
         </div>
         <!-- ======================================================================== -->
 
-        <!-- Espace connexion -->
+        <!-- Espace connexion ======================================================== -->
         <div class="row">
             <div class="col-md-12">
                 <h2>Voir plus de contenu</h2>
