@@ -33,7 +33,7 @@ define('POST_LIMIT', 10);
 <body>
     <div class="container">  <!-- Pour tout le contenu de notre site -->
 
-        <!-- Le logo et le titre======================================================= -->
+        <!-- ===========================Le logo et le titre============================ -->
         <div class="row">
             <div class="col-md-12">
                 <h1><img src="/img/datastore-logo.png" id="gds-logo" /> PHP & <span class="hidden-xs">Google</span> Cloud Datastore</h1>
@@ -41,7 +41,7 @@ define('POST_LIMIT', 10);
         </div>
         <!-- ====================================================================== -->
 
-        <!-- La définition et la Réssource========================================== -->
+        <!-- =====================La définition et la Réssource===================== -->
         <div class="row">
             <div class="col-md-8">
                 <h2>Qu'est-ce que c'est?</h2>
@@ -59,7 +59,7 @@ define('POST_LIMIT', 10);
         </div>
         <!-- ========================================================================== -->
         
-        <!-- Pour visualiser les résultats============================================= -->
+        <!-- =======================Pour visualiser les résultats====================== -->
         <div class="row">
             <div class="col-md-8" >
                 <h2>Results</h2>
@@ -108,9 +108,9 @@ define('POST_LIMIT', 10);
                 </div>
             </div>
         </div>
-        <!-- ======================================================================== -->
+        <!-- ========================================================================== -->
 
-        <!-- Espace connexion ======================================================== -->
+        <!-- ===========================Espace connexion ============================== -->
         <div class="row">
             <div class="col-md-12">
                 <h2>Voir plus de contenu</h2>
@@ -121,20 +121,52 @@ define('POST_LIMIT', 10);
         <div class="row">
             <div class="col-md-4" id="sign-in">
                 <div class="well">
-                    <h3>SignIn</h3>
-                    <form method="POST" action="/post.php">
+                    <h3>LogIn</h3>
+                    <form method="POST" action="">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="guest-name" id="guest-name" placeholder="Name" maxlength="30" />
+                            <input type="text" class="form-control" name="nom" id="guest-name" placeholder="Votre nom" maxlength="30" />
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" name="guest-name" id="guest-name" placeholder="Password" />
+                            <input type="password" class="form-control" name="pass" id="guest-name" placeholder="Votre mot de passe" />
                         </div>
                         <input type="hidden" name="guest-as" id="guest-as" value="<?php echo base_convert(date('YmdH'), 10, 36); ?>" />
                         <button type="submit" class="btn btn-primary">Se Connecter</button>
                     </form>
                 </div>
             </div>
+        </div>
+        <!-- ========================================================================== -->
 
+        <!-- ===========================Espace inscription============================= -->
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Pas de compte ?</h2>
+                <p>Inscrivez-vous dès maintenant !</p>
+            </div>
+        </div>
+        <!-- ============= -->
+         <div class="row">
+            <div class="col-md-4" id="sign-in">
+                <div class="well">
+                    <h3>SignIn</h3>
+                    <form method="POST" action="">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="nom" id="guest-name" placeholder="Votre nom" maxlength="30" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="mail" id="guest-name" placeholder="votre@email.com"  />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="mdp" id="guest-name" placeholder="Mot de passe" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="mdp2" id="guest-name" placeholder="Confirmez votre mot de passe" />
+                        </div>
+                        <input type="hidden" name="guest-as" id="guest-as" value="<?php echo base_convert(date('YmdH'), 10, 36); ?>" />
+                        <button type="submit" class="btn btn-primary">S'inscrire</button>
+                    </form>
+                </div>
+            </div>
         </div>
         <!-- ========================================================================== -->
 
