@@ -102,7 +102,7 @@ define('POST_LIMIT', 10);
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4" id="sign-in">
             <div class="well">
                 <h3>SignIn</h3>
                 <form method="POST" action="/post.php">
