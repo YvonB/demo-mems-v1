@@ -33,6 +33,10 @@ h1,h2,h3,h4,h5,p,td,small,div {
     margin-top: 3px;
     color: #339;
 }
+#resultat
+{
+    align-content: center;
+}
 p {
     font-size: 16px;
 }
