@@ -154,7 +154,7 @@ define('POST_LIMIT', 10);
                             <input type="text" class="form-control" name="nom" id="guest-name" placeholder="Votre nom" maxlength="30" />
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="mail" id="guest-name" placeholder="votre@email.com"  />
+                            <input type="email" class="form-control" name="mail" id="guest-name" placeholder="votre@email.com"  />
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control" name="mdp" id="guest-name" placeholder="Mot de passe" />
