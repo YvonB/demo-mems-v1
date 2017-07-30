@@ -49,7 +49,7 @@ define('POST_LIMIT', 10);
     </div>
     <div class="row">
         <div class="col-md-8" >
-            <h2>Result</h2>
+            <h2>Results</h2>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <?php
