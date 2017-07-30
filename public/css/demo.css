@@ -33,9 +33,9 @@ h1,h2,h3,h4,h5,p,td,small,div {
     margin-top: 3px;
     color: #339;
 }
-#resultat
+.panel-default
 {
-    width: 50%; 
+    width: 70%; 
     margin-left: auto;
     margin-right: auto;
 }
