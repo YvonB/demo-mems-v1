@@ -34,17 +34,19 @@ if (!empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['mdp']) A
 			use GDS\Demo\Member;
 
 			syslog(LOG_DEBUG, 'Proceeding... ' . print_r($_SERVER, TRUE) . "\n\n" . print_r($_POST, TRUE));
+
 			$obj_member = new Member(); // on crée une nouvelle instance de la classe Member
+
 			$obj_member->createMember($nom, $mail, $mdp, $_SERVER['REMOTE_ADDR']); // afin qu'on puisse appéler sa methode pour créer un membre.
 
 			// header("Location: /sign.php?news=nouvel utlisateur crée");
 
 			// chercher les membres
-			$arr_posts = $obj_member->getNewMember();
+			$arr_posts = $obj_member->getRecentMember();
 			// Afficher les
 			foreach ($arr_posts as $obj_post ) 
 			{
-				echo "$obj_post->nom"; echo "<br>"
+				echo "$obj_post->nom"; echo "<br>";
 				echo "$obj_post->nom";
 			}
 
