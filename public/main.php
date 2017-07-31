@@ -149,7 +149,7 @@ define('POST_LIMIT', 10);
 	        <div class="col-md-4" id="forms">
 	            <div class="well" id="sign">
 	                <h3>SignIn</h3>
-	                <form method="POST" action="">
+	                <form method="POST" action="sign.php">
 	                    <div class="form-group">
 	                        <input type="text" class="form-control" name="nom" id="guest-name" placeholder="Votre nom" maxlength="30" />
 	                        </div>
