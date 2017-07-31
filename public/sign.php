@@ -27,7 +27,19 @@ if (!empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['mdp']) A
 	// on verifie que l'internaute entre una adresse mail valide
 	if (filter_var($mail, FILTER_VALIDATE_EMAIL)) 
 	{
-		echo "On continue";
+		// On vérifie l'égalité des 2 mots de passe
+		if ($mdp == $mdp2) 
+		{
+			echo "On continu";
+		}
+		else
+		{
+			?>
+			<script type="text/javascript">
+				alert('Vos mots de passe ne correspondent pas !');
+			</script>
+			<?php
+		}
 	}
 	else
 	{
