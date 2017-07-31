@@ -62,4 +62,17 @@ class Membre
             'mdp' => $str_mdp,
         ]));
     }
+
+    /**
+    *Function public permettant de voir tous les mebres
+    *
+    * @return array
+    */
+    public function getNewMember()
+    {
+    	$obj_store = $this->getStore();
+    	$arr_posts = $obj_store->query("SELECT * FROM Espace_membre ");
+    	$this->set($arr_posts);
+    	return $arr_posts;
+    }
 }
