@@ -43,10 +43,10 @@ if (!empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['mdp']) A
 			// chercher les membres
 			$arr_posts = $obj_member->getRecentMember();
 			// Afficher les
-			echo "<div align="center">";
+			echo "<div align='center'>";
 				foreach ($arr_posts as $obj_post ) 
 				{
-					echo '<h1> Bienvnue, ', $obj_post->nom, '</h1>'; echo '<br>';
+					echo '<h1> Bienvenue, ', $obj_post->nom, '</h1>'; echo '<br>';
 				}
 			echo "</div>";
 		}
