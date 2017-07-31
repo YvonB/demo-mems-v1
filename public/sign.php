@@ -45,8 +45,8 @@ if (!empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['mdp']) A
 			// Afficher les
 			foreach ($arr_posts as $obj_post ) 
 			{
-				echo "$obj_post->nom"; echo "<br>";
-				echo "$obj_post->nom";
+				echo $obj_post->nom; echo '<br>';
+				echo $obj_post->mai;
 			}
 
 		}
