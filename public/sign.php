@@ -31,7 +31,7 @@ if (!empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['mdp']) A
 		if ($mdp == $mdp2) 
 		{
 			// Tout es OK, on insert le nouveau membre dans le Store
-			use GDS\Demo\Member;
+			use \GDS\Demo\Member;
 
 			syslog(LOG_DEBUG, 'Proceeding... ' . print_r($_SERVER, TRUE) . "\n\n" . print_r($_POST, TRUE));
 
