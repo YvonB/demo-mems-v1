@@ -24,9 +24,8 @@ $mdp2 = sha1($_POST['mdp2']);
 
 if (!empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2'])) 
 {
-	// on verifie la longueur du nom
-	$nom_length = strlen($_POST['nom'])
-	if ($nom_length <= 30) 
+	// on verifie que l'internaute entre una adresse mail valide
+	if (filter_var($mail, FILTER_VALIDATE_MAIL)) 
 	{
 		echo "On continue";
 	}
@@ -34,7 +33,7 @@ if (!empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['mdp']) A
 	{
 		?>
 		<script type="text/javascript">
-			alert('Votre nom ne doit pas dépasser 30 caractères !');
+			alert('Votre adresses mail n\'est pas valide !');
 		</script>
 		<?php
 	}
