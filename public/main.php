@@ -138,7 +138,7 @@ define('POST_LIMIT', 10);
         <!-- ========================================================================== -->
 
         <!-- ===========================Espace inscription============================= -->
-        <div id="inscription">
+        <div id="inscription" class="col-md-4">
 	        <div class="row">
 	            <div class="col-md-8">
 	                <h2>Pas de compte ?</h2>
