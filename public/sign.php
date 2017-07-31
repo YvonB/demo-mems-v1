@@ -24,13 +24,26 @@ $mdp2 = sha1($_POST['mdp2']);
 
 if (!empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2'])) 
 {
-	echo "OK";
+	// on verifie la longueur du nom
+	$nom_length = strlen($_POST['nom'])
+	if ($nom_length <= 30) 
+	{
+		echo "On continue";
+	}
+	else
+	{
+		?>
+		<script type="text/javascript">
+			alert('Votre nom ne doit pas dépasser 30 caractères !');
+		</script>
+		<?php
+	}
 }
 else
 {
 	?>
 	<script type="text/javascript">
-		alert('Veuillez remplir tous les champs !');
+		alert('Veuillez remplir tous les champs s\'il vous plaît !');
 	</script>
 	<?php
 }
