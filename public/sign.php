@@ -24,12 +24,14 @@ $mdp2 = sha1($_POST['mdp2']);
 
 if (!empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2'])) 
 {
-	# code...
+	echo "OK";
 }
-?>
-<script type="text/javascript">
-	alert('Veuillez remplir tous les champs !');
-</script>
-<?php
-
+else
+{
+	?>
+	<script type="text/javascript">
+		alert('Veuillez remplir tous les champs !');
+	</script>
+	<?php
+}
 
