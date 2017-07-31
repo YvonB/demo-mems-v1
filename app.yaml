@@ -24,11 +24,11 @@ handlers:
 
 - url: /post.php
   script: public/post.php
-  
+
 - url: /sign.php
   script: public/sign.php
 
 # Default handler
 
-- url: .*
+- url: /
   script: public/main.php
