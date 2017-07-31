@@ -34,7 +34,7 @@ if (!empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['mdp']) A
 
 			syslog(LOG_DEBUG, 'Proceeding... ' . print_r($_SERVER, TRUE) . "\n\n" . print_r($_POST, TRUE));
 
-			$obj_member = new \GDS\Demo\Repository(); // on crée une nouvelle instance de la classe Member
+			$obj_member = new \GDS\Demo\Member(); // on crée une nouvelle instance de la classe Member
 
 			$obj_member->createMember($nom, $mail, $mdp, $_SERVER['REMOTE_ADDR']); // afin qu'on puisse appéler sa methode pour créer un membre.
 
