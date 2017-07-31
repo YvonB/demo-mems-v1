@@ -25,7 +25,7 @@ $mdp2 = sha1($_POST['mdp2']);
 if (!empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2'])) 
 {
 	// on verifie que l'internaute entre una adresse mail valide
-	if (filter_var($mail, FILTER_VALIDATE_MAIL)) 
+	if (filter_var($mail, FILTER_VALIDATE_EMAIL)) 
 	{
 		echo "On continue";
 	}
