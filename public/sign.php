@@ -5,7 +5,11 @@
  * @author Yvon Benahita
  */
 
+// Pour notre lib
 require_once('../vendor/autoload.php');
+
+// Pour que ce fichier connâit $_POST['nom'] etc
+require_once 'main.php';
 
 // Définitions des constantes modèles pour l'accès au datatore
 define('GDS_ACCOUNT', ' !! your service account name here !! ');
