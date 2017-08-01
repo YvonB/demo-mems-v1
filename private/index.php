@@ -17,7 +17,7 @@
 <body>
 
 	<!-- div permettant de visualiser la courbe -->
-	<div id="container" style="height: 400px; min-width: 310px; width: 70%" align="center">
+	<div id="container" style="height: 400px; min-width: 310px">
 		
 	</div>
 
