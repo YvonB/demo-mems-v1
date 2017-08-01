@@ -1,3 +1,12 @@
+<?php
+        // Inclusion
+        require_once('../vendor/autoload.php');
+
+        // Chercher les dernières valeurs insérées
+        $obj_repo = new \GDS\Demo\Repository();
+        $arr_posts = $obj_repo->getRecentPosts(); 
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -37,13 +46,6 @@
     </div> 
     <!-- pour récupérer les valeurs dans la BD -->
     <?php
-        // Inclusion
-        require_once('../vendor/autoload.php');
-
-        // Chercher les dernières valeurs insérées
-        $obj_repo = new \GDS\Demo\Repository();
-        $arr_posts = $obj_repo->getRecentPosts(); 
-
         foreach ($arr_posts as $obj_post)
         {
             $data[] = $obj_post->co2;
@@ -118,13 +120,6 @@
 <!-- ***************************************** -->
 <!-- pour récupérer les valeurs dans la BD -->
     <?php
-        // Inclusion
-        require_once('../vendor/autoload.php');
-
-        // Chercher les dernières valeurs insérées
-        $obj_repo = new \GDS\Demo\Repository();
-        $arr_posts = $obj_repo->getRecentPosts(); 
-
         foreach ($arr_posts as $obj_post)
         {
             $data[] = $obj_post->co;
@@ -199,13 +194,6 @@
 <!-- ***************************************** -->
 <!-- pour récupérer les valeurs dans la BD -->
     <?php
-        // Inclusion
-        require_once('../vendor/autoload.php');
-
-        // Chercher les dernières valeurs insérées
-        $obj_repo = new \GDS\Demo\Repository();
-        $arr_posts = $obj_repo->getRecentPosts(); 
-
         foreach ($arr_posts as $obj_post)
         {
             $data[] = $obj_post->nh3;
