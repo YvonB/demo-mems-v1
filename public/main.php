@@ -58,7 +58,15 @@ define('POST_LIMIT', 10);
             </div>
         </div>
         <!-- ========================================================================== -->
-        
+
+        <!-- Le map -->
+        <div>
+            <h2>Où se trouve nos capteurs ?</h2>
+            <div class="map" align="center">
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d963367.6427555117!2d46.800975397000194!3d-19.40571407254446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21fa8238a95a8965%3A0xe11f2e914a20ec99!2sEcole+Sup%C3%A9rieur+Polytechnique+d&#39;Antananarivo!5e0!3m2!1sfr!2sfr!4v1501594670727" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>
         <!-- =======================Pour visualiser les résultats====================== -->
         <div class="row">
             <div class="col-md-8" >
