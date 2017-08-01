@@ -48,7 +48,7 @@
     <?php
         foreach ($arr_posts as $obj_post)
         {
-            $data[] = $obj_post->co2;
+            $data_co2[] = $obj_post->co2;
         }
     ?>
 	
@@ -94,7 +94,7 @@
                 series: [{
                     name: 'CO2',
                     type: 'area',
-                    data: [<?php echo join($data, ',') ?>],
+                    data: [<?php echo join($data_co2, ',') ?>],
                     gapSize: 5,
                     tooltip: {
                         valueDecimals: 2
@@ -122,7 +122,7 @@
     <?php
         foreach ($arr_posts as $obj_post)
         {
-            $data[] = $obj_post->co;
+            $data_co[] = $obj_post->co;
         }
     ?>
     
@@ -168,7 +168,7 @@
                 series: [{
                     name: 'CO',
                     type: 'area',
-                    data: [<?php echo join($data, ',') ?>],
+                    data: [<?php echo join($data_co, ',') ?>],
                     gapSize: 5,
                     tooltip: {
                         valueDecimals: 2
@@ -196,7 +196,7 @@
     <?php
         foreach ($arr_posts as $obj_post)
         {
-            $data[] = $obj_post->nh3;
+            $data_nh3[] = $obj_post->nh3;
         }
     ?>
     
@@ -242,7 +242,7 @@
                 series: [{
                     name: 'NH3',
                     type: 'area',
-                    data: [<?php echo join($data, ',') ?>],
+                    data: [<?php echo join($data_nh3, ',') ?>],
                     gapSize: 5,
                     tooltip: {
                         valueDecimals: 2
