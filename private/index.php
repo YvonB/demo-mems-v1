@@ -5,6 +5,6 @@
 	<title>Détéction de Pollution</title>
 </head>
 <body>
-	<?php echo 'Ca marche !';?>
+	
 </body>
 </html>
