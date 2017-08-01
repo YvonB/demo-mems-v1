@@ -8,7 +8,10 @@
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 	<!-- ********************** -->
-
+	<style type="text/css">
+		.highcharts-credits
+		{display: none;}
+	</style>
 </head>
 <body>
 
@@ -49,7 +52,7 @@
     yAxis: {
         min: 0,
         title: {
-            text: 'Rainfall (mm)'
+            text: 'Values (ppm)'
         }
     },
     tooltip: {
