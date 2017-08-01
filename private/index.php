@@ -23,6 +23,9 @@
 
     <!-- pour récupérer les valeurs dans la BD -->
     <?php
+        // Inclusion
+        require_once('../vendor/autoload.php');
+
         // Chercher les dernières valeurs insérées
         $obj_repo = new \GDS\Demo\Repository();
         $arr_posts = $obj_repo->getRecentPosts(); 
