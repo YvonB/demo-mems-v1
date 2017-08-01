@@ -31,7 +31,7 @@
 
 
         title: {
-            text: 'AAPL stock price by minute'
+            text: 'CO2 values by minute'
         },
 
         subtitle: {
@@ -61,7 +61,7 @@
         },
 
         series: [{
-            name: 'AAPL',
+            name: 'CO2',
             type: 'area',
             data: data,
             gapSize: 5,
