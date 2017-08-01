@@ -28,7 +28,10 @@ handlers:
 - url: /sign.php
   script: public/sign.php
 
-# Default handler
+# Protected handler
+- url: /index.php
+  script: private/index.php
 
+# Default handler
 - url: /
   script: public/main.php
