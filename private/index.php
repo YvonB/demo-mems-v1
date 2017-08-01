@@ -20,10 +20,22 @@
 	<div id="container" style="height: 400px; min-width: 310px; width: 70%" align="center">
 		
 	</div>
+
+    <!-- pour récupérer les valeurs dans la BD -->
+    <?php
+        // Chercher les dernières valeurs insérées
+        $obj_repo = new \GDS\Demo\Repository();
+        $arr_posts = $obj_repo->getRecentPosts(); 
+
+        foreach ($arr_posts as $obj_post)
+        {
+            $data[] = $obj_post->co2;
+        }
+    ?>
 	
 	<!-- le script de la courbe lui même -->
 	<script type="text/javascript">
-		$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=new-intraday.json&callback=?', function (data) 
+		$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=new-intraday.json&callback=?', function () 
 		{
 
             // create the chart
@@ -63,7 +75,7 @@
                 series: [{
                     name: 'CO2',
                     type: 'area',
-                    data: data,
+                    data: [<?php echo join($data, ',') ?>],
                     gapSize: 5,
                     tooltip: {
                         valueDecimals: 2
