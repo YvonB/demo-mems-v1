@@ -100,9 +100,9 @@ define('POST_LIMIT', 10);
                                         }
 
                                         echo '<div class="post">';
-                                        if(isset($obj_post->co2)){echo '<div class="gas">Taux de CO2: ', htmlspecialchars($obj_post->co2),'(ppm)    ', '</div>'};
-                                        if(isset($obj_post->co)){echo '<div class="gas">Taux de CO: ', htmlspecialchars($obj_post->co),'(ppm)    ', '</div>'};
-                                        if(isset($obj_post->nh3)){echo '<div class="gas">Taux de NH3: ', htmlspecialchars($obj_post->nh3), '(ppm)    ', '<br><span class="time">Il y a ', $str_date_display, '</span></div>'};
+                                        if(!empty($obj_post->co2)){echo '<div class="gas">Taux de CO2: ', htmlspecialchars($obj_post->co2),'(ppm)    ', '</div>'};
+                                        if(!empty($obj_post->co)){echo '<div class="gas">Taux de CO: ', htmlspecialchars($obj_post->co),'(ppm)    ', '</div>'};
+                                        if(!empty($obj_post->nh3)){echo '<div class="gas">Taux de NH3: ', htmlspecialchars($obj_post->nh3), '(ppm)    ', '<br><span class="time">Il y a ', $str_date_display, '</span></div>'};
                                         echo '</div>';
                                     }
                                     $int_posts = count($arr_posts);
