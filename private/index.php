@@ -15,16 +15,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/demo.css">
+    <meta name="author" content="Yvon Benahita">
 
 	<!-- script pour la courbe -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://code.highcharts.com/stock/highstock.js"></script>
 	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
 	<!-- ********************** -->
-	<style type="text/css">
-		.highcharts-credits
-		{display: none;}
-	</style>
+
 </head>
 <body>
 
