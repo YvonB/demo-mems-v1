@@ -8,7 +8,18 @@
 
     // session
     session_start();
-    $_SESSION['signin'] = $_GET['user'];
+    $_SESSION['signin'] = $nom;
+
+    if(!isset($_SESSION['signin']))
+    {   
+        ?>
+        <script>alert("Vous n'avez pas le droit, veuillez connecter ou créer un compte si vous en avez pas ! ");
+        </script>
+        <?php
+        header("Location: /");
+
+    }
+
 ?>
 
 <!DOCTYPE html>
