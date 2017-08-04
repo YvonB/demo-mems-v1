@@ -70,6 +70,36 @@ class Member
 
 
     /**
+     * Prendre TOUS les champs mails sur les membres insérées. 
+     *
+     * @return array
+     */
+    public function getAllMemberMail()
+    {
+        $arr_posts = $this->getCache()->get();
+        if(is_array($arr_posts)) {
+            return $arr_posts;
+        } else {
+            return $this->updateAllMemberMail();
+        }
+    }
+
+    /**
+     * Prendre TOUS les champs mails sur les membres insérées. 
+     *
+     * @return array
+     */
+    public function getAllMemberMdp()
+    {
+        $arr_posts = $this->getCache()->get();
+        if(is_array($arr_posts)) {
+            return $arr_posts;
+        } else {
+            return $this->updateAllMemberMdp();
+        }
+    }
+
+    /**
      * Mettre à jour le cache de Datastore les 10 plus récentes seulemnt
      *
      * @return array
@@ -81,6 +111,31 @@ class Member
         $this->getCache()->set('recent', $arr_posts);
         return $arr_posts;
     }
+
+    /**
+     * Mettre à jour le cache de Datastore avec tous les champs mails
+     *
+     * @return array
+     */
+    private function updateAllMemberMail()
+    {   $obj_store = $this->getStore();
+        $arr_posts = $obj_store->query("SELECT mail FROM EspaceMembre")->fetchAll();
+        $this->getCache()->set($arr_posts);
+        return $arr_posts;
+    }
+
+     /**
+     * Mettre à jour le cache de Datastore avec tous les champs mails
+     *
+     * @return array
+     */
+    private function updateAllMemberMdp()
+    {   $obj_store = $this->getStore();
+        $arr_posts = $obj_store->query("SELECT mdp FROM EspaceMembre")->fetchAll();
+        $this->getCache()->set($arr_posts);
+        return $arr_posts;
+    }
+
 
     /**
      * Mettre à jour le cache de Datastore avec tous les champs

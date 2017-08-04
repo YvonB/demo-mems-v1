@@ -27,30 +27,37 @@ if (!empty($_POST['mailconnect']) AND !empty($_POST['passconnect']))
 {
 	// on verifie que l'internaute entre una adresse mail valide
 	if (filter_var($mail, FILTER_VALIDATE_EMAIL)) 
-	{
+	{	
+		
 		// Est-ce que ce mail existe dans la base?? ie la personne est-elle inscrite?
 		$obj_member = new \GDS\Demo\Member(); // on crée une nouvelle instance de la classe Member
-		$arr_posts = $obj_member->getAllMember();
-
+		$arr_posts = $obj_member->getAllMemberMail();
+		
 		foreach ($arr_posts as $obj_post )
-		{
+		{	
 			if($mail == $obj_post->mail)/* on compare avec ce que l'utilisateur a entreé*/
-			{
+			{	
 				//nikel
-				// On compare le mdp saisie avec celle de la base
-				if($mdp == $obj_post->mdp)
+				// On compare le mdp saisie avec celles de la base
+				$arr_posts2 = $obj_member->getAllMemberMdp();
+				
+				foreach ($arr_posts2 as $obj_post2) 
 				{
-					echo "nikel";
+					if($mdp == $obj_post2->mdp)
+					{
+						echo "nikel";
+						exit;
+					}
+					else{
+						// mot de passe incorrecte
+						?>
+							<script type="text/javascript">
+								alert('Mot de passe incorrecte !');
+							</script>
+						<?php
+						exit;
+					}
 				}
-				else{
-					// mot de passe incorrecte
-					?>
-						<script type="text/javascript">
-							alert('Mot de passe incorrecte !');
-						</script>
-					<?php
-				}
-
 			}
 			else{
 				// utilisateur qui n'existe pas
@@ -59,6 +66,7 @@ if (!empty($_POST['mailconnect']) AND !empty($_POST['passconnect']))
 							alert("Ce compte n'existe pas !");
 						</script>
 					<?php
+					exit;
 			}
 		}
 
@@ -70,6 +78,7 @@ if (!empty($_POST['mailconnect']) AND !empty($_POST['passconnect']))
 				alert('Veuillez entrer une adresse mail valide !');
 			</script>
 		<?php
+		exit;
 	}
 }
 else
@@ -79,5 +88,6 @@ else
 			alert('Veuillez remplir tous les champs s\'il vous plaît !');
 		</script>
 	<?php
+	exit;
 }
 
