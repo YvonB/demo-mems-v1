@@ -4,11 +4,7 @@
 
     // Chercher les dernières valeurs insérées
     $obj_repo = new \GDS\Demo\Repository();
-    $arr_posts = $obj_repo->getRecentPosts(); 
-
-    // session
-    session_start();
-    $_SESSION['signin'] = $nom;
+    $arr_posts = $obj_repo->getRecentPosts();
 
     if(!isset($_SESSION['signin']))
     {   
@@ -16,6 +12,7 @@
         <script>alert("Vous n'avez pas le droit, veuillez connecter ou créer un compte si vous en avez pas ! ");
         </script>
         <?php
+        
         header("Location: /");
 
     }
