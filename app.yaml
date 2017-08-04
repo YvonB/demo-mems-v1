@@ -40,6 +40,12 @@ handlers:
 - url: /deconnexion
   script: private/deconnexion.php
 
-# CO2 handler
+# CO2, CO and NH3 handler
 - url: /index.php/co2
   script: private/co2.php
+
+- url: /index.php/co
+  script: private/co.php
+
+- url: /index.php/nh3
+  script: private/nh3.php
