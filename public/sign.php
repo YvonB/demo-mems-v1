@@ -38,7 +38,7 @@ if (!empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['mdp']) A
 
 			$obj_member->createMember($nom, $mail, $mdp, $_SERVER['REMOTE_ADDR']); // afin qu'on puisse appéler sa methode pour créer un membre.
 
-			header("Location: /index.php?user=$nom");
+			header("Location: /index.php?user=<?php echo $nom ?>");
 
 			// chercher les membres
 			// $arr_posts = $obj_member->getRecentMember();
