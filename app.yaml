@@ -39,3 +39,7 @@ handlers:
 # Deconnexion handler
 - url: /deconnexion
   script: private/deconnexion.php
+
+# CO2 handler
+- url: /index.php/co2
+  script: private/co2.php
