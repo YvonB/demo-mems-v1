@@ -5,6 +5,10 @@
     // Chercher les dernières valeurs insérées
     $obj_repo = new \GDS\Demo\Repository();
     $arr_posts = $obj_repo->getRecentPosts(); 
+
+    // session
+    session_start();
+    $_SESSION['signin'] = $_GET['user'];
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +30,10 @@
 
 </head>
 <body>
+    
+    <div class="bienvenue">
+        <?php echo 'Bienvenu '.$_SESSION['signin'].'!'?>
+    </div>
 
 	<!-- div permettant de visualiser la courbe -->
     <div align="center">  
