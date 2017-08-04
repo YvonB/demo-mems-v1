@@ -56,7 +56,7 @@ if (!empty($_POST['mailconnect']) AND !empty($_POST['passconnect']))
 				// utilisateur qui n'existe pas
 					?>
 						<script type="text/javascript">
-							alert('Veuillez entrer une adresse mail valide !');
+							alert("Ce compte n'existe pas !");
 						</script>
 					<?php
 			}
