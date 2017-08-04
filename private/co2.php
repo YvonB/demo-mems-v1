@@ -60,18 +60,6 @@
     		
     	</div>
     </div> 
-    <div align="center">  
-        <h3>Monoxyde de Carbone</h3>
-        <div id="co" style="height: 400px; min-width: 310px">
-            
-        </div>
-    </div>
-    <div align="center">  
-        <h3>Amoniaque</h3>
-        <div id="nh3" style="height: 400px; min-width: 310px">
-            
-        </div>
-    </div> 
     <!-- pour récupérer les valeurs dans la BD -->
     <?php
         foreach ($arr_posts as $obj_post)
