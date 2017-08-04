@@ -41,10 +41,9 @@
     <header>
         <nav>
             <ul>
-                <li>Gaz carbonique</li>
-                <li>Monoxyde de carbone</li>
-                <li>Amoniaque</li>
-               
+                <li><a href="#">Gaz carbonique</a></li>
+                <li><a href="/index.php/co">Monoxyde de carbone</a></li>
+                <li><a href="/index.php/nh3">Amoniaque</a></li>
             </ul>
         </nav>
     </header>
