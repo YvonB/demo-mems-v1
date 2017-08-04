@@ -24,7 +24,7 @@ $mdp2 = sha1($_POST['mdp2']);
 
 // on crée une session
 session_start();
-$_SESSION['signin'] = $_POST['nom'];
+$_SESSION['signin'] = $nom;
 
 
 if (!empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2'])) 
