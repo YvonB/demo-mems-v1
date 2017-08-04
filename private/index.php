@@ -31,8 +31,8 @@
 </head>
 <body>
     
-    <div class="bienvenue">
-        <?php echo 'Bienvenu '.$_SESSION['signin'].'!'?>
+    <div class="bienvenue" align="center">
+        <p><?php echo 'Bienvenu '.'<b>'.$_SESSION['signin'].'</b>'.'!'?></p>
     </div>
 
 	<!-- div permettant de visualiser la courbe -->
