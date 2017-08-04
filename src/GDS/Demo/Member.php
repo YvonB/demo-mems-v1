@@ -54,7 +54,23 @@ class Member
     }
 
     /**
-     * Mettre à jour le cache de Datastore
+     * Prendre TOUS les champs sur les membres insérées. 
+     *
+     * @return array
+     */
+    public function getAllMember()
+    {
+        $arr_posts = $this->getCache()->get();
+        if(is_array($arr_posts)) {
+            return $arr_posts;
+        } else {
+            return $this->updateAllCache();
+        }
+    }
+
+
+    /**
+     * Mettre à jour le cache de Datastore les 10 plus récentes seulemnt
      *
      * @return array
      */
@@ -65,6 +81,20 @@ class Member
         $this->getCache()->set('recent', $arr_posts);
         return $arr_posts;
     }
+
+    /**
+     * Mettre à jour le cache de Datastore avec tous les champs
+     *
+     * @return array
+     */
+    private function updateAllCache()
+    {
+        $obj_store = $this->getStore();
+        $arr_posts = $obj_store->query("SELECT * FROM EspaceMembre")->fetchAll();
+        $this->getCache()->set($arr_posts);
+        return $arr_posts;
+    }
+
 
     /**
      * Insèrez l'entité

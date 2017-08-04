@@ -122,7 +122,7 @@ define('POST_LIMIT', 10);
         <div class="row">
             <div class="col-md-12">
                 <h2>Voir plus de contenu</h2>
-                <p>Dans ce cas, connectez-vous ou inscrivez-vous.</p>
+                <p>Dans ce cas, connectez-vous.</p>
             </div>
         </div> 
         <!-- ============= -->
@@ -130,12 +130,12 @@ define('POST_LIMIT', 10);
             <div class="col-md-4" id="forms">
                 <div class="well">
                     <h3>LogIn</h3>
-                    <form method="POST" action="">
+                    <form method="POST" action="/login">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="nom" id="guest-name" placeholder="Votre nom" maxlength="30" />
+                            <input type="text" class="form-control" name="mailconnect" id="guest-name" placeholder="votre@mail.com" />
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" name="pass" id="guest-name" placeholder="Votre mot de passe" />
+                            <input type="password" class="form-control" name="passconnect" id="guest-name" placeholder="Votre mot de passe" />
                         </div>
                         <input type="hidden" name="guest-as" id="guest-as" value="<?php echo base_convert(date('YmdH'), 10, 36); ?>" />
                         <button type="submit" class="btn btn-primary">Se Connecter</button>

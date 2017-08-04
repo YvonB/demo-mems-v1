@@ -36,6 +36,10 @@ handlers:
 - url: /
   script: public/main.php
 
+#Connexion handler
+- url: /login
+  script: public/login.php
+
 # Deconnexion handler
 - url: /deconnexion
   script: private/deconnexion.php
