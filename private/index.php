@@ -43,7 +43,7 @@
             <ul>
                 <li><a href="/index.php/co2">Gaz carbonique</a></li>
                 <li><a href="/index.php/co">Monoxyde de carbone</a></li>
-                <li><a href="/index.php/co2">Amoniaque</a></li>
+                <li><a href="/index.php/nh3">Amoniaque</a></li>
             </ul>
         </nav>
     </header>
