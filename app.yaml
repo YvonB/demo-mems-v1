@@ -35,3 +35,7 @@ handlers:
 # Default handler
 - url: /
   script: public/main.php
+
+# Deconnexion handler
+- url: /deconnexion
+  script: private/deconnexion.php

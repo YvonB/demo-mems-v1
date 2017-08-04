@@ -1,21 +1,21 @@
 <?php
-    // Inclusion
+    // On crée une session, pour pouvoir utiliser les sessions. De sorte à ce connecter au session.  
+    session_start();
+
+    // on a pas le droit de voir index si on était pas connecter au préalable.
+    if(!isset($_SESSION['signin']))
+    {   
+
+        header("Location: /"); // on rédirige vers l'accueil et 
+        exit; // On arrête tout.
+    }
+
+    // Pour notre lib
     require_once('../vendor/autoload.php');
 
     // Chercher les dernières valeurs insérées
     $obj_repo = new \GDS\Demo\Repository();
     $arr_posts = $obj_repo->getRecentPosts();
-
-    if(!isset($_SESSION['signin']))
-    {   
-        ?>
-        <script>alert("Vous n'avez pas le droit, veuillez connecter ou créer un compte si vous en avez pas ! ");
-        </script>
-        <?php
-        
-        header("Location: /");
-
-    }
 
 ?>
 
@@ -38,9 +38,19 @@
 
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li>Gaz carbonique</li>
+                <li>Monoxyde de carbone</li>
+                <li>Amoniaque</li>
+               
+            </ul>
+        </nav>
+    </header>
     
     <div class="bienvenue" align="center">
-        <p><?php echo 'Bienvenu '.'<b>'.$_SESSION['signin'].'</b>'.'!'?></p>
+        <p><?php echo 'Bienvenu '.'<b>'.$_SESSION['signin'].'</b>'.' ;) - <a href="/deconnexion">Déconnexion</a>'?></p>
     </div>
 
 	<!-- div permettant de visualiser la courbe -->

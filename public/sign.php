@@ -4,6 +4,8 @@
  *
  * @author Yvon Benahita
  */
+//On crée une session, pouvoir utiliser les sessions
+session_start();
 
 // Pour notre lib
 require_once('../vendor/autoload.php');
@@ -22,11 +24,6 @@ $mail = htmlspecialchars($_POST['mail']);
 $mdp = sha1($_POST['mdp']);
 $mdp2 = sha1($_POST['mdp2']);
 
-// on crée une session
-session_start();
-$_SESSION['signin'] = $nom;
-
-
 if (!empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2'])) 
 {
 	// on verifie que l'internaute entre una adresse mail valide
@@ -42,7 +39,8 @@ if (!empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['mdp']) A
 			$obj_member = new \GDS\Demo\Member(); // on crée une nouvelle instance de la classe Member
 
 			$obj_member->createMember($nom, $mail, $mdp, $_SERVER['REMOTE_ADDR']); // afin qu'on puisse appéler sa methode pour créer un membre.
-
+			$_SESSION['signin'] = $nom;
+			
 			header("Location: /index.php");
 
 			// chercher les membres
