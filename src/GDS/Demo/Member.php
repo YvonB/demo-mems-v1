@@ -170,7 +170,7 @@ class Member
 
 
     /**
-     * Insèrez l'entité
+     * Insère une entité
      *
      * @param $str_nom
      * @param $str_mail
@@ -199,7 +199,8 @@ class Member
      */
     private function getStore()
     {
-        if(NULL === $this->obj_store) {
+        if(NULL === $this->obj_store) 
+        {
             $this->obj_store = new Store($this->makeSchema());
         }
         return $this->obj_store;

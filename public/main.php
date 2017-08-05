@@ -4,6 +4,9 @@ define('GDS_ACCOUNT', ' !! your service account name here !! ');
 define('GDS_KEY_FILE', dirname(__FILE__) . '/key.p12');
 define('POST_LIMIT', 10);
 
+// Inclusion pour notre lib
+require_once('../vendor/autoload.php');
+
 // Pour rafraîchir la page à chaque 7 seconde
 // $page = $_SERVER['PHP_SELF'];
 // $sec = "30";
@@ -63,7 +66,6 @@ define('POST_LIMIT', 10);
         <div>
             <h2>Où se trouve nos capteurs ?</h2>
             <div class="map" align="center">
-
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d963367.6427555117!2d46.800975397000194!3d-19.40571407254446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21fa8238a95a8965%3A0xe11f2e914a20ec99!2sEcole+Sup%C3%A9rieur+Polytechnique+d&#39;Antananarivo!5e0!3m2!1sfr!2sfr!4v1501594670727" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
         </div>
@@ -74,40 +76,57 @@ define('POST_LIMIT', 10);
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <?php
-                            try {
-                                
-
-                                    // Inclusion
-                                    require_once('../vendor/autoload.php');
-                                    
-
-                                    // Chercher les dernières valeurs insérées
+                            try 
+                                {   
+                                    // On crée un objet de type Repository.
                                     $obj_repo = new \GDS\Demo\Repository();
+                                    // Chercher les dernières valeurs insérées
                                     $arr_posts = $obj_repo->getRecentPosts();
 
                                     // Les afficher
-                                    foreach ($arr_posts as $obj_post) {
+                                    foreach ($arr_posts as $obj_post) 
+                                    {
 
                                         // Effectuez une belle chaîne d'affichage de date et heure
                                         $int_posted_date = strtotime($obj_post->posted);
                                         $int_date_diff = time() - $int_posted_date;
-                                        if ($int_date_diff < 3600) {
+
+                                        if ($int_date_diff < 3600) 
+                                        {
                                             $str_date_display = round($int_date_diff / 60) . ' minutes';
-                                        } else if ($int_date_diff < (3600 * 24)) {
+                                        } 
+                                        else if ($int_date_diff < (3600 * 24)) 
+                                        {
                                             $str_date_display = round($int_date_diff / 3600) . ' hours';
-                                        } else {
+                                        } 
+                                        else 
+                                        {
                                             $str_date_display = date('\a\t jS M Y, H:i', $int_posted_date);
                                         }
 
                                         echo '<div class="post">';
-                                        if(isset($obj_post->co2) AND !empty($obj_post->co2)){echo '<div class="gas">Taux de CO2: ', htmlspecialchars($obj_post->co2),'(ppm)    ', '</div>';}
-                                        if(isset($obj_post->co) AND !empty($obj_post->co)){echo '<div class="gas">Taux de CO: ', htmlspecialchars($obj_post->co),'(ppm)    ', '</div>';}
-                                        if(isset($obj_post->nh3) AND !empty($obj_post->nh3)){echo '<div class="gas">Taux de NH3: ', htmlspecialchars($obj_post->nh3), '(ppm)    ', '<br><span class="time">Il y a ', $str_date_display, '</span></div>';}
+                                        if(isset($obj_post->co2) AND !empty($obj_post->co2))
+                                            {
+                                                echo '<div class="gas">Taux de CO2: ', htmlspecialchars($obj_post->co2),'(ppm)    ', '</div>';
+                                            }
+                                        if(isset($obj_post->co) AND !empty($obj_post->co))
+                                            {
+                                                echo '<div class="gas">Taux de CO: ', htmlspecialchars($obj_post->co),'(ppm)    ', '</div>';
+                                            }
+                                        if(isset($obj_post->nh3) AND !empty($obj_post->nh3))
+                                            {
+                                                echo '<div class="gas">Taux de NH3: ', htmlspecialchars($obj_post->nh3), '(ppm)    ', '<br><span class="time">Il y a ', $str_date_display, '</span></div>';
+                                            }
                                         echo '</div>';
                                     }
+
                                     $int_posts = count($arr_posts);
+
                                     echo '<div class="post"><em>Showing last ', $int_posts, '</em></div>';
-                            } catch (\Exception $obj_ex) {
+
+                                } 
+                            catch (\Exception $obj_ex)
+                            {
                                 syslog(LOG_ERR, $obj_ex->getMessage());
                                 echo '<em>Whoops, something went wrong!</em>';
                             }
