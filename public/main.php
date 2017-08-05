@@ -93,11 +93,11 @@ require_once('../vendor/autoload.php');
 
                                         if ($int_date_diff < 3600) 
                                         {
-                                            $str_date_display = round($int_date_diff / 60) . ' minutes';
+                                            $str_date_display = round($int_date_diff / 60) . ' minute(s)';
                                         } 
                                         else if ($int_date_diff < (3600 * 24)) 
                                         {
-                                            $str_date_display = round($int_date_diff / 3600) . ' hours';
+                                            $str_date_display = round($int_date_diff / 3600) . ' heure(s)';
                                         } 
                                         else 
                                         {
