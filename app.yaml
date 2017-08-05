@@ -21,35 +21,33 @@ handlers:
   static_dir: public/fonts
 
 # Form handler
+- url: /insert
+  script: public/insert.php
 
-- url: /post.php
-  script: public/post.php
-
-- url: /sign.php
+- url: /sign
   script: public/sign.php
 
+- url: /login
+  script: public/login.php
+
 # Protected handler
-- url: /index.php
-  script: private/index.php
+- url: /home
+  script: private/home.php
 
 # Default handler
 - url: /
   script: public/main.php
 
-#Connexion handler
-- url: /login
-  script: public/login.php
-
-# Deconnexion handler
-- url: /deconnexion
-  script: private/deconnexion.php
+# LogOut handler
+- url: /logout
+  script: private/logout.php
 
 # CO2, CO and NH3 handler
-- url: /index.php/co2
+- url: /home/co2
   script: private/co2.php
 
-- url: /index.php/co
+- url: /home/co
   script: private/co.php
 
-- url: /index.php/nh3
+- url: /home/nh3
   script: private/nh3.php

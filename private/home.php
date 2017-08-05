@@ -41,15 +41,15 @@
     <header>
         <nav>
             <ul>
-                <li><a href="/index.php/co2">Gaz carbonique</a></li>
-                <li><a href="/index.php/co">Monoxyde de carbone</a></li>
-                <li><a href="/index.php/nh3">Amoniaque</a></li>
+                <li><a href="/home/co2">Gaz carbonique</a></li>
+                <li><a href="/home/co">Monoxyde de carbone</a></li>
+                <li><a href="/home/nh3">Amoniaque</a></li>
             </ul>
         </nav>
     </header>
     
     <div class="bienvenue" align="center">
-        <p><?php echo 'Bienvenu '.'<b>'.$_SESSION['signin'].'</b>'.' ;) - <a href="/deconnexion">Déconnexion</a>'?></p>
+        <p><?php echo 'Bienvenu '.'<b>'.$_SESSION['signin'].'</b>'.' ;) - <a href="/logout">Déconnexion</a>'?></p>
     </div>
 
 	
