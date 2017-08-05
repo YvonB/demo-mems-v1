@@ -30,25 +30,29 @@ if (!empty($_POST['mailconnect']) AND !empty($_POST['passconnect']))
 	{	
 		
 		// Est-ce que ce mail existe dans la base?? ie la personne est-elle inscrite?
+
 		$obj_member = new \GDS\Demo\Member(); // on crée une nouvelle instance de la classe Member
-		$arr_posts = $obj_member->getAllMemberMail();
+
+		$arr_mail = $obj_member->getAllMemberMail(); // pour pouvoir appeler cette methode
 		
-		foreach ($arr_posts as $obj_post )
+		/* on compare une à une chaque entrée avec ce que l'utilisateur a entreé comme mail*/
+		while($arr_mail)
 		{	
-			if($mail == $obj_post->mail)/* on compare avec ce que l'utilisateur a entreé*/
+			if($mail == $arr_mail->mail)
 			{	
 				//nikel
 				// On compare le mdp saisie avec celles de la base
-				$arr_posts2 = $obj_member->getAllMemberMdp();
+				$arr_mdp = $obj_member->getAllMemberMdp();
 				
-				foreach ($arr_posts2 as $obj_post2) 
+				while($arr_mdp) 
 				{
-					if($mdp == $obj_post2->mdp)
+					if($mdp == $arr_mdp->mdp)
 					{
 						echo "nikel";
 						exit;
 					}
-					else{
+					else
+					{
 						// mot de passe incorrecte
 						?>
 							<script type="text/javascript">
@@ -59,7 +63,8 @@ if (!empty($_POST['mailconnect']) AND !empty($_POST['passconnect']))
 					}
 				}
 			}
-			else{
+			else
+			{
 				// utilisateur qui n'existe pas
 					?>
 						<script type="text/javascript">

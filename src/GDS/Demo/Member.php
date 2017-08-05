@@ -77,24 +77,32 @@ class Member
     public function getAllMemberMail()
     {
         $arr_posts = $this->getCache()->get();
-        if(is_array($arr_posts)) {
+
+        if(is_array($arr_posts)) 
+        {
             return $arr_posts;
-        } else {
+        } 
+        else 
+        {
             return $this->updateAllMemberMail();
         }
     }
 
     /**
-     * Prendre TOUS les champs mails sur les membres insérées. 
+     * Prendre TOUS les champs mdp sur les membres insérées. 
      *
      * @return array
      */
     public function getAllMemberMdp()
     {
         $arr_posts = $this->getCache()->get();
-        if(is_array($arr_posts)) {
+
+        if(is_array($arr_posts)) 
+        {
             return $arr_posts;
-        } else {
+        } 
+        else 
+        {
             return $this->updateAllMemberMdp();
         }
     }
@@ -118,9 +126,14 @@ class Member
      * @return array
      */
     private function updateAllMemberMail()
-    {   $obj_store = $this->getStore();
+    {   
+        $obj_store = $this->getStore();
+
+        // On récupère tous les mails de la table EspaceMembre.
         $arr_posts = $obj_store->query("SELECT mail FROM EspaceMembre")->fetchAll();
+
         $this->getCache()->set($arr_posts);
+
         return $arr_posts;
     }
 
@@ -130,9 +143,14 @@ class Member
      * @return array
      */
     private function updateAllMemberMdp()
-    {   $obj_store = $this->getStore();
+    {   
+        $obj_store = $this->getStore();
+
+        // On récupère tous les mdp de la table EspaceMeembre. 
         $arr_posts = $obj_store->query("SELECT mdp FROM EspaceMembre")->fetchAll();
+
         $this->getCache()->set($arr_posts);
+
         return $arr_posts;
     }
 
