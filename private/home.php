@@ -38,6 +38,7 @@
 </head>
 
 <body>
+
     <header>
         <nav>
             <ul>
@@ -49,7 +50,7 @@
     </header>
     
     <div class="bienvenue" align="center">
-        <p><?php echo 'Bienvenu '.'<b>'.$_SESSION['signin'].'</b>'.' ;) - <a href="/logout">Déconnexion</a>'?></p>
+        <h3><?php echo 'Bienvenu '.'<b>'.$_SESSION['signin'].'</b>'.' ;) - <a href="/logout">Déconnexion</a>'?></h3>
     </div>
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
