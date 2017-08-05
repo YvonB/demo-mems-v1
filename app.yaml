@@ -40,7 +40,7 @@ handlers:
 
 # LogOut handler
 - url: /logout
-  script: private/logout.php
+  script: public/logout.php
 
 # CO2, CO and NH3 handler
 - url: /home/co2

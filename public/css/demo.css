@@ -1,25 +1,32 @@
-h1,h2,h3,h4,h5,p,td,small,div {
+h1,h2,h3,h4,h5,p,td,small,div 
+{
     font-weight: 200;
 }
-#gds-logo {
+#gds-logo 
+{
     width: 42px;
     margin-right: 5px;
 }
-.well h3 {
+.well h3 
+{
     margin-top: 0px;
 }
-.post {
+.post 
+{
     border-top: 1px solid #eee;
     padding: 8px 0px 8px 0px;
 }
-.post:first-child {
+.post:first-child 
+{
     border-top: none;
     padding: 0px 0px 8px 0px;
 }
-.post em {
+.post em 
+{
     color: #999;
 }
-.post .gas{
+.post .gas
+{
     font-size: 18px;
     display: inline;
 }
@@ -27,7 +34,8 @@ h1,h2,h3,h4,h5,p,td,small,div {
     font-size: 18px;
     display: inline;
 }*/
-.time{
+.time
+{
     font-size: 16px;
     font-style: italic;
     margin-top: 3px;
@@ -60,28 +68,37 @@ h1,h2,h3,h4,h5,p,td,small,div {
 {
     
 }
-p {
+p 
+{
     font-size: 16px;
 }
-p a {
+p a 
+{
     font-weight: 300;
 }
-@media (max-width: 992px) {
-    h1 {
+@media (max-width: 992px) 
+{
+    h1 
+    {
         font-size: 22px;
     }
-    h2 {
+    h2 
+    {
         font-size: 20px;
     }
-    h3 {
+    h3 
+    {
         font-size: 18px;
     }
 }
-@media (min-width: 992px) {
-    body {
+@media (min-width: 992px) 
+{
+    body 
+    {
         margin-top: 40px;
     }
-    #gds-logo {
+    #gds-logo 
+    {
         width: 70px;
         margin-right: 8px;
     }
