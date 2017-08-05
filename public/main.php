@@ -115,7 +115,7 @@ require_once('../vendor/autoload.php');
                                             }
                                         if(isset($obj_post->nh3) AND !empty($obj_post->nh3))
                                             {
-                                                echo '<div class="gas">Taux de NH3: ', htmlspecialchars($obj_post->nh3), '(ppm)    ', '<br><span class="time">Il y a ', $str_date_display, '</span></div>';
+                                                echo '<div class="gas">Taux de NH3: ', htmlspecialchars($obj_post->nh3), '(ppm)    ', '<br><span class="time">', $str_date_display, '</span></div>';
                                             }
                                         echo '</div>';
                                     }
