@@ -11,7 +11,7 @@ define('POST_LIMIT', 10);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <!-- head -->
 <head>
