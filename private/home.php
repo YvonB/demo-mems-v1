@@ -35,8 +35,8 @@
 	<script src="https://code.highcharts.com/stock/highstock.js"></script>
 	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
 	<!-- ********************** -->
-
 </head>
+
 <body>
     <header>
         <nav>
@@ -51,7 +51,6 @@
     <div class="bienvenue" align="center">
         <p><?php echo 'Bienvenu '.'<b>'.$_SESSION['signin'].'</b>'.' ;) - <a href="/logout">Déconnexion</a>'?></p>
     </div>
-
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
