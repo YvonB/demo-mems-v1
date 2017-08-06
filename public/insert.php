@@ -14,10 +14,12 @@ $str_co2 = $_GET['ValeurCO2'];
 $str_co = $_GET['ValeurCO'];
 $str_nh3 = $_GET['ValeurNH3'];
 
-use \GDS\Demo\Repository;
+use \GDS\Demo\Repository; // On importe la classe Repository.
 
-    syslog(LOG_DEBUG, 'Proceeding... ' . print_r($_SERVER, TRUE) . "\n\n" . print_r($_GET, TRUE));
-    $obj_repo = new Repository();
-    $obj_repo->createPost($str_co2, $str_co, $str_nh3);
-    header("Location: /");
+syslog(LOG_DEBUG, 'Proceeding... ' . print_r($_SERVER, TRUE) . "\n\n" . print_r($_GET, TRUE));
+
+$obj_repo = new Repository(); // On crée une nouvelle instance de cette classe
+$obj_repo->createPost($str_co2, $str_co, $str_nh3); // Pour crée une entité avec les valeurs des params d'url, ie les 3 gazs polluants.
+
+header("Location: /");
 
