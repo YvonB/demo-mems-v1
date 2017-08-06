@@ -65,7 +65,7 @@ class Repository
     }
 
     /**
-     * Insèrez l'entité
+     * Insèrez l'entité (dans la table)
      *
      * @param $str_co2
      * @param $str_co
@@ -92,16 +92,17 @@ class Repository
      */
     private function getStore()
     {
-        if(NULL === $this->obj_store) {
+        if(NULL === $this->obj_store) 
+        {
             $this->obj_store = new Store($this->makeSchema());
         }
         return $this->obj_store;
     }
 
     /**
-     * Créez un schéma pour les entrées 
+     * Créez un schéma pour les entrées (on peut dire Table)
      *
-     * 'posted' est 'heure de la date d'entrée des valeur 
+     * 'posted' est l'heure de la date d'entrée des valeur 
      *
      * @return Schema
      */
