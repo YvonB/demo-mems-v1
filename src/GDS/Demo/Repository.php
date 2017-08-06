@@ -70,17 +70,15 @@ class Repository
      * @param $str_co2
      * @param $str_co
      * @param $str_nh3
-     * @param $str_ip
      */
-    public function createPost($str_co2, $str_co, $str_nh3, $str_ip)
+    public function createPost($str_co2, $str_co, $str_nh3)
     {
         $obj_store = $this->getStore();
         $obj_store->upsert($obj_store->createEntity([
             'posted' => date('Y-m-d H:i:s'),
             'co2' => $str_co2,
             'co' => $str_co,
-            'nh3' => $str_nh3,
-            'ip' => $str_ip
+            'nh3' => $str_nh3
         ]));
 
         // Mettre à jour le cache
@@ -114,7 +112,6 @@ class Repository
             ->addString('co2', FALSE)
             ->addString('co', FALSE)
             ->addString('nh3', FALSE)
-            ->addString('ip')
         ;
     }
 

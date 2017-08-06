@@ -18,6 +18,6 @@ use \GDS\Demo\Repository;
 
     syslog(LOG_DEBUG, 'Proceeding... ' . print_r($_SERVER, TRUE) . "\n\n" . print_r($_GET, TRUE));
     $obj_repo = new Repository();
-    $obj_repo->createPost($str_co2, $str_co, $str_nh3, $_SERVER['REMOTE_ADDR']);
+    $obj_repo->createPost($str_co2, $str_co, $str_nh3);
     header("Location: /");
 
