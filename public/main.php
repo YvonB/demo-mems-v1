@@ -107,15 +107,15 @@ require_once('../vendor/autoload.php');
                                         echo '<div class="post">';
                                         if(isset($obj_post->co2) AND !empty($obj_post->co2))
                                             {
-                                                echo '<div class="gas">Taux de CO2: ', htmlspecialchars($obj_post->co2),'(ppm)    ', '</div>';
+                                                echo '<div class="gas">Taux de CO2: ', htmlspecialchars($obj_post->co2),'<em>ppm</em>    ', '</div>';
                                             }
                                         if(isset($obj_post->co) AND !empty($obj_post->co))
                                             {
-                                                echo '<div class="gas">Taux de CO: ', htmlspecialchars($obj_post->co),'(ppm)    ', '</div>';
+                                                echo '<div class="gas">Taux de CO: ', htmlspecialchars($obj_post->co),'<em>ppm</em>    ', '</div>';
                                             }
                                         if(isset($obj_post->nh3) AND !empty($obj_post->nh3))
                                             {
-                                                echo '<div class="gas">Taux de NH3: ', htmlspecialchars($obj_post->nh3), '(ppm)    ', '<br><span class="time">', $str_date_display, '</span></div>';
+                                                echo '<div class="gas">Taux de NH3: ', htmlspecialchars($obj_post->nh3), '<em>ppm</em>    ', '<br><span class="time">', $str_date_display, '</span></div>';
                                             }
                                         echo '</div>';
                                     }
