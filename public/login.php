@@ -31,20 +31,20 @@ if (!empty($_POST['mailconnect']) AND !empty($_POST['passconnect']))
 		
 		// Est-ce que ce mail existe dans la base?? ie la personne est-elle inscrite?
 
-		$obj_member = new \GDS\Demo\Member(); // on crée une nouvelle instance de la classe Member
+		$obj_member = new \GDS\Demo\Store(); // on crée une nouvelle instance de la classe Member
 
-		$arr_mail = $obj_member->getAllMemberMail(); // pour pouvoir appeler cette methode
+		$arr_res_mail = $obj_member->query("SELECT mail FROM EspaceMembre"); // pour pouvoir appeler cette methode
 		
 		/* on compare une à une chaque entrée avec ce que l'utilisateur a entreé comme mail*/
-		while($arr_mail)
+		while($arr_mail = $arr_res_mail->fetchOne())
 		{	
 			if($mail == $arr_mail->mail)
 			{	
 				//nikel
 				// On compare le mdp saisie avec celles de la base
-				$arr_mdp = $obj_member->getAllMemberMdp();
+				$arr_res_mdp = $obj_member->query("SELECT mdp FROM EspaceMembre");
 				
-				while($arr_mdp) 
+				while($arr_mdp = $arr_res_mdp->fetchOne()) 
 				{
 					if($mdp == $arr_mdp->mdp)
 					{
