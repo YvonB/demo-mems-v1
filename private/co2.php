@@ -46,6 +46,7 @@
                 <li><a href="#">Gaz carbonique</a></li>
                 <li><a href="/home/co">Monoxyde de carbone</a></li>
                 <li><a href="/home/nh3">Amoniaque</a></li>
+                <li><a href="/logout"><input type="button" value="Deconnexion" /></a></li>
             </ul>
         </nav>
     </header>
