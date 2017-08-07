@@ -12,7 +12,6 @@
         exit; // On arrête tout.
     }
 
-
     // Pour notre lib
     require_once('../vendor/autoload.php');
 
@@ -48,6 +47,7 @@
                 <li><a href="/home/co">Monoxyde de carbone</a></li>
                 <li><a href="#">Amoniaque</a></li>
                 <li><a href="/logout"><input type="button" value="Deconnexion" /></a></li>
+                <li><a href="/home"><input type="button" value="Home" /></a></li>
             </ul>
         </nav>
     </header>
