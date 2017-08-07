@@ -35,6 +35,18 @@ h1,h2,h3,h4,h5,p,td,small,div
     font-size: 18px;
     display: inline;
 }*/
+.colornav
+{
+    background: #3477db;
+}
+.colortextnav
+{
+    color: #fff !important;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+}
 .time
 {
     font-size: 16px;
