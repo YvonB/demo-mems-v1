@@ -1,7 +1,5 @@
 <?php
-session_start();
+use google\appengine\api\users\User;
+use google\appengine\api\users\UserService;
 
-session_unset();
-session_destroy();
-
-header('Location: /');
+header('Location: ' . UserService::createLogoutURL('/'));

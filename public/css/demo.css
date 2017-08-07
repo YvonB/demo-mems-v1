@@ -11,6 +11,7 @@ h1,h2,h3,h4,h5,p,td,small,div
 {
     margin-top: 0px;
 }
+
 .post 
 {
     border-top: 1px solid #eee;
@@ -47,18 +48,12 @@ h1,h2,h3,h4,h5,p,td,small,div
     margin-left: auto;
     margin-right: auto;
 }
-#forms
+#login_btn
 {
     margin-left: 40px;
+    width: 184px;
 }
-#inscription
-{
-    margin-left: 100px;
-}
-#sign
-{
-    width: 130%;
-}
+
 .highcharts-credits
 {
     display: none;

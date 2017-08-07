@@ -1,9 +1,11 @@
 <?php
+    use google\appengine\api\users\User;
+    use google\appengine\api\users\UserService;
     // On crée une session, pour pouvoir utiliser les sessions. De sorte à ce connecter au session.  
-    session_start();
+    $user = UserService::getCurrentUser();
 
     // on a pas le droit de voir index si on était pas connecter au préalable.
-    if(!isset($_SESSION['signin']))
+    if(!$user)
     {   
 
         header("Location: /"); // on rédirige vers l'accueil et 
@@ -45,12 +47,13 @@
                 <li><a href="/home/co2">Gaz carbonique</a></li>
                 <li><a href="/home/co">Monoxyde de carbone</a></li>
                 <li><a href="/home/nh3">Amoniaque</a></li>
+                <li><a href="/logout"><input type="button" value="Deconnexion" /></a></li>
             </ul>
         </nav>
     </header>
     
     <div class="bienvenue" align="center">
-        <h3><?php echo 'Bienvenu '.'<b>'.$_SESSION['signin'].'</b>'.' ;) - <a href="/logout">Déconnexion</a>'?></h3>
+        <h3><?php echo 'Bienvenu '.'<b>'.htmlspecialchars($user->getNickname()).'</b>'?></h3>
     </div>
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

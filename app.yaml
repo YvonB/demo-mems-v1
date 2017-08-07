@@ -24,9 +24,6 @@ handlers:
 - url: /insert
   script: public/insert.php
 
-- url: /sign
-  script: public/sign.php
-
 - url: /login
   script: public/login.php
 

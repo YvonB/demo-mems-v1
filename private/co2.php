@@ -1,9 +1,11 @@
 <?php
+    use google\appengine\api\users\User;
+    use google\appengine\api\users\UserService;
     // On crée une session, pour pouvoir utiliser les sessions. De sorte à ce connecter au session.  
-    session_start();
+    $user = UserService::getCurrentUser();
 
     // on a pas le droit de voir index si on était pas connecter au préalable.
-    if(!isset($_SESSION['signin']))
+    if(!$user)
     {   
 
         header("Location: /"); // on rédirige vers l'accueil et 
@@ -49,7 +51,7 @@
     </header>
     
     <div class="bienvenue" align="center">
-        <p><?php echo 'Bienvenu '.'<b>'.$_SESSION['signin'].'</b>'.' ;) - <a href="/logout">Déconnexion</a>'?></p>
+        <p><?php echo 'Bienvenu '.'<b>'.htmlspecialchars($user->getNickname()).'</b>'.' ;) - <a href="/logout">Déconnexion</a>'?></p>
     </div>
 
 	<!-- div permettant de visualiser la courbe -->

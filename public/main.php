@@ -146,55 +146,14 @@ require_once('../vendor/autoload.php');
         </div> 
         <!-- ============= -->
         <div class="row">
-            <div class="col-md-4" id="forms">
+            <div class="col-md-4" id="login_btn">
                 <div class="well">
-                    <h3>LogIn</h3>
                     <form method="POST" action="/login">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="mailconnect" id="guest-name" placeholder="votre@mail.com" />
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" name="passconnect" id="guest-name" placeholder="Votre mot de passe" />
-                        </div>
-                        <input type="hidden" name="guest-as" id="guest-as" value="<?php echo base_convert(date('YmdH'), 10, 36); ?>" />
-                        <button type="submit" class="btn btn-primary">Se Connecter</button>
+                        <button type="submit" class="btn btn-primary" align="center">Se Connecter</button>
                     </form>
                 </div>
             </div>
         </div>
-        <!-- ========================================================================== -->
-
-        <!-- ===========================Espace inscription============================= -->
-	    <div class="row">
-	        <div class="col-md-8">
-	            <h2>Pas de compte ?</h2>
-	            <p>Inscrivez-vous dès maintenant !</p>
-	        </div>
-	    </div>
-	        <!-- ============= -->
-	    <div class="row">
-	        <div class="col-md-4" id="forms">
-	            <div class="well" id="sign">
-	                <h3>SignIn</h3>
-	                <form method="POST" action="/sign">
-	                    <div class="form-group">
-	                        <input type="text" class="form-control" name="nom" id="guest-name" placeholder="Votre nom" maxlength="30" />
-	                        </div>
-	                    <div class="form-group">
-	                         <input type="email" class="form-control" name="mail" id="guest-name" placeholder="votre@email.com"  />
-	                    </div>
-	                    <div class="form-group">
-	                        <input type="password" class="form-control" name="mdp" id="guest-name" placeholder="Mot de passe" />
-	                    </div>
-	                    <div class="form-group">
-	                        <input type="password" class="form-control" name="mdp2" id="guest-name" placeholder="Confirmez votre mot de passe" />
-	                    </div>
-	                    <input type="hidden" name="guest-as" id="guest-as" value="<?php echo base_convert(date('YmdH'), 10, 36); ?>" />
-	                    <button type="submit" class="btn btn-primary">S'inscrire</button>
-	                </form>
-	            </div>
-	        </div>
-	   	</div>
         <!-- ========================================================================== -->
 
     </div> <!-- fin de container de la page --> 
