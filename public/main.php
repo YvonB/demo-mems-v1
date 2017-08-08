@@ -121,7 +121,7 @@ require_once('../vendor/autoload.php');
             </div>
             <!-- ====================================================================== -->
 
-            <!-- =====================La définition et la Réssource===================== -->
+            <!-- =====================La définition et le Dashboard===================== -->
             <div class="row">
                 <div class="col-md-8">
                     <h2>What is it ?</h2>
@@ -132,9 +132,22 @@ require_once('../vendor/autoload.php');
                     velit imperdiet egestas.</p>
                 </div>
                 <!-- ============== -->
-                <div class="col-md-4" id="chart_div" style="width: 400px; height: 120px;">
-                    <h2>Our Dashboard</h2>
+                <div class="col-md-4" >
+                <h2>Our Dashboard</h2>
+                <div id="chart_div" style="width: 400px; height: 120px;">
                     <!-- <p><a href="https://github.com/YvonB/demo-mems-v1" target="_blank"><span aria-hidden="true" class="glyphicon glyphicon-new-window"></span> Pollution detection demo (Ce site web)</a></p> -->
+
+                    <!-- Requêtes permetant de les dernières valeurs insérées -->
+                    <?php
+                    // On crée un objet de type Repository.
+                    $obj_repo = new \GDS\Demo\Repository();
+                    // Chercher les dernières valeurs insérées
+                    $arr_posts = $obj_repo->getRecentPosts();
+
+                    //
+                    ?>
+                    <!-- Fin requêtes -->
+
                     <script type="text/javascript">
                         google.charts.load('current', {'packages':['gauge']});
                         google.charts.setOnLoadCallback(drawChart);
@@ -143,9 +156,9 @@ require_once('../vendor/autoload.php');
 
                         var data = google.visualization.arrayToDataTable([
                           ['Label', 'Value'],
-                          ['Memory', 80],
-                          ['CPU', 55],
-                          ['Network', 68]
+                          ['CO2', 80],
+                          ['CO', 55],
+                          ['NH3', 68]
                         ]);
 
                         var options = {
@@ -175,6 +188,7 @@ require_once('../vendor/autoload.php');
                     </script>
 
                 </div>
+                </div>
             </div>
             <!-- ========================================================================== -->
 
@@ -196,7 +210,7 @@ require_once('../vendor/autoload.php');
                                     {   
                                         // On crée un objet de type Repository.
                                         $obj_repo = new \GDS\Demo\Repository();
-                                        // Chercher les dernières valeurs insérées
+                                        // Chercher les 10 dernières valeurs insérées
                                         $arr_posts = $obj_repo->getRecentPosts();
 
                                         // Les afficher
