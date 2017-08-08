@@ -91,7 +91,12 @@ require_once('../vendor/autoload.php');
                     <li><a href="/home/co"><b>Voir l'état de CO</a></b></li>
                     <li><a href="/home/nh3"><b>Voir l'état de NH3</a></b></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="/login"><button type="submit" class="btn btn-primary" align="center"><?php echo (isset($user) ? "Deconnexion" : "Connexion"); ?></button></a></li>
+                    <li><a href="<?php 
+                                    $login = "/login";
+                                    $logout = "/logout";
+                                    echo(isset($user) ? $logout : $login );
+                                ?>">
+                    <button type="submit" class="btn btn-primary" align="center"><?php echo (isset($user) ? "Deconnexion" : "Connexion"); ?></button></a></li>
                   </ul>
                 </li>
               </ul>
