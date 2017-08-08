@@ -328,8 +328,8 @@ require_once('../vendor/autoload.php');
                                 
                                 <div class="footerp"> 
                                 
-                                <h2 class="title-median">Webenlance Pvt. Ltd.</h2>
-                                <p><b>Email id:</b> <a href="mailto:info@webenlance.com">info@webenlance.com</a></p>
+                                <h2 class="title-median">Web Developper Junior</h2>
+                                <p><b>Email id:</b> <a href="mailto:yvonbenahita@gmail.com">yvonbenahita@gmail.com</a></p>
                                 <p><b>Helpline Numbers </b>
 
     <b style="color:#ffc106;">(8AM to 10PM):</b>  +91-8130890090, +91-8130190010  </p>
@@ -343,10 +343,10 @@ require_once('../vendor/autoload.php');
                                 
                                     <ul class="nomargin">
                                     
-                <a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
-                <a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
-                <a href="https://plus.google.com/+Bootsnipp-page"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
-                <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
+                <a href="https://www.facebook.com/"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                <a href="https://twitter.com/"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+                <a href="https://plus.google.com/"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+                <a href="mailto:yvonbenahita@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
                                     
                                     </ul>
                                 </div>
@@ -368,7 +368,7 @@ require_once('../vendor/autoload.php');
 
                 <div class="copyright">
 
-                    © 2015, Webenlance, All rights reserved
+                    © 2017, YY, All rights reserved
 
                 </div>
 
@@ -378,7 +378,7 @@ require_once('../vendor/autoload.php');
 
                 <div class="design">
 
-                     <a href="#">Franchisee </a> |  <a target="_blank" href="http://www.webenlance.com">Web Design & Development by Webenlance</a>
+                     <a href="https://github.com/YvonB">Yvon B </a> | <p>Web Developer</p>
 
                 </div>
 
