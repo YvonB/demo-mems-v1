@@ -91,7 +91,7 @@ require_once('../vendor/autoload.php');
                     <li><a href="#"><b>Voir l'état de CO</a></b></li>
                     <li><a href="#"><b>Voir l'état de NH3</a></b></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#"><button type="submit" class="btn btn-primary" align="center"><?php isset($user) ? echo "Deconnecion" : echo "Connexion"; ?></button></a></li>
+                    <li><a href="#"><button type="submit" class="btn btn-primary" align="center"><?php echo isset($user) ? "Deconnecion" : "Connexion"; ?></button></a></li>
                   </ul>
                 </li>
               </ul>
