@@ -144,7 +144,10 @@ require_once('../vendor/autoload.php');
                     // Chercher les dernières valeurs insérées
                     $arr_posts = $obj_repo->getLatestPost();
 
-                    //
+                    echo "<pre>";
+                    echo print_r($arr_posts);
+                    echo "</pre>";
+
                     ?>
                     <!-- Fin requêtes -->
 
