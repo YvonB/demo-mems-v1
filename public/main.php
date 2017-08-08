@@ -34,6 +34,11 @@ require_once('../vendor/autoload.php');
     <link rel="stylesheet" href="/css/demo.css">
     <meta name="author" content="Yvon Benahita">
     <link rel="icon" type="image/png" href="/img/datastore-logo.png" />
+    
+    <!-- Pour le Jauge -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+       
+    <!-- Fin Jauge -->
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -96,7 +101,7 @@ require_once('../vendor/autoload.php');
                                     $logout = "/logout";
                                     echo(isset($user) ? $logout : $login );
                                 ?>">
-                    <button type="submit" class="btn btn-primary" align="center"><?php echo (isset($user) ? "Deconnexion" : "Connexion"); ?></button></a></li>
+                    <button type="submit" class="btn btn-primary" align="center"><?php echo (isset($user) ? "Deconnexion" : "Se Connecter"); ?></button></a></li>
                   </ul>
                 </li>
               </ul>
@@ -119,7 +124,7 @@ require_once('../vendor/autoload.php');
             <!-- =====================La définition et la Réssource===================== -->
             <div class="row">
                 <div class="col-md-8">
-                    <h2>Qu'est-ce que c'est ?</h2>
+                    <h2>What is it ?</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla est purus,<br> ultrices in porttitor
                     in, accumsan non quam. Nam consectetur porttitor rhoncus.<br> Curabitur eu est et leo feugiat
                     auctor vel quis lorem.</p>
@@ -127,16 +132,55 @@ require_once('../vendor/autoload.php');
                     velit imperdiet egestas.</p>
                 </div>
                 <!-- ============== -->
-                <div class="col-md-4">
-                    <h2>Resources</h2>
-                    <p><a href="https://github.com/YvonB/demo-mems-v1" target="_blank"><span aria-hidden="true" class="glyphicon glyphicon-new-window"></span> Pollution detection demo (Ce site web)</a></p>
+                <div class="col-md-4" id="chart_div" style="width: 400px; height: 120px;">
+                    <h2>Our Dashboard</h2>
+                    <!-- <p><a href="https://github.com/YvonB/demo-mems-v1" target="_blank"><span aria-hidden="true" class="glyphicon glyphicon-new-window"></span> Pollution detection demo (Ce site web)</a></p> -->
+                    <script type="text/javascript">
+                        google.charts.load('current', {'packages':['gauge']});
+                        google.charts.setOnLoadCallback(drawChart);
+
+                        function drawChart() {
+
+                        var data = google.visualization.arrayToDataTable([
+                          ['Label', 'Value'],
+                          ['Memory', 80],
+                          ['CPU', 55],
+                          ['Network', 68]
+                        ]);
+
+                        var options = {
+                          width: 400, height: 120,
+                          redFrom: 90, redTo: 100,
+                          yellowFrom:75, yellowTo: 90,
+                          minorTicks: 5
+                        };
+
+                        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+                        chart.draw(data, options);
+
+                        setInterval(function() {
+                          data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+                          chart.draw(data, options);
+                        }, 13000);
+                        setInterval(function() {
+                          data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
+                          chart.draw(data, options);
+                        }, 5000);
+                        setInterval(function() {
+                          data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
+                          chart.draw(data, options);
+                        }, 26000);
+                      }
+                    </script>
+
                 </div>
             </div>
             <!-- ========================================================================== -->
 
             <!-- Le map -->
             <div>
-                <h2>Où se trouve nos capteurs ?</h2>
+                <h2>Where are our sensors?</h2>
                 <div class="map" align="center">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d963367.6427555117!2d46.800975397000194!3d-19.40571407254446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21fa8238a95a8965%3A0xe11f2e914a20ec99!2sEcole+Sup%C3%A9rieur+Polytechnique+d&#39;Antananarivo!5e0!3m2!1sfr!2sfr!4v1501594670727" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
@@ -212,7 +256,7 @@ require_once('../vendor/autoload.php');
             <!-- ===========================Espace connexion ============================== -->
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Voir plus de contenu</h2>
+                    <h2>See more content</h2>
                     <p>Dans ce cas, connectez-vous.</p>
                 </div>
             </div> 
