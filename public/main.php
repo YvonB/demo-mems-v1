@@ -133,7 +133,7 @@ require_once('../vendor/autoload.php');
                 </div>
                 <!-- ============== -->
                 <div class="col-md-4" >
-                <h2>Our Dashboard</h2>
+                <h2 align="center">Our Dashboard</h2>
                 <div id="chart_div" style="width: 400px; height: 120px;">
                     <!-- <p><a href="https://github.com/YvonB/demo-mems-v1" target="_blank"><span aria-hidden="true" class="glyphicon glyphicon-new-window"></span> Pollution detection demo (Ce site web)</a></p> -->
 
@@ -159,16 +159,16 @@ require_once('../vendor/autoload.php');
                             // Les compteur commence à 0.
                             var data = google.visualization.arrayToDataTable([
                               ['Label', 'Value'],
-                              ['CO2', 0],
-                              ['CO', 0],
-                              ['NH3', 0]
+                              ['CO2', 396],
+                              ['CO', 5],
+                              ['NH3', 2.96]
                             ]);
 
                             var options = {
                               width: 400, height: 120,
                               redFrom: 90, redTo: 100,
                               yellowFrom:75, yellowTo: 90,
-                              minorTicks: 5
+                              minorTicks: 10
                             };
 
                             var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
@@ -178,7 +178,7 @@ require_once('../vendor/autoload.php');
                             setInterval(function() {
                               data.setValue(0, 1, 0 + <?php echo $obj_post->co2; ?>);
                               chart.draw(data, options);
-                            }, 13000);
+                            }, 10000);
                             setInterval(function() {
                               data.setValue(1, 1, 0 + <?php echo $obj_post->co; ?>);
                               chart.draw(data, options);
@@ -186,7 +186,7 @@ require_once('../vendor/autoload.php');
                             setInterval(function() {
                               data.setValue(2, 1, 0 + <?php echo $obj_post->nh3; ?>);
                               chart.draw(data, options);
-                            }, 26000);
+                            }, 15000);
                           }
                         </script>
                     <?php    
@@ -204,7 +204,7 @@ require_once('../vendor/autoload.php');
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d963367.6427555117!2d46.800975397000194!3d-19.40571407254446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21fa8238a95a8965%3A0xe11f2e914a20ec99!2sEcole+Sup%C3%A9rieur+Polytechnique+d&#39;Antananarivo!5e0!3m2!1sfr!2sfr!4v1501594670727" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
             </div>
-            <!-- =======================Pour visualiser les résultats====================== -->
+        <!-- =======================Pour visualiser les 10 derniéres résultats brutes ie en ppm ====================== -->
             <div class="row">
                 <div class="col-md-8" >
                     <h2>Results</h2>
