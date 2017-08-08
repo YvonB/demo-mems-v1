@@ -37,7 +37,7 @@ class Repository
     }
 
     /**
-     * Prendre les valeurs insérées les plus récentes. 
+     * Prendre les valeurs 10 insérées les plus récentes.(pour l'affichage brute) 
      *
      * @return array
      */
@@ -52,7 +52,23 @@ class Repository
     }
 
     /**
-     * Mettre à jour le cache de Datastore
+     * Pour prendre les valeurs insérées les plus récentes. (pour le gauge)
+     *
+     * @return array
+     */
+    public function getLatestPost()
+    {
+        $arr_posts = $this->getCache()->get('recent');
+        if(is_array($arr_posts)) {
+            return $arr_posts;
+        } else {
+            return $this->updateCache_2();
+        }
+    }
+
+
+    /**
+     * Mettre à jour le cache de Datastore (pour l'affichage brute des 1à dernières valeurs)
      *
      * @return array
      */
@@ -60,6 +76,19 @@ class Repository
     {
         $obj_store = $this->getStore();
         $arr_posts = $obj_store->query("SELECT * FROM Gas ORDER BY posted DESC")->fetchPage(POST_LIMIT);
+        $this->getCache()->set('recent', $arr_posts);
+        return $arr_posts;
+    }
+
+    /**
+     * Mettre à jour le cache de Datastore (pour le gauge)
+     *
+     * @return array
+     */
+    private function updateCache_2()
+    {
+        $obj_store = $this->getStore();
+        $arr_posts = $obj_store->query("SELECT * FROM Gas ORDER BY posted DESC")->fetchPage(1);
         $this->getCache()->set('recent', $arr_posts);
         return $arr_posts;
     }

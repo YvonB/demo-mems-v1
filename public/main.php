@@ -142,7 +142,7 @@ require_once('../vendor/autoload.php');
                     // On crée un objet de type Repository.
                     $obj_repo = new \GDS\Demo\Repository();
                     // Chercher les dernières valeurs insérées
-                    $arr_posts = $obj_repo->getRecentPosts();
+                    $arr_posts = $obj_repo->getLatestPost();
 
                     //
                     ?>
