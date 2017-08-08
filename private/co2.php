@@ -29,9 +29,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/demo.css">
     <meta name="author" content="Yvon Benahita">
-
+    <link rel="icon" type="image/png" href="/img/datastore-logo.png" />
 	<!-- script pour la courbe -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://code.highcharts.com/stock/highstock.js"></script>
@@ -40,25 +41,80 @@
 
 </head>
 <body>
+    <!--************************ Début Navigation ************************************-->
     <header>
-        <nav>
-            <ul>
-                <li><a href="#">Gaz carbonique</a></li>
-                <li><a href="/home/co">Monoxyde de carbone</a></li>
+        <nav class="navbar navbar-default navbar-fixed-top colornav">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand colortextnav" href="/"><b>SDP - IoT</b></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active colortextnav"><a href="#"><b>CO2</b><span class="sr-only">(current)</span></a></li>
+                <!-- <li class="colortextnav"><a href="#">Link</a></li>
+                <li class="dropdown colortextnav">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li> -->
+              </ul>
+              <form class="navbar-form navbar-left">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default"><b>Chercher</b></button>
+              </form>
+              <ul class="nav navbar-nav navbar-right colortextnav">
+               <!--  <li><a href="#">Gaz Carbonique</a></li> -->
+                <li><a href="/home/co">Monoxyde de Carbone</a></li>
                 <li><a href="/home/nh3">Amoniaque</a></li>
-                <li><a href="/logout"><input type="button" value="Deconnexion" /></a></li>
-                <li><a href="/home"><input type="button" value="Home" /></a></li>
-            </ul>
+                <li class="dropdown colortextnav">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b><?php echo htmlspecialchars($user->getNickname());?></b><span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <!-- <li><a href="#"><b>Voir l'état de CO2</a></b></li>
+                    <li><a href="#"><b>Voir l'état de CO</a></b></li>
+                    <li><a href="#"><b>Voir l'état de NH3</a></b></li>
+                    <li role="separator" class="divider"></li> -->
+                    <li><a href="/login"><button type="submit" class="btn btn-primary" align="center">Se Deconnecter</button></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
         </nav>
     </header>
-    
-    <div class="bienvenue" align="center">
-        <p><?php echo 'Bienvenu '.'<b>'.htmlspecialchars($user->getNickname()).'</b>'.' ;) - <a href="/logout">Déconnexion</a>'?></p>
+    <!--****************************** Fin Navigation *****************************-->
+
+
+<div class="container">  <!-- Pour tout le contenu de notre site -->
+
+<!-- ===========================Le logo et le titre============================ -->
+    <div class="row">
+        <div class="col-md-12">
+            <h1><img src="/img/datastore-logo.png" id="gds-logo" /> PHP & <span class="hidden-xs">Google</span> Cloud Datastore</h1>
+        </div>
     </div>
+<!-- ====================================================================== -->
 
 	<!-- div permettant de visualiser la courbe -->
     <div align="center">  
-        <h3>Gaz carbonique</h3>
+        <h4>Gaz carbonique</h4>
     	<div id="co2" style="height: 400px; min-width: 310px">
     		
     	</div>
@@ -137,8 +193,184 @@
 
 	</script>
 <!-- ***************************************** -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
-</body>
+</div> <!-- fin de container de la page --> 
+
+<!-- ******************************Footer*********************************** -->
+        <footer>
+            <!--footer-->
+<footer class="footer1">
+<div class="container">
+
+<div class="row"><!-- row -->
+            
+                <div class="col-lg-3 col-md-3"><!-- widgets column left -->
+                <ul class="list-unstyled clear-margins"><!-- widgets -->
+                        
+                            <li class="widget-container widget_nav_menu"><!-- widgets list -->
+                    
+                                <h1 class="title-widget">Useful links</h1>
+                                
+                                <ul>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i> About Us</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i> Contact Us</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i> Success Stories</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i> PG Courses</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i> Achiever's Batch</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Regular Batch</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Test & Discussion</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Fast Track T & D</a></li>
+                                </ul>
+                    
+                            </li>
+                            
+                        </ul>
+                         
+                      
+                </div><!-- widgets column left end -->
+                
+                
+                
+                <div class="col-lg-3 col-md-3"><!-- widgets column left -->
+            
+                <ul class="list-unstyled clear-margins"><!-- widgets -->
+                        
+                            <li class="widget-container widget_nav_menu"><!-- widgets list -->
+                    
+                                <h1 class="title-widget">Useful links</h1>
+                                
+                                <ul>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Test Series Schedule</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Postal Coaching</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  PG Dr. Bhatia Books</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  UG Courses</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Satellite Education</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Study Centres</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  State P.G. Mocks</a></li>
+                                    <li><a  href="#" target="_blank"><i class="fa fa-angle-double-right"></i> Results</a></li>
+                                    
+                                </ul>
+                    
+                            </li>
+                            
+                        </ul>
+                         
+                      
+                </div><!-- widgets column left end -->
+                
+                
+                
+                <div class="col-lg-3 col-md-3"><!-- widgets column left -->
+            
+                <ul class="list-unstyled clear-margins"><!-- widgets -->
+                        
+                            <li class="widget-container widget_nav_menu"><!-- widgets list -->
+                    
+                                <h1 class="title-widget">Useful links</h1>
+                                
+                                <ul>
+
+
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Enquiry Form</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Online Test Series</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Grand Tests Series</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Subject Wise Test Series</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Smart Book</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Test Centres</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i>  Admission Form</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i>  Computer Live Test</a></li>
+
+                                </ul>
+                    
+                            </li>
+                            
+                        </ul>
+                         
+                      
+                </div><!-- widgets column left end -->
+                
+                
+                <div class="col-lg-3 col-md-3"><!-- widgets column center -->
+                
+                   
+                    
+                        <ul class="list-unstyled clear-margins"><!-- widgets -->
+                        
+                            <li class="widget-container widget_recent_news"><!-- widgets list -->
+                    
+                                <h1 class="title-widget">Contact Detail </h1>
+                                
+                                <div class="footerp"> 
+                                
+                                <h2 class="title-median">Web Developper Junior</h2>
+                                <p><b>Email id:</b> <a href="mailto:yvonbenahita@gmail.com">yvonbenahita@gmail.com</a></p>
+                                <p><b>Helpline Numbers </b>
+
+    <b style="color:#ffc106;">(8AM to 10PM):</b>  +91-8130890090, +91-8130190010  </p>
+    
+    <p><b>Corp Office / Postal Address</b></p>
+    <p><b>Phone Numbers : </b>7042827160, </p>
+    <p> 011-27568832, 9868387223</p>
+                                </div>
+                                
+                                <div class="social-icons">
+                                
+                                    <ul class="nomargin">
+                                    
+                <a href="https://www.facebook.com/"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                <a href="https://twitter.com/"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+                <a href="https://plus.google.com/"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+                <a href="mailto:yvonbenahita@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
+                                    
+                                    </ul>
+                                </div>
+                            </li>
+                          </ul>
+                       </div>
+                </div>
+</div>
+</footer>
+<!--header-->
+
+<div class="footer-bottom">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+                <div class="copyright">
+
+                    © 2017, YY, All rights reserved
+
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+                <div class="design">
+
+                     <a href="https://github.com/YvonB">Yvon B | Web Developer</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+        </footer> 
+     
+
+       <!--*********************************** Fin footer*************************** -->
+
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    </body>
+
 </html>

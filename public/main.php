@@ -30,6 +30,7 @@ require_once('../vendor/autoload.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/demo.css">
     <meta name="author" content="Yvon Benahita">
     <link rel="icon" type="image/png" href="/img/datastore-logo.png" />
@@ -54,7 +55,7 @@ require_once('../vendor/autoload.php');
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand colortextnav" href="#"><b>SDP-IoT</b></a>
+              <a class="navbar-brand colortextnav" href="/"><b>SDP - IoT</b></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -113,7 +114,7 @@ require_once('../vendor/autoload.php');
             <!-- =====================La définition et la Réssource===================== -->
             <div class="row">
                 <div class="col-md-8">
-                    <h2>Qu'est-ce que c'est?</h2>
+                    <h2>Qu'est-ce que c'est ?</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla est purus,<br> ultrices in porttitor
                     in, accumsan non quam. Nam consectetur porttitor rhoncus.<br> Curabitur eu est et leo feugiat
                     auctor vel quis lorem.</p>
@@ -222,12 +223,9 @@ require_once('../vendor/autoload.php');
             </div>
             <!-- ========================================================================== -->
 
-        </div> <!-- fin de container de la page --> 
+    </div> <!-- fin de container de la page --> 
        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
-        <!-- ******************************Footer*********************************** -->
+    <!-- ******************************Footer*********************************** -->
         <footer>
             <!--footer-->
 <footer class="footer1">
@@ -395,6 +393,13 @@ require_once('../vendor/autoload.php');
 
 </div>
         </footer> 
-        <!--*********************************** Fin footer*************************** -->
+     
+
+       <!--*********************************** Fin footer*************************** -->
+
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
     </body>
+
 </html>
