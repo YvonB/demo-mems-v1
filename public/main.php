@@ -87,9 +87,9 @@ require_once('../vendor/autoload.php');
                 <li class="dropdown colortextnav">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>Options</b><span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#"><b>Voir l'état de CO2</a></b></li>
-                    <li><a href="#"><b>Voir l'état de CO</a></b></li>
-                    <li><a href="#"><b>Voir l'état de NH3</a></b></li>
+                    <li><a href="/home/co2"><b>Voir l'état de CO2</a></b></li>
+                    <li><a href="/home/co"><b>Voir l'état de CO</a></b></li>
+                    <li><a href="/home/nh3"><b>Voir l'état de NH3</a></b></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="/login"><button type="submit" class="btn btn-primary" align="center"><?php echo (isset($user) ? "Deconnexion" : "Connexion"); ?></button></a></li>
                   </ul>
