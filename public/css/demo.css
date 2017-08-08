@@ -262,4 +262,9 @@ p a
         margin-right: 8px;
     }
 
+    .map
+    {
+        width: 100%;
+    }
+
 }
