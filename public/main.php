@@ -145,35 +145,47 @@ require_once('../vendor/autoload.php');
                     $arr_posts = $obj_repo->getRecentPosts();
 
                     // au début 
-                    $nbr_co2_a = 0;
-                    $nbr_co2_na = 0;
+                    // $nbr_co2_na = 0;
+                    // $nbr_co_na = 0;
+                    // $nbr_nh3_na = 0;
 
-                    // $nbr = count($arr_posts);
+                    // Tous les posts.
+                    // $nbr = count($arr_posts); // N
                     // echo $nbr;
                     // die();
                     foreach ($arr_posts as $obj_post) 
                     {
                         
-                        // tous les CO2 acceptables
-                        if($obj_post->co2 < 396)
-                        {   
-                            $nbr_co2_a += 1; // si on est ici c'est qu'il des co2 acceptables, on icremente le nombre alors !
-                            $co2_a = $obj_post->co2;
+                        // // tous les CO2 acceptables
+                        // if($obj_post->co2 < 396)
+                        // {   
+                        //     $nbr_co2_a += 1; // si on est ici c'est qu'il des co2 acceptables, on icremente le nombre alors !
+                        //     $co2_a = $obj_post->co2;
                             
-                        }
-                        elseif($obj_post->co2 >= 396)// tous les co2 qui dépasse < 396ppm
+                        // }
+                        // else
+                        if($obj_post->co2 >= 396)// tous les co2 qui dépasse ou égale à 396ppm
                         {   
-                            $nbr_co2_na += 1; // si on est ici c'est qu'il des co2 non acceptables, on icremente le nombre alors !
-                            $co2_na = $obj_post->co2;
-                            
+                            $nbr_co2_na += 1; // si on est ici c'est qu'il y a des co2 non acceptables, on icremente le nombre $nbr_co2_na alors !
+                            $n_co2 = $nbr_co2_na;
+                            // $co2_na = $obj_post->co2;
                         }
-
-                        echo ' $nbr_co2_a = '.$nbr_co2_a.'<br>';
-                        echo ' $nbr_co2_na = '.$nbr_co2_na;
-
-                        // die(); 
+                        if($obj_post->co >= 3) // tous les co qui dépasse ou égale à 3ppm
+                            {
+                                // si on est ici c'est qu'il y a des co non acceptables, on icremente le nombre $nbr_co_na alors !
+                                $nbr_co_na += 1;
+                                $n_co = $nbr_co_na;
+                                // $co_na = $obj_post->co;
+                            }
+                        if($obj_post->nh3 >= 5) // tous les nh3 qui dépasse ou égale à 5ppm
+                                {   
+                                    // si on est ici c'est qu'il y a des nh3 non acceptables, on icremente le nombre $nbr_nh3_na alors !
+                                    $nbr_nh3_na += 1;
+                                    $n_nh3 = $nbr_nh3_na;
+                                }
                         
-                    ?>
+                        
+                        ?>
                     <!-- Fin requêtes -->
 
                         <script type="text/javascript">
@@ -214,9 +226,15 @@ require_once('../vendor/autoload.php');
                               chart.draw(data, options);
                             }, 15000);
                           }
+                       }   
                         </script>
                     <?php 
                     }
+
+                    echo ' $nbr_co2_na = '.$n_co2.'<br>';
+                    echo ' $nbr_co_na = '.$n_co.'<br>';
+                    echo ' $nbr_nh3_na = '.$n_nh3.'<br>';
+
                     ?>
                 </div>
                 </div>
