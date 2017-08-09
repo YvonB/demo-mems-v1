@@ -187,7 +187,29 @@ require_once('../vendor/autoload.php');
                         
                         ?>
                     <!-- Fin requêtes -->
+                    <?php 
+                    }
 
+                    // echo ' $nbr_co2_na = '.$n_co2.'<br>';
+                    // echo ' $nbr_co_na = '.$n_co.'<br>';
+                    // echo ' $nbr_nh3_na = '.$n_nh3.'<br>';
+                    // //N
+                    // echo $nbr;
+
+                    //calculs des %
+                    $pource_co2 = ($n_co2*100)/$nbr;
+                    $pource_co = ($n_co*100)/$nbr;
+                    $pource_nh3 = ($n_nh3*100)/$nbr;
+
+                    // echo 'co2 na = '. $pource_co2 .' % <br>';
+                    // echo 'co na = '. $pource_co .' % <br>';
+                    // echo 'nh3 na = '. $pource_nh3 .' % <br>';
+
+                    
+                      
+                            ?>
+
+                                
                         <script type="text/javascript">
                             google.charts.load('current', {'packages':['gauge']});
                             google.charts.setOnLoadCallback(drawChart);
@@ -214,40 +236,29 @@ require_once('../vendor/autoload.php');
                             chart.draw(data, options);
 
                             setInterval(function() {
-                              data.setValue(0, 1, 0 + <?php echo $obj_post->co2; ?>);
+                              data.setValue(0, 1, 0 + <?php echo $pource_co2; ?>);
                               chart.draw(data, options);
                             }, 10000);
                             setInterval(function() {
-                              data.setValue(1, 1, 0 + <?php echo $obj_post->co; ?>);
+                              data.setValue(1, 1, 0 + <?php echo $pource_co; ?>);
                               chart.draw(data, options);
                             }, 5000);
                             setInterval(function() {
-                              data.setValue(2, 1, 0 + <?php echo $obj_post->nh3; ?>);
+                              data.setValue(2, 1, 0 + <?php echo $pource_nh3; ?>);
                               chart.draw(data, options);
                             }, 15000);
                           }
-                       }   
+                     
                         </script>
-                    <?php 
-                    }
-
-                    // echo ' $nbr_co2_na = '.$n_co2.'<br>';
-                    // echo ' $nbr_co_na = '.$n_co.'<br>';
-                    // echo ' $nbr_nh3_na = '.$n_nh3.'<br>';
-                    // //N
-                    // echo $nbr;
-
-                    //calculs des %
-                    $pource_co2 = ($n_co2*100)/$nbr;
-                    $pource_co = ($n_co*100)/$nbr;
-                    $pource_nh3 = ($n_nh3*100)/$nbr;
-
-                    echo 'co2 na = '. $pource_co2 .' % <br>';
-                    echo 'co na = '. $pource_co .' % <br>';
-                    echo 'nh3 na = '. $pource_nh3 .' % <br>';
 
 
-                    ?>
+
+                            
+                        
+
+                   
+
+
                 </div>
                 </div>
             </div>
