@@ -150,8 +150,8 @@ require_once('../vendor/autoload.php');
                     // $nbr_nh3_na = 0;
 
                     // Tous les posts.
-                    // $nbr = count($arr_posts); // N
-                    // echo $nbr;
+                    $nbr = count($arr_posts); // N
+                    
                     // die();
                     foreach ($arr_posts as $obj_post) 
                     {
@@ -231,9 +231,21 @@ require_once('../vendor/autoload.php');
                     <?php 
                     }
 
-                    echo ' $nbr_co2_na = '.$n_co2.'<br>';
-                    echo ' $nbr_co_na = '.$n_co.'<br>';
-                    echo ' $nbr_nh3_na = '.$n_nh3.'<br>';
+                    // echo ' $nbr_co2_na = '.$n_co2.'<br>';
+                    // echo ' $nbr_co_na = '.$n_co.'<br>';
+                    // echo ' $nbr_nh3_na = '.$n_nh3.'<br>';
+                    // //N
+                    // echo $nbr;
+
+                    //calculs des %
+                    $pource_co2 = ($n_co2*100)/$nbr;
+                    $pource_co = ($n_co*100)/$nbr;
+                    $pource_nh3 = ($n_nh3*100)/$nbr;
+
+                    echo 'co2 na = '. $pource_co2 .' % <br>';
+                    echo 'co na = '. $pource_co .' % <br>';
+                    echo 'nh3 na = '. $pource_nh3 .' % <br>';
+
 
                     ?>
                 </div>
