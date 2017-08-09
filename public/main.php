@@ -142,7 +142,7 @@ require_once('../vendor/autoload.php');
                     // On crée un objet de type Repository.
                     $obj_repo = new \GDS\Demo\Repository();
                     // Chercher tous les co2 insérées.
-                    $arr_posts = $obj_repo->getRecentPosts();
+                    $arr_posts = $obj_repo->getAllRecentPost();
 
                     // au début 
                     // $nbr_co2_na = 0;
