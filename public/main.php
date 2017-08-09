@@ -133,7 +133,7 @@ require_once('../vendor/autoload.php');
                 </div>
                 <!-- ============== -->
                 <div class="col-md-4" >
-                <h2 align="center">Our Dashboard</h2>
+                <h3>Counter Of Gases not acceptable</h3>
                 <div id="chart_div" style="width: 400px; height: 120px;">
                     <!-- <p><a href="https://github.com/YvonB/demo-mems-v1" target="_blank"><span aria-hidden="true" class="glyphicon glyphicon-new-window"></span> Pollution detection demo (Ce site web)</a></p> -->
 
@@ -250,14 +250,6 @@ require_once('../vendor/autoload.php');
                           }
                      
                         </script>
-
-
-
-                            
-                        
-
-                   
-
 
                 </div>
                 </div>
