@@ -141,11 +141,35 @@ require_once('../vendor/autoload.php');
                     <?php
                     // On crée un objet de type Repository.
                     $obj_repo = new \GDS\Demo\Repository();
-                    // Chercher les dernières valeurs insérées
-                    $arr_posts = $obj_repo->getLatestPost();
+                    // Chercher tous les co2 insérées.
+                    $arr_posts = $obj_repo->getRecentPosts();
 
+                    $nbr_co2_a = 0;
+                    $nbr_co2_na = 0;
+                    // $nbr = count($arr_posts);
+                    // echo $nbr;
+                    // die();
                     foreach ($arr_posts as $obj_post) 
                     {
+                        
+                        // tous les CO2 acceptables
+                        if($obj_post->co2 < 396)
+                        {   
+                            $nbr_co2_a += 1; 
+                            $co2_a = $obj_post->co2;
+                            
+                        }
+                        elseif($obj_post->co2 >= 396)// tous les co2 qui dépasse < 396ppm
+                        {   
+                            $nbr_co2_na += 1;
+                            $co2_na = $obj_post->co2;
+                            
+                        }
+
+                        echo ' $nbr_co2_a = '.$nbr_co2_a.'<br>';
+                        echo ' $nbr_co2_na = '.$nbr_co2_na;
+
+                        // die(); 
                         
                     ?>
                     <!-- Fin requêtes -->
@@ -189,7 +213,7 @@ require_once('../vendor/autoload.php');
                             }, 15000);
                           }
                         </script>
-                    <?php    
+                    <?php 
                     }
                     ?>
                 </div>
