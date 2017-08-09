@@ -144,8 +144,10 @@ require_once('../vendor/autoload.php');
                     // Chercher tous les co2 insérées.
                     $arr_posts = $obj_repo->getRecentPosts();
 
+                    // au début 
                     $nbr_co2_a = 0;
                     $nbr_co2_na = 0;
+
                     // $nbr = count($arr_posts);
                     // echo $nbr;
                     // die();
@@ -155,13 +157,13 @@ require_once('../vendor/autoload.php');
                         // tous les CO2 acceptables
                         if($obj_post->co2 < 396)
                         {   
-                            $nbr_co2_a += 1; 
+                            $nbr_co2_a += 1; // si on est ici c'est qu'il des co2 acceptables, on icremente le nombre alors !
                             $co2_a = $obj_post->co2;
                             
                         }
                         elseif($obj_post->co2 >= 396)// tous les co2 qui dépasse < 396ppm
                         {   
-                            $nbr_co2_na += 1;
+                            $nbr_co2_na += 1; // si on est ici c'est qu'il des co2 non acceptables, on icremente le nombre alors !
                             $co2_na = $obj_post->co2;
                             
                         }
