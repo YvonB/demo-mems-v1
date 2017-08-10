@@ -139,6 +139,9 @@ require_once('../vendor/autoload.php');
 
                     <!-- Requêtes permetant de les dernières valeurs insérées -->
                     <?php
+
+                    try
+                    {
                     // On crée un objet de type Repository.
                     $obj_repo = new \GDS\Demo\Repository();
                     // Chercher tous les co2 insérées.
@@ -250,7 +253,15 @@ require_once('../vendor/autoload.php');
                           }
                      
                         </script>
+                        <?php
+                    }
+                    catch(\Exception $obj_ex)
+                    {
+                        syslog(LOG_ERR, $obj_ex->getMessage());
+                        echo '<em>Whoops, something went wrong!</em>';
+                    }
 
+                        ?>
                 </div>
                 </div>
             </div>
