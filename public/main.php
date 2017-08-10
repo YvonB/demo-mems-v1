@@ -222,9 +222,9 @@ require_once('../vendor/autoload.php');
                             // Les compteur commence à 0.
                             var data = google.visualization.arrayToDataTable([
                               ['Label', 'Value'],
-                              ['CO2', 396],
-                              ['CO', 5],
-                              ['NH3', 2.96]
+                              ['CO2', 0],
+                              ['CO', 0],
+                              ['NH3', 0]
                             ]);
 
                             var options = {
@@ -239,15 +239,15 @@ require_once('../vendor/autoload.php');
                             chart.draw(data, options);
 
                             setInterval(function() {
-                              data.setValue(0, 1, 0 + <?php echo $pource_co2; ?>);
+                              data.setValue(0, 1, 0 + <?php echo $pource_co2.' %'; ?>);
                               chart.draw(data, options);
                             }, 10000);
                             setInterval(function() {
-                              data.setValue(1, 1, 0 + <?php echo $pource_co; ?>);
+                              data.setValue(1, 1, 0 + <?php echo $pource_co.' %'; ?>);
                               chart.draw(data, options);
                             }, 5000);
                             setInterval(function() {
-                              data.setValue(2, 1, 0 + <?php echo $pource_nh3; ?>);
+                              data.setValue(2, 1, 0 + <?php echo $pource_nh3.' %'; ?>);
                               chart.draw(data, options);
                             }, 15000);
                           }
