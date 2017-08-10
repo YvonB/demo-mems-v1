@@ -19,6 +19,7 @@
     $obj_repo = new \GDS\Demo\Repository();
     $arr_posts = $obj_repo->getRecentPosts();
 
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -35,6 +36,10 @@
     <link rel="stylesheet" href="/css/demo.css">
     <meta name="author" content="Yvon Benahita">
     <link rel="icon" type="image/png" href="/img/datastore-logo.png" />
+
+    <!-- css du slide -->
+    <link rel="stylesheet" href="/css/slide.css">
+    <!-- fin css slide -->
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -131,6 +136,90 @@
                 </div>
             </div>
             <!-- ========================================================================== -->
+
+            <!-- ================================Slide des 3 courbes======================================================= -->
+                        
+
+                    <!-- 1)HTML -->
+                    <div id="slider">
+                      <ul id="slideWrap"> 
+                        <li><img src="http://fillmurray.com/g/800/300" alt="" /></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                      </ul>
+                      <a id="prev" href="#">&#8810;</a>
+                      <a id="next" href="#">&#8811;</a>
+                    </div>
+
+                    <!-- 2) CSS -->
+
+
+                    <!-- 3) JS -->
+                    <script type="text/javascript">
+
+                      var responsiveSlider = function() {
+
+                      var slider = document.getElementById("slider");
+                      var sliderWidth = slider.offsetWidth;
+                      var slideList = document.getElementById("slideWrap");
+                      var count = 1;
+                      var items = slideList.querySelectorAll("li").length;
+                      var prev = document.getElementById("prev");
+                      var next = document.getElementById("next");
+
+                      window.addEventListener('resize', function() {
+                        sliderWidth = slider.offsetWidth;
+                      });
+
+                      var prevSlide = function() {
+                        if(count > 1) {
+                          count = count - 2;
+                          slideList.style.left = "-" + count * sliderWidth + "px";
+                          count++;
+                        }
+                        else if(count = 1) {
+                          count = items - 1;
+                          slideList.style.left = "-" + count * sliderWidth + "px";
+                          count++;
+                        }
+                      };
+
+                      var nextSlide = function() {
+                        if(count < items) {
+                          slideList.style.left = "-" + count * sliderWidth + "px";
+                          count++;
+                        }
+                        else if(count = items) {
+                          slideList.style.left = "0px";
+                          count = 1;
+                        }
+                      };
+                      
+                      next.addEventListener("click", function() {
+                        nextSlide();
+                      });
+
+                      prev.addEventListener("click", function() {
+                        prevSlide();
+                      });
+                      
+                      setInterval(function() {
+                        nextSlide()
+                      }, 8000);
+
+                    };
+
+                    window.onload = function() {
+                      responsiveSlider();  
+                    }
+
+                    </script>
+
+
+            <!-- ================================Fin slide de 3 courbes======================================================== -->
+
         </div> <!-- fin de container de la page --> 
 
 <!-- ******************************Footer*********************************** -->

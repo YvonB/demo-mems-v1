@@ -129,7 +129,7 @@
 	
 	<!-- le script de la courbe lui même -->
 	<script type="text/javascript">
-		$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=new-intraday.json&callback=?', function () 
+		$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=new-intraday.json&callback=?', function (data) 
 		{
 
             // create the chart

@@ -36,7 +36,7 @@ require_once('../vendor/autoload.php');
     <link rel="icon" type="image/png" href="/img/datastore-logo.png" />
     
     <!-- Pour le Jauge et le courbe brute -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
+    
     <!-- Fin -->
 
     <!--[if lt IE 9]>
@@ -315,11 +315,11 @@ require_once('../vendor/autoload.php');
                                                 }
                                             if(isset($obj_post->co) AND !empty($obj_post->co))
                                                 {
-                                                    echo '<div class="gas">Taux de CO: <strong>', htmlspecialchars($obj_post->co),'</strong><em>cm³/m³</em>    ', '</div>';
+                                                    echo '<div class="gas">  |  Taux de CO: <strong>', htmlspecialchars($obj_post->co),'</strong><em>cm³/m³</em>    ', '</div>';
                                                 }
                                             if(isset($obj_post->nh3) AND !empty($obj_post->nh3))
                                                 {
-                                                    echo '<div class="gas">Taux de NH3: <strong>', htmlspecialchars($obj_post->nh3), '</strong><em>cm³/m³</em>    ', '<br><span class="time">', $str_date_display, '</span></div>';
+                                                    echo '<div class="gas">  |  Taux de NH3: <strong>', htmlspecialchars($obj_post->nh3), '</strong><em>cm³/m³</em>    ', '<br><span class="time">', $str_date_display, '</span></div>';
                                                 }
                                             echo '</div>';
                                         }
@@ -340,63 +340,13 @@ require_once('../vendor/autoload.php');
                 </div>
             </div>
             <!-- ========================================================================== -->
+
             <!-- ==========================pour la courbe=========================== -->
-            
-            <div id="line_top_x" style="height: 400px; min-width: 310px">
-                
-            </div>
-
             <!-- debut courbe brute -->
-                <script type="text/javascript">
-                google.charts.load('current', {'packages':['line']});
-                google.charts.setOnLoadCallback(drawChart);
-
-                function drawChart() {
-
-                var data = new google.visualization.DataTable();
-                data.addColumn('number', 'Day');
-                data.addColumn('number', 'Guardians of the Galaxy');
-                data.addColumn('number', 'The Avengers');
-                data.addColumn('number', 'Transformers: Age of Extinction');
-
-                data.addRows([
-                [1,  37.8, 80.8, 41.8],
-                [2,  30.9, 69.5, 32.4],
-                [3,  25.4,   57, 25.7],
-                [4,  11.7, 18.8, 10.5],
-                [5,  11.9, 17.6, 10.4],
-                [6,   8.8, 13.6,  7.7],
-                [7,   7.6, 12.3,  9.6],
-                [8,  12.3, 29.2, 10.6],
-                [9,  16.9, 42.9, 14.8],
-                [10, 12.8, 30.9, 11.6],
-                [11,  5.3,  7.9,  4.7],
-                [12,  6.6,  8.4,  5.2],
-                [13,  4.8,  6.3,  3.6],
-                [14,  4.2,  6.2,  3.4]
-                ]);
-
-                var options = {
-                chart: {
-                  title: 'Box Office Earnings in First Two Weeks of Opening',
-                  subtitle: 'in millions of dollars (USD)'
-                },
-                width: 900,
-                height: 500,
-                axes: {
-                  x: {
-                    0: {side: 'top'}
-                  }
-                }
-              };
-
-              var chart = new google.charts.Line(document.getElementById('line_top_x'));
-
-              chart.draw(data, google.charts.Line.convertOptions(options));
-            }
-            </script>
-
+                
+                
             <!-- ==========================fin courbe=============================== -->
+
 
             <!-- ===========================Espace connexion ============================== -->
             <div class="row">
@@ -438,11 +388,11 @@ require_once('../vendor/autoload.php');
                                     <li><a  href="#"><i class="fa fa-angle-double-right"></i> About Us</a></li>
                                     <li><a  href="#"><i class="fa fa-angle-double-right"></i> Contact Us</a></li>
                                     <li><a  href="#"><i class="fa fa-angle-double-right"></i> Success Stories</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i> PG Courses</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i> Achiever's Batch</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Regular Batch</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Test & Discussion</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Fast Track T & D</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i> LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i> LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
                                 </ul>
                     
                             </li>
@@ -463,14 +413,14 @@ require_once('../vendor/autoload.php');
                                 <h1 class="title-widget">Useful links</h1>
                                 
                                 <ul>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Test Series Schedule</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Postal Coaching</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  PG Dr. Bhatia Books</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  UG Courses</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Satellite Education</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Study Centres</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  State P.G. Mocks</a></li>
-                                    <li><a  href="#" target="_blank"><i class="fa fa-angle-double-right"></i> Results</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                    <li><a  href="#" target="_blank"><i class="fa fa-angle-double-right"></i> LOREM IPSUM</a></li>
                                     
                                 </ul>
                     
@@ -494,14 +444,14 @@ require_once('../vendor/autoload.php');
                                 <ul>
 
 
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Enquiry Form</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Online Test Series</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Grand Tests Series</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Subject Wise Test Series</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Smart Book</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Test Centres</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i>  Admission Form</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i>  Computer Live Test</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> LOREM IPSUM</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> LOREM IPSUM</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> LOREM IPSUM</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> LOREM IPSUM</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> LOREM IPSUM</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> LOREM IPSUM</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
 
                                 </ul>
                     
