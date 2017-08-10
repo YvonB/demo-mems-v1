@@ -241,15 +241,15 @@ require_once('../vendor/autoload.php');
                             setInterval(function() {
                               data.setValue(0, 1, 0 + <?php echo $pource_co2; ?>);
                               chart.draw(data, options);
-                            }, 10000);
+                            }, 4000);
                             setInterval(function() {
                               data.setValue(1, 1, 0 + <?php echo $pource_co; ?>);
                               chart.draw(data, options);
-                            }, 5000);
+                            }, 4000);
                             setInterval(function() {
                               data.setValue(2, 1, 0 + <?php echo $pource_nh3; ?>);
                               chart.draw(data, options);
-                            }, 15000);
+                            }, 4000);
                           }
                      
                         </script>
