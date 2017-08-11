@@ -34,6 +34,9 @@ require_once('../vendor/autoload.php');
     <link rel="stylesheet" href="/css/demo.css">
     <meta name="author" content="Yvon Benahita">
     <link rel="icon" type="image/png" href="/img/datastore-logo.png" />
+
+      <!-- font -->
+    <link rel="stylesheet" href="css/font-awesome/font-awesome.css">
     
     <!-- Pour le Jauge  -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -221,12 +224,12 @@ require_once('../vendor/autoload.php');
 
                             function drawChart() {
 
-                            // Les compteur commence à 0.
+                            // des valeurs aléatoires au chargement de la page
                             var data = google.visualization.arrayToDataTable([
-                              ['Label', 'Value'],
-                              ['CO2', 0],
-                              ['CO', 0],
-                              ['NH3', 0]
+                              ['Label', 'Value'],                             
+                              ['CO2', <?php echo rand(0, 100); ?>],
+                              ['CO', <?php echo rand(0, 100); ?>],
+                              ['NH3', <?php echo rand(0, 100); ?>]
                             ]);
 
                             var options = {
@@ -270,22 +273,9 @@ require_once('../vendor/autoload.php');
                                 {
                                    $('#chart_div').fadeOut('slow').load('main.php').fadeIn('slow');
                                    refresh();     
-                                }, 4000
-
-
-
+                                }, 3000
                                 );
-                            // $.ajax({
-                            //     url: "/", // Ton fichier ou se trouve ton chat
-                            //     success:
-                            //         function(retour){
-                            //         $('chart_div').html(retour); // rafraichi toute ta DIV "bien sur il lui faut un id "
-                            //     }
-                            // });
-                             
                         }
-                             
-                            // setInterval(refresh(), 4000) // Répète la fonction toutes les 4 sec
                         </script>
                         <!-- fin actu auto -->
 
@@ -314,7 +304,7 @@ require_once('../vendor/autoload.php');
             <div class="row">
                 <div class="col-md-8" >
                     <h2>Results</h2>
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" id="vals_brutes" style="background-color: #D8D8D8;">
                         <div class="panel-body">
                             <?php
                                 try 
@@ -389,7 +379,7 @@ require_once('../vendor/autoload.php');
             <div class="row">
                 <div class="col-md-12">
                     <h2>See more content</h2>
-                    <p>Dans ce cas, connectez-vous.</p>
+                    <!-- <p>Dans ce cas, connectez-vous.</p> -->
                 </div>
             </div> 
             <!-- ============= -->
@@ -397,7 +387,14 @@ require_once('../vendor/autoload.php');
                 <div class="col-md-4" id="login_btn">
                     <div class="well">
                         <form method="POST" action="/login">
-                            <button type="submit" class="btn btn-primary" align="center">Se Connecter</button>
+                            <button type="submit" class="btn btn-primary" align="center">
+                                <?php 
+                                    if(isset($user)) 
+                                        {echo "Go Home<i class='fa fa-arrow-right' style='margin-left: 15px;'></i>";}
+                                    else 
+                                        {echo "Se Connecter";}
+                                ?>
+                            </button>
                         </form>
                     </div>
                 </div>
