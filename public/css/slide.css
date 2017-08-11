@@ -1,4 +1,4 @@
-body {
+.mon_slide {
   margin: 10%; }
 
 #slider {
@@ -19,7 +19,7 @@ body {
     #slider ul li {
       position: relative;
       height: 100%;
-      width: calc(80vw);
+      width: calc(71vw);
       float: left; }
       #slider ul li img {
         width: 100%;

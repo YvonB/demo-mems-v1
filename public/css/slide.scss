@@ -7,7 +7,7 @@ $color4: #89da59;
 $color5: #9881F5;
 $color6: #19191a;
 
-body {
+.mon_slide {
   margin: 10%;
 }
 
@@ -31,7 +31,7 @@ body {
     li {
       position: relative;
       height: 100%;
-      width: calc(80vw);
+      width: calc(71vw);
       float: left;
       
       img {

@@ -35,8 +35,8 @@ require_once('../vendor/autoload.php');
     <meta name="author" content="Yvon Benahita">
     <link rel="icon" type="image/png" href="/img/datastore-logo.png" />
     
-    <!-- Pour le Jauge et le courbe brute -->
-    
+    <!-- Pour le Jauge  -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <!-- Fin -->
 
     <!--[if lt IE 9]>

@@ -141,9 +141,10 @@
                         
 
                     <!-- 1)HTML -->
+                    <div class="mon_slide">
                     <div id="slider">
                       <ul id="slideWrap"> 
-                        <li><img src="http://fillmurray.com/g/800/300" alt="" /></li>
+                        <li><?php include("div_co2.php") ?></li>
                         <li></li>
                         <li></li>
                         <li></li>
@@ -152,7 +153,7 @@
                       <a id="prev" href="#">&#8810;</a>
                       <a id="next" href="#">&#8811;</a>
                     </div>
-
+                    </div>
                     <!-- 2) CSS -->
 
 
