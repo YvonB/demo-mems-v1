@@ -29,9 +29,9 @@
       #slider ul li:nth-child(2) {
         background-color: #FFD966; }
       #slider ul li:nth-child(3) {
-        background-color: #F71735; }
-      #slider ul li:nth-child(4) {
         background-color: #89da59; }
+      #slider ul li:nth-child(4) {
+        background-color: #F71735; }
       #slider ul li:nth-child(5) {
         background-color: #9881F5; }
   #slider #prev, #slider #next {

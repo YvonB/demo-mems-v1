@@ -145,10 +145,10 @@
                     <div id="slider">
                       <ul id="slideWrap"> 
                         <li><?php include("div_co2.php") ?></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li><?php include("div_co.php") ?></li>
+                        <!-- <li></li> -->
+                       <!--  <li></li> -->
+                        <li><?php include("div_nh3.php") ?></li>
                       </ul>
                       <a id="prev" href="#">&#8810;</a>
                       <a id="next" href="#">&#8811;</a>
