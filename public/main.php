@@ -39,6 +39,9 @@ require_once('../vendor/autoload.php');
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <!-- Fin -->
 
+    <!-- jquery du rafraîchissement -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -136,7 +139,7 @@ require_once('../vendor/autoload.php');
                 <div id="chart_div" style="width: 400px; height: 120px;">
                     <!-- <p><a href="https://github.com/YvonB/demo-mems-v1" target="_blank"><span aria-hidden="true" class="glyphicon glyphicon-new-window"></span> Pollution detection demo (Ce site web)</a></p> -->
 
-                    <!-- Requêtes permetant de les dernières valeurs insérées -->
+                    <!-- Requêtes permetant d'obtenir les 10 dernières valeurs insérées -->
                     <?php
 
                     try
@@ -147,9 +150,9 @@ require_once('../vendor/autoload.php');
                     $arr_posts = $obj_repo->getAllRecentPost();
 
                     // au début 
-                    // $nbr_co2_na = 0;
-                    // $nbr_co_na = 0;
-                    // $nbr_nh3_na = 0;
+                    $nbr_co2_na = 0;
+                    $nbr_co_na = 0;
+                    $nbr_nh3_na = 0;
 
                     // Tous les posts.
                     $nbr = count($arr_posts); // N
@@ -252,6 +255,40 @@ require_once('../vendor/autoload.php');
                           }
                      
                         </script>
+                        
+                        <!-- actualisation automatique -->
+                        <script type="text/javascript">
+                        $(document).ready(function()
+                            {   
+                                $('#chart_div').load('main.php');
+                                refresh();
+                            });
+                        function refresh() 
+                        {   
+                            setTimeout(
+                                function()
+                                {
+                                   $('#chart_div').fadeOut('slow').load('main.php').fadeIn('slow');
+                                   refresh();     
+                                }, 4000
+
+
+
+                                );
+                            // $.ajax({
+                            //     url: "/", // Ton fichier ou se trouve ton chat
+                            //     success:
+                            //         function(retour){
+                            //         $('chart_div').html(retour); // rafraichi toute ta DIV "bien sur il lui faut un id "
+                            //     }
+                            // });
+                             
+                        }
+                             
+                            // setInterval(refresh(), 4000) // Répète la fonction toutes les 4 sec
+                        </script>
+                        <!-- fin actu auto -->
+
                         <?php
                     }
                     catch(\Exception $obj_ex)

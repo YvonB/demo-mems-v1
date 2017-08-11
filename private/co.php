@@ -39,6 +39,9 @@
 	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
 	<!-- ********************** -->
 
+    <!-- font -->
+    <link rel="stylesheet" href="css/font-awesome/font-awesome.css">
+
 </head>
 <body>
 <!--************************ Début Navigation ************************************-->
@@ -81,8 +84,8 @@
                 <button type="submit" class="btn btn-default"><b>Chercher</b></button>
               </form>
               <ul class="nav navbar-nav navbar-right colortextnav">
+                <li><a href="/home"><b><i class="fa fa-home" style="margin-right: 4px;"></i>Home</b></a></li>
                 <li><a href="/home/co2">Gaz Carbonique</a></li>
-                <!-- <li><a href="#">Monoxyde de Carbone</a></li> -->
                 <li><a href="/home/nh3">Amoniaque</a></li>
                 <li class="dropdown colortextnav">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b><?php echo htmlspecialchars($user->getNickname());?></b><span class="caret"></span></a>

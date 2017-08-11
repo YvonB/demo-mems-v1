@@ -58,7 +58,7 @@ class Repository
      */
     public function getAllRecentPost()
     {
-        $arr_posts = $this->getCache()->get();
+        $arr_posts = $this->getCache()->get('recent');
         if(is_array($arr_posts)) {
             return $arr_posts;
         } else {
@@ -89,7 +89,7 @@ class Repository
     {
         $obj_store = $this->getStore();
         $arr_posts = $obj_store->query("SELECT * FROM Gas")->fetchAll();
-        $this->getCache()->set($arr_posts);
+        $this->getCache()->set('recent',$arr_posts);
         return $arr_posts;
     }
 

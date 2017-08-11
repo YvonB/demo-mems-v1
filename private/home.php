@@ -37,6 +37,9 @@
     <meta name="author" content="Yvon Benahita">
     <link rel="icon" type="image/png" href="/img/datastore-logo.png" />
 
+    <!-- font -->
+    <link rel="stylesheet" href="css/font-awesome/font-awesome.css">
+
     <!-- css du slide -->
     <link rel="stylesheet" href="/css/slide.css">
     <!-- fin css slide -->
@@ -67,7 +70,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li class="active colortextnav"><a href="#"><b>Home</b><span class="sr-only">(current)</span></a></li>
+                <li class="active colortextnav"><a href="#"><b><i class="fa fa-home" style="margin-right: 4px;"></i>Home</b><span class="sr-only">(current)</span></a></li>
                 <!-- <li class="colortextnav"><a href="#">Link</a></li>
                 <li class="dropdown colortextnav">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -132,7 +135,7 @@
                 <!-- ============== -->
                 <div class="col-md-4">
                     <h2>Resources</h2>
-                    <p><a href="https://github.com/YvonB/demo-mems-v1" target="_blank"><span aria-hidden="true" class="glyphicon glyphicon-new-window"></span> Pollution detection demo (Ce site web)</a></p>
+                    <p><a href="https://github.com/YvonB/demo-mems-v1" target="_blank"><span aria-hidden="true" class="glyphicon glyphicon-new-window"></span> Analyseur des gazs polluants(Ce site web)</a></p>
                 </div>
             </div>
             <!-- ========================================================================== -->
