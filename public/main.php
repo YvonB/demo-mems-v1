@@ -142,11 +142,11 @@ require_once('../vendor/autoload.php');
                         foreach ($arr_posts as $obj_post) 
                         {
                             if($obj_post->co2 >= 396)// tous les co2 qui dépasse ou égale à 396ppm
-                            {   
-                                $nbr_co2_na += 1; // si on est ici c'est qu'il y a des co2 non acceptables, on icremente le nombre $nbr_co2_na alors !
-                                $n_co2 = $nbr_co2_na;
-                                // $co2_na = $obj_post->co2;
-                            }
+                                {   
+                                    $nbr_co2_na += 1; // si on est ici c'est qu'il y a des co2 non acceptables, on icremente le nombre $nbr_co2_na alors !
+                                    $n_co2 = $nbr_co2_na;
+                                    // $co2_na = $obj_post->co2;
+                                }
                             if($obj_post->co >= 3) // tous les co qui dépasse ou égale à 3ppm
                                 {
                                     // si on est ici c'est qu'il y a des co non acceptables, on icremente le nombre $nbr_co_na alors !
@@ -458,7 +458,7 @@ require_once('../vendor/autoload.php');
     </footer>
     
     <!-- copyright -->
-    <div class="footer-bottom" style="background-color: #3477db;">
+    <div class="footer-bottom">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">

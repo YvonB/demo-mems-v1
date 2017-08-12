@@ -222,180 +222,126 @@
 
         </div> <!-- fin de container de la page --> 
 
-<!-- ******************************Footer*********************************** -->
-        <footer>
-            <!--footer-->
-<footer class="footer1">
-<div class="container">
+   <!-- ********************************* Footer ***************************************** -->
+    <footer>
+    <!--footer-->
+        <footer class="footer1">
+        <div class="container">
 
-<div class="row"><!-- row -->
-            
+            <div class="row"><!-- row --> 
+
+                <!-- 1er colonne          -->
                 <div class="col-lg-3 col-md-3"><!-- widgets column left -->
-                <ul class="list-unstyled clear-margins"><!-- widgets -->
-                        
-                            <li class="widget-container widget_nav_menu"><!-- widgets list -->
-                    
-                                <h1 class="title-widget">Useful links</h1>
-                                
+                    <ul class="list-unstyled clear-margins"><!-- widgets -->              
+                        <li class="widget-container widget_nav_menu"><!-- widgets list -->     
+                            <h1 class="title-widget">Useful links</h1>           
                                 <ul>
                                     <li><a  href="#"><i class="fa fa-angle-double-right"></i> About Us</a></li>
                                     <li><a  href="#"><i class="fa fa-angle-double-right"></i> Contact Us</a></li>
                                     <li><a  href="#"><i class="fa fa-angle-double-right"></i> Success Stories</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i> PG Courses</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i> Achiever's Batch</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Regular Batch</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Test & Discussion</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Fast Track T & D</a></li>
-                                </ul>
-                    
-                            </li>
-                            
-                        </ul>
-                         
-                      
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i> LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i> LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                </ul>    
+                        </li> <!-- end list  -->              
+                    </ul>
                 </div><!-- widgets column left end -->
-                
-                
-                
-                <div class="col-lg-3 col-md-3"><!-- widgets column left -->
             
-                <ul class="list-unstyled clear-margins"><!-- widgets -->
-                        
-                            <li class="widget-container widget_nav_menu"><!-- widgets list -->
-                    
-                                <h1 class="title-widget">Useful links</h1>
-                                
-                                <ul>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Test Series Schedule</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Postal Coaching</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  PG Dr. Bhatia Books</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  UG Courses</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Satellite Education</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  Study Centres</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  State P.G. Mocks</a></li>
-                                    <li><a  href="#" target="_blank"><i class="fa fa-angle-double-right"></i> Results</a></li>
-                                    
-                                </ul>
-                    
-                            </li>
-                            
-                        </ul>
-                         
-                      
-                </div><!-- widgets column left end -->
-                
-                
-                
+                <!-- 2ème colonne -->
                 <div class="col-lg-3 col-md-3"><!-- widgets column left -->
-            
-                <ul class="list-unstyled clear-margins"><!-- widgets -->
-                        
-                            <li class="widget-container widget_nav_menu"><!-- widgets list -->
-                    
-                                <h1 class="title-widget">Useful links</h1>
-                                
+                    <ul class="list-unstyled clear-margins"><!-- widgets -->
+                        <li class="widget-container widget_nav_menu"><!-- widgets list -->
+                            <h1 class="title-widget">Useful links</h1>
                                 <ul>
-
-
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Enquiry Form</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Online Test Series</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Grand Tests Series</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Subject Wise Test Series</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Smart Book</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Test Centres</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i>  Admission Form</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i>  Computer Live Test</a></li>
-
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                    <li><a  href="#" target="_blank"><i class="fa fa-angle-double-right"></i> LOREM IPSUM</a></li>
                                 </ul>
-                    
-                            </li>
-                            
-                        </ul>
-                         
-                      
+                        </li>   
+                    </ul>     
                 </div><!-- widgets column left end -->
-                
-                
+                 
+                <!-- 3éme colonne -->
+                <div class="col-lg-3 col-md-3"><!-- widgets column left -->
+                    <ul class="list-unstyled clear-margins"><!-- widgets -->
+                        <li class="widget-container widget_nav_menu"><!-- widgets list -->
+                            <h1 class="title-widget">Useful links</h1>            
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> LOREM IPSUM</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> LOREM IPSUM</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> LOREM IPSUM</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> LOREM IPSUM</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> LOREM IPSUM</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> LOREM IPSUM</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>  LOREM IPSUM</a></li>
+                                </ul>
+                        </li>              
+                    </ul>    
+                </div><!-- widgets column left end -->
+
+                <!-- 4éme colonne  -->
                 <div class="col-lg-3 col-md-3"><!-- widgets column center -->
-                
-                   
-                    
-                        <ul class="list-unstyled clear-margins"><!-- widgets -->
-                        
-                            <li class="widget-container widget_recent_news"><!-- widgets list -->
-                    
-                                <h1 class="title-widget">Contact Detail </h1>
-                                
+                    <ul class="list-unstyled clear-margins"><!-- widgets -->
+                        <li class="widget-container widget_recent_news"><!-- widgets list -->
+                            <h1 class="title-widget">Contact Detail </h1>
+                                <!-- 1° Contact Rapide -->
                                 <div class="footerp"> 
-                                
-                                <h2 class="title-median">Web Developper Junior</h2>
-                                <p><b>Email id:</b> <a href="mailto:yvonbenahita@gmail.com">yvonbenahita@gmail.com</a></p>
-                                <p><b>Helpline Numbers </b>
-
-    <b style="color:#ffc106;">(8AM to 10PM):</b>  +91-8130890090, +91-8130190010  </p>
-    
-    <p><b>Corp Office / Postal Address</b></p>
-    <p><b>Phone Numbers : </b>7042827160, </p>
-    <p> 011-27568832, 9868387223</p>
+                                    <h2 class="title-median">Web Developper Junior</h2>
+                                    <p><b>Email id:</b> <a href="mailto:yvonbenahita@gmail.com">yvonbenahita@gmail.com</a></p>
+                                    <p><b>Helpline Numbers </b>
+                                    <b style="color:#ffc106;">(8AM to 10PM):</b>  +91-8130890090, +91-8130190010  </p>
+                                    <p><b>Corp Office / Postal Address</b></p>
+                                    <p><b>Phone Numbers : </b>7042827160, </p>
+                                    <p> 011-27568832, 9868387223</p>
                                 </div>
-                                
+                                <!-- 2° Réseaux Sociaux -->
                                 <div class="social-icons">
-                                
                                     <ul class="nomargin">
-                                    
-                <a href="https://www.facebook.com/"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
-                <a href="https://twitter.com/"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
-                <a href="https://plus.google.com/"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
-                <a href="mailto:yvonbenahita@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
-                                    
+                                        <a href="https://www.facebook.com/"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                                        <a href="https://twitter.com/"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+                                        <a href="https://plus.google.com/"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+                                        <a href="mailto:yvonbenahita@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
                                     </ul>
                                 </div>
                             </li>
-                          </ul>
-                       </div>
-                </div>
-</div>
-</footer>
-<!--header-->
-
-<div class="footer-bottom" style="background-color: #3477db;">
-
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-
-                <div class="copyright">
-
-                    © 2017, YY, All rights reserved
-
-                </div>
-
-            </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-
-                <div class="design">
-
-                     <a href="https://github.com/YvonB">Yvon B | Web Developer</a>
-
-                </div>
-
-            </div>
-
+                        </ul>
+                     </div>
+            </div> <!--end row -->
         </div>
+    </footer>
+    
+    <!-- copyright -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="copyright">
+                         © 2017, YY, All rights reserved
+                    </div>
+                </div>
 
-    </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="design">
+                        <a href="https://github.com/YvonB">Yvon B | Web Developer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end copyright -->
 
-</div>
-        </footer> 
-     
-       <!--*********************************** Fin footer*************************** -->
+</footer> 
+<!--*********************************** Fin footer **************************************** -->
 
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
-    </body>
-
+</body>
 </html>
