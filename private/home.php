@@ -134,24 +134,20 @@
                     <p><a href="https://github.com/YvonB/demo-mems-v1" target="_blank"><span aria-hidden="true" class="glyphicon glyphicon-new-window"></span> Analyseur des gazs polluants(Ce site web)</a></p>
                 </div>
             </div>
-            <!-- ========================================================================== -->
+            <!-- =========================================================================== -->
 
-            <!-- ================================Slide des 3 courbes======================================================= -->
-                        
-
-                    <!-- 1)HTML -->
+            <!-- ============================= Slide des 03 courbes ======================== -->
+                  <!-- 1)HTML -->
                     <div class="mon_slide">
-                    <div id="slider">
-                      <ul id="slideWrap"> 
-                        <li><?php include("div_co2.php") ?></li>
-                        <li><?php include("div_co.php") ?></li>
-                        <!-- <li></li> -->
-                       <!--  <li></li> -->
-                        <li><?php include("div_nh3.php") ?></li>
-                      </ul>
-                      <a id="prev" href="#">&#8810;</a>
-                      <a id="next" href="#">&#8811;</a>
-                    </div>
+                        <div id="slider">
+                          <ul id="slideWrap"> 
+                            <li><?php include("div_co2.php") ?></li>
+                            <li><?php include("div_co.php") ?></li>
+                            <li><?php include("div_nh3.php") ?></li>
+                          </ul>
+                          <a id="prev" href="#">&#8810;</a>
+                          <a id="next" href="#">&#8811;</a>
+                        </div>
                     </div>
 
                     <!-- 2) CSS : slide.css-->
