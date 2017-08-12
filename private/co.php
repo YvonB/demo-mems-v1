@@ -84,7 +84,7 @@
                 <button type="submit" class="btn btn-default"><b>Chercher</b></button>
               </form>
               <ul class="nav navbar-nav navbar-right colortextnav">
-                <li><a href="/home"><b><i class="fa fa-home" style="margin-right: 4px;"></i>Home</b></a></li>
+                <li><a href="/home"><b><i class="fa fa-home" style="margin-right: 4px;"></i>Back Home</b></a></li>
                 <li><a href="/home/co2">Gaz Carbonique</a></li>
                 <li><a href="/home/nh3">Amoniaque</a></li>
                 <li class="dropdown colortextnav">
@@ -334,7 +334,7 @@
 </footer>
 <!--header-->
 
-<div class="footer-bottom">
+<div class="footer-bottom" style="background-color: #3477db;">
 
     <div class="container">
 

@@ -84,7 +84,7 @@
                 <button type="submit" class="btn btn-default"><b>Chercher</b></button>
               </form>
               <ul class="nav navbar-nav navbar-right colortextnav">
-                <li><a href="/home"><b><i class="fa fa-home" style="margin-right: 4px;"></i>Home</b></a></li>
+                <li><a href="/home"><b><i class="fa fa-home" style="margin-right: 4px;"></i>Back Home</b></a></li>
                 <li><a href="/home/co">Monoxyde de Carbone</a></li>
                 <li><a href="/home/nh3">Amoniaque</a></li>
                 <li class="dropdown colortextnav">
@@ -118,9 +118,13 @@
 	<!-- div permettant de visualiser la courbe -->
     <div align="center">  
         <h4>Gaz carbonique</h4>
-    	<div id="co2" style="height: 400px; min-width: 310px">
-    		
-    	</div>
+        <div class="mon_slide">
+            <div id="slider">
+            	<div id="co2" style="height: 400px; min-width: 310px">
+            		
+            	</div>
+            </div>
+        </div>
     </div> 
     <!-- pour récupérer les valeurs dans la BD -->
     <?php
@@ -335,7 +339,7 @@
 </footer>
 <!--header-->
 
-<div class="footer-bottom">
+<div class="footer-bottom" style="background-color: #3477db;">
 
     <div class="container">
 

@@ -362,7 +362,7 @@
 </footer>
 <!--header-->
 
-<div class="footer-bottom">
+<div class="footer-bottom" style="background-color: #3477db;">
 
     <div class="container">
 
