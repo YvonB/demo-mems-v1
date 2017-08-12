@@ -128,7 +128,7 @@ require_once('../vendor/autoload.php');
                         {
                         // On crée un objet de type Repository.
                         $obj_repo = new \GDS\Demo\Repository();
-                        // Chercher tous les gazs insérées récemment.
+                        // Chercher TOUS 'All' les gazs insérées récemment.
                         $arr_posts = $obj_repo->getAllRecentPost();
 
                         // au début 
@@ -178,40 +178,40 @@ require_once('../vendor/autoload.php');
                                 google.charts.load('current', {'packages':['gauge']});
                                 google.charts.setOnLoadCallback(drawChart);
 
-                                function drawChart() {
+                                function drawChart() 
+                                {
+                                    // des valeurs aléatoires au chargement de la page
+                                    var data = google.visualization.arrayToDataTable([
+                                      ['Label', 'Value'],                             
+                                      ['CO2', <?php echo rand(0, 100); ?>],
+                                      ['CO', <?php echo rand(0, 100); ?>],
+                                      ['NH3', <?php echo rand(0, 100); ?>]
+                                    ]);
 
-                                // des valeurs aléatoires au chargement de la page
-                                var data = google.visualization.arrayToDataTable([
-                                  ['Label', 'Value'],                             
-                                  ['CO2', <?php echo rand(0, 100); ?>],
-                                  ['CO', <?php echo rand(0, 100); ?>],
-                                  ['NH3', <?php echo rand(0, 100); ?>]
-                                ]);
+                                    var options = {
+                                      width: 400, height: 120,
+                                      redFrom: 90, redTo: 100,
+                                      yellowFrom:75, yellowTo: 90,
+                                      minorTicks: 10
+                                    };
 
-                                var options = {
-                                  width: 400, height: 120,
-                                  redFrom: 90, redTo: 100,
-                                  yellowFrom:75, yellowTo: 90,
-                                  minorTicks: 10
-                                };
+                                    var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
 
-                                var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+                                    chart.draw(data, options);
 
-                                chart.draw(data, options);
-
-                                setInterval(function() {
-                                  data.setValue(0, 1, 0 + <?php echo $pource_co2; ?>);
-                                  chart.draw(data, options);
-                                }, 4000);
-                                setInterval(function() {
-                                  data.setValue(1, 1, 0 + <?php echo $pource_co; ?>);
-                                  chart.draw(data, options);
-                                }, 4000);
-                                setInterval(function() {
-                                  data.setValue(2, 1, 0 + <?php echo $pource_nh3; ?>);
-                                  chart.draw(data, options);
-                                }, 4000);
-                              }                    
+                                    setInterval(function() {
+                                      data.setValue(0, 1, 0 + <?php echo $pource_co2; ?>);
+                                      chart.draw(data, options);
+                                    }, 4000);
+                                    setInterval(function() {
+                                      data.setValue(1, 1, 0 + <?php echo $pource_co; ?>);
+                                      chart.draw(data, options);
+                                    }, 4000);
+                                    setInterval(function() {
+                                      data.setValue(2, 1, 0 + <?php echo $pource_nh3; ?>);
+                                      chart.draw(data, options);
+                                    }, 4000);
+                                }                    
                             </script>
                             <!-- ================= Fin script affich ===================== % -->
                             
@@ -224,17 +224,17 @@ require_once('../vendor/autoload.php');
                                 });
 
                             function refresh() 
-                            {   
-                                setTimeout(
-                                            function()
-                                            {
-                                               $('#chart_div').load('main.php');
-                                               refresh();     
-                                            }, 5000        // l'actualisation se fait chaque 5 sec 
-                                          );
-                            }
+                                {   
+                                    setTimeout(
+                                                function()
+                                                    {
+                                                       $('#chart_div').load('main.php');
+                                                       refresh();     
+                                                    }, 5000        // l'actualisation se fait chaque 5 sec 
+                                              );
+                                }
                             </script>
-                            <!-- =======================fin actu auto===================== -->
+                            <!-- ======================= fin actu auto ===================== -->
 
                             <?php
                         }
