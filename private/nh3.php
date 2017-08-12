@@ -30,7 +30,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/demo.css">
+
+    <!-- css global -->
+    <link rel="stylesheet" href="/css/demo.css"> 
+    <link rel="stylesheet" href="/css/slide.css"> <!-- pour l'utilisation de #slider ect -->
+
     <meta name="author" content="Yvon Benahita">
     <link rel="icon" type="image/png" href="/img/datastore-logo.png" />
 	<!-- script pour la courbe -->
@@ -39,10 +43,10 @@
 	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
 	<!-- ********************** -->
 
-    <!-- font -->
+    <!-- font awesome-->
     <link rel="stylesheet" href="css/font-awesome/font-awesome.css">
-
 </head>
+
 <body>
     <!--************************ Début Navigation ************************************-->
     <header>

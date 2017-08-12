@@ -1,13 +1,17 @@
-.mon_slide {
-  margin: 10%; }
+.mon_slide 
+{
+  margin: 10%; 
+}
 
-#slider {
+#slider
+ {
   position: relative;
   width: 100%;
   height: 441px;
   overflow: hidden;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); }
-  #slider ul {
+  #slider ul 
+  {
     position: relative;
     list-style: none;
     height: 100%;
@@ -15,26 +19,42 @@
     padding: 0;
     margin: 0;
     transition: all 750ms ease;
-    left: 0; }
-    #slider ul li {
+    left: 0; 
+  }
+    #slider ul li
+     {
       position: relative;
       height: 100%;
       width: calc(71.99vw);
-      float: left; }
-      #slider ul li img {
+      float: left; 
+    }
+      #slider ul li img 
+      {
         width: 100%;
-        height: 100%; }
-      #slider ul li:nth-child(1) {
-        background-color: #00A6ED; }
-      #slider ul li:nth-child(2) {
-        background-color: #FFD966; }
-      #slider ul li:nth-child(3) {
-        background-color: #89da59; }
-      #slider ul li:nth-child(4) {
-        background-color: #F71735; }
-      #slider ul li:nth-child(5) {
-        background-color: #9881F5; }
-  #slider #prev, #slider #next {
+        height: 100%; 
+      }
+      #slider ul li:nth-child(1) 
+      {
+        background-color: #00A6ED; 
+      }
+      #slider ul li:nth-child(2) 
+      {
+        background-color: #FFD966; 
+      }
+      #slider ul li:nth-child(3) 
+      {
+        background-color: #89da59; 
+      }
+      #slider ul li:nth-child(4) 
+      {
+        background-color: #F71735; 
+      }
+      #slider ul li:nth-child(5) 
+      {
+        background-color: #9881F5; 
+      }
+  #slider #prev, #slider #next 
+  {
     width: 50px;
     line-height: 50px;
     border-radius: 50%;
@@ -46,13 +66,20 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    transition: all 150ms ease; }
-    #slider #prev:hover, #slider #next:hover {
+    transition: all 150ms ease; 
+  }
+    #slider #prev:hover, #slider #next:hover 
+    {
       background-color: rgba(0, 0, 0, 0.5);
-      text-shadow: 0; }
-  #slider #prev {
-    left: 10px; }
-  #slider #next {
-    right: 10px; }
+      text-shadow: 0; 
+    }
+  #slider #prev 
+  {
+    left: 10px; 
+  }
+  #slider #next 
+  {
+    right: 10px; 
+  }
 
 /*# sourceMappingURL=slide.css.map */

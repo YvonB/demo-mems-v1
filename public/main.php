@@ -6,27 +6,21 @@ define('POST_LIMIT', 10);
 
 use google\appengine\api\users\User;
 use google\appengine\api\users\UserService;
-// [START user]
+
 # Looks for current Google account session
 $user = UserService::getCurrentUser();
 
 // Inclusion pour notre lib
 require_once('../vendor/autoload.php');
 
-// Pour rafraîchir la page à chaque 7 seconde
-// $page = $_SERVER['PHP_SELF'];
-// $sec = "30";
-
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 
-<!-- head -->
 <head>
     <meta charset="utf-8">
     <title>Détéction de pollution</title>
-    <!-- <meta http-equiv = "refresh" content = "<?php echo $sec ?> ; URL ='<?php echo $page ?>' " charset="utf-8"> -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -35,7 +29,7 @@ require_once('../vendor/autoload.php');
     <meta name="author" content="Yvon Benahita">
     <link rel="icon" type="image/png" href="/img/datastore-logo.png" />
 
-      <!-- font -->
+    <!-- font awesome -->
     <link rel="stylesheet" href="css/font-awesome/font-awesome.css">
     
     <!-- Pour le Jauge  -->
@@ -44,11 +38,6 @@ require_once('../vendor/autoload.php');
 
     <!-- jquery du rafraîchissement -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <!-- end head -->
 
@@ -57,6 +46,7 @@ require_once('../vendor/autoload.php');
     <header>
         <nav class="navbar navbar-default navbar-fixed-top colornav">
           <div class="container-fluid">
+
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -70,30 +60,19 @@ require_once('../vendor/autoload.php');
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <!-- Page courante -->
               <ul class="nav navbar-nav">
                 <li class="active colortextnav"><a href="#"><b>Welcome</b><span class="sr-only">(current)</span></a></li>
-                <!-- <li class="colortextnav"><a href="#">Link</a></li>
-                <li class="dropdown colortextnav">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li> -->
               </ul>
+              <!-- Recherche -->
               <form class="navbar-form navbar-left">
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Search">
                 </div>
                 <button type="submit" class="btn btn-default"><b>Chercher</b></button>
               </form>
+
               <ul class="nav navbar-nav navbar-right colortextnav">
-                <!-- <li><a href="#">Link</a></li> -->
                 <li class="dropdown colortextnav">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>Options</b><span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -110,13 +89,14 @@ require_once('../vendor/autoload.php');
                   </ul>
                 </li>
               </ul>
+
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
     </header>
     <!--****************************** Fin Navigation *****************************-->
         
-        <div class="container">  <!-- Pour tout le contenu de notre site -->
+        <div class="container">  <!-- ========= Pour tout le contenu de notre site======== -->
 
             <!-- =========================== Le logo et le titre ============================ -->
             <div class="row">
@@ -268,16 +248,16 @@ require_once('../vendor/autoload.php');
                     </div>
                 </div>
             </div>
-            <!-- ========================================================================== -->
+        <!-- ========================================================================== -->
 
-            <!-- ============================== Le Map ==================================== -->
+        <!-- ============================== Le Map ==================================== -->
             <div>
                 <h2>Where are our sensors?</h2>
                 <div class="map" align="center">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d963367.6427555117!2d46.800975397000194!3d-19.40571407254446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21fa8238a95a8965%3A0xe11f2e914a20ec99!2sEcole+Sup%C3%A9rieur+Polytechnique+d&#39;Antananarivo!5e0!3m2!1sfr!2sfr!4v1501594670727" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
             </div>
-            <!-- =============================== Fin Map ================================== -->
+        <!-- =============================== Fin Map ================================== -->
 
         <!-- ========== Pour visualiser les 10 derniéres résultats brute en ppm =========== -->
             <div class="row">
@@ -348,14 +328,14 @@ require_once('../vendor/autoload.php');
             </div>
         <!-- ================================ Fin Aff brute =============================== -->
 
-            <!-- ==========================pour la courbe=========================== -->
+        <!-- ==========================pour la courbe=========================== -->
             <!-- debut courbe brute -->
                 
                 
-            <!-- ==========================fin courbe=============================== -->
+        <!-- ==========================fin courbe=============================== -->
 
 
-            <!-- ===========================Espace connexion ============================== -->
+        <!-- ========================== Espace connexion ============================== -->
             <div class="row">
                 <div class="col-md-12">
                     <h2>See more content</h2>
@@ -377,7 +357,7 @@ require_once('../vendor/autoload.php');
                     </div>
                 </div>
             </div>
-            <!-- ====================== Fin Espace Connexion ============================== -->
+        <!-- ====================== Fin Espace Connexion ============================== -->
 
     </div> <!-- fin de container de la page --> 
        
