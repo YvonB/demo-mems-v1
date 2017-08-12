@@ -132,7 +132,7 @@ class Repository
     }
 
     /**
-     * Configuration et retourner un magasin (Store)
+     * Configuration et retourner un magasin (Store ie La BDD)
      *
      * @return Store
      */
