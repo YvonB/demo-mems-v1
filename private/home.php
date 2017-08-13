@@ -67,19 +67,6 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li class="active colortextnav"><a href="#"><b><i class="fa fa-home" style="margin-right: 4px;"></i>Home</b><span class="sr-only">(current)</span></a></li>
-                <!-- <li class="colortextnav"><a href="#">Link</a></li>
-                <li class="dropdown colortextnav">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li> -->
               </ul>
               <form class="navbar-form navbar-left">
                 <div class="form-group">
@@ -94,10 +81,6 @@
                 <li class="dropdown colortextnav">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b><?php echo htmlspecialchars($user->getNickname());?></b><span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <!-- <li><a href="#"><b>Voir l'état de CO2</a></b></li>
-                    <li><a href="#"><b>Voir l'état de CO</a></b></li>
-                    <li><a href="#"><b>Voir l'état de NH3</a></b></li>
-                    <li role="separator" class="divider"></li> -->
                     <li><a href="/login"><button type="submit" class="btn btn-primary" align="center">Se Deconnecter</button></a></li>
                   </ul>
                 </li>
