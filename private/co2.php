@@ -38,10 +38,12 @@
 
     <meta name="author" content="Yvon Benahita">
     <link rel="icon" type="image/png" href="/img/datastore-logo.png" />
+
 	<!-- script pour la courbe -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="https://code.highcharts.com/stock/highstock.js"></script>
-	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+	<!-- <script src="https://code.highcharts.com/stock/highstock.js"></script>
+	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script> -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<!-- ********************** -->
 
     <!-- font pour home-->
@@ -108,20 +110,41 @@
         <h4>Gaz carbonique</h4>
         <div class="mon_slide">
             <div id="slider">
-            	<div id="co2" style="height: 400px; min-width: 310px">
+            	<!-- <div id="co2" style="height: 400px; min-width: 310px">
             		
-            	</div>
+            	</div> -->
+                <div id="curve_chart" style="min-width: 310px; height: 400px"></div>
+
             </div>
         </div>
     </div> 
     <!-- pour récupérer les valeurs dans la BD -->
     <?php
         foreach ($arr_posts as $obj_post)
-        {
-            $data_co2[] = $obj_post->co2;
+        {   
+            // Effectuez une belle chaîne d'affichage de date et heure
+            $int_posted_date = strtotime($obj_post->posted);
+            $int_date_diff = time() - $int_posted_date;
+
+            if ($int_date_diff < 3600) 
+                {
+                    $str_date_display = round($int_date_diff / 60) . ' minute(s)';
+                } 
+            else if ($int_date_diff < (3600 * 24)) 
+                {
+                    $str_date_display = round($int_date_diff / 3600) . ' heure(s)';
+                } 
+            else 
+                {
+                    $str_date_display = date('\a\t jS M Y, H:i', $int_posted_date);
+                }
+
+            $sub_array = array();
+            $sub_array[] = array($str_date_display, (float)$obj_post->co2);
+            $row[] =  array($sub_array);
         }
 
-        $jsonTable = json_encode($arr_posts);
+        $jsonTable = json_encode($row);
         echo "<pre>";
         print_r($jsonTable);
         echo "</pre>";
@@ -129,69 +152,24 @@
 	
 	<!-- le script de la courbe lui même -->
 	<script type="text/javascript">
-		$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=new-intraday.json&callback=?', function (data) 
-		{
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
-            // create the chart
-            Highcharts.stockChart('co2', {
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(<?php echo $jsonTable;?>);
 
+        var options = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
 
-                title: {
-                    text: 'Valeurs de Gaz Cabonique par minute'
-                },
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
-                subtitle: {
-                    text: 'En partie par million (ppm)'
-                },
+        chart.draw(data, options);
+      }
+    </script>
 
-                xAxis: {
-                    gapGridLineWidth: 0
-                },
-
-                rangeSelector: {
-                    buttons: [{
-                        type: 'hour',
-                        count: 1,
-                        text: '1h'
-                    }, {
-                        type: 'day',
-                        count: 1,
-                        text: '1j'
-                    }, {
-                        type: 'all',
-                        count: 1,
-                        text: 'Tous'
-                    }],
-                    selected: 1,
-                    inputEnabled: false
-                },
-
-                series: [{
-                    name: 'CO2',
-                    type: 'area',
-                    data: [<?php echo join($data_co2, ',') ?>],
-                    gapSize: 5,
-                    tooltip: {
-                        valueDecimals: 2
-                    },
-                    fillColor: {
-                        linearGradient: {
-                            x1: 0,
-                            y1: 0,
-                            x2: 0,
-                            y2: 1
-                        },
-                        stops: [
-                            [0, Highcharts.getOptions().colors[0]],
-                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                        ]
-                    },
-                    threshold: null
-                }]
-            });
-});
-
-	</script>
 <!-- ***************************************** -->
 
 </div> <!-- fin de container de la page --> 
