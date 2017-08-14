@@ -20,6 +20,9 @@ handlers:
 - url: /fonts
   static_dir: public/fonts
 
+- url: /medias
+  static_dir: public/medias
+
 # Form handler
 - url: /insert
   script: public/insert.php

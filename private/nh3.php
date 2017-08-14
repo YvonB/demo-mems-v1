@@ -121,8 +121,12 @@
 
     <div align="center">  
         <h4>Amoniaque</h4>
-        <div id="nh3" style="height: 400px; min-width: 310px">
-            
+         <div class="mon_slide">
+            <div id="slider">
+                <div id="nh3" style="height: 400px; min-width: 310px">
+                    
+                </div>
+            </div>
         </div>
     </div> 
 

@@ -7,6 +7,9 @@
  */
 
 namespace GDS\Demo;
+
+define('POST_LIMIT', 10);
+
 use GDS\Schema;
 use GDS\Store;
 

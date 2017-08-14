@@ -7,6 +7,55 @@ h1,h2,h3,h4,h5,p,td,small,div
     width: 42px;
     margin-right: 5px;
 }
+.logo_ban
+{
+    width: 30px;
+    margin-right: 4px;
+}
+/*banière*/
+.banner
+{
+    width: 100%;
+    max-width: 100%;
+
+    padding: 0px;
+}
+
+.ban
+{
+    width: 100%;
+    max-width: 100%;   
+}
+
+.ban video
+{
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+}
+
+.inner-banner
+{
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+}
+
+.inner-banner h1 
+{
+    color: #fff;
+    font-size: 50px;
+    text-shadow: 1px 1px 20px #000;
+}
+
+.sub_title_ban
+{
+    color: #fff;
+    text-shadow: 1px 1px 20px #000;
+}
+/*end banière*/
+
 .well h3 
 {
     margin-top: 0px;
@@ -80,6 +129,12 @@ h1,h2,h3,h4,h5,p,td,small,div
 
 
  /*Fin de slide*/
+
+.map
+    {
+       margin-left: 40px;
+    }
+
 
 p 
 {
@@ -266,11 +321,6 @@ p a
     {
         width: 70px;
         margin-right: 8px;
-    }
-
-    .map
-    {
-       
     }
 
 }

@@ -2,7 +2,7 @@
 // Définitions des constantes modèles pour l'accès au datatore
 define('GDS_ACCOUNT', ' !! your service account name here !! ');
 define('GDS_KEY_FILE', dirname(__FILE__) . '/key.p12');
-define('POST_LIMIT', 10);
+// define('POST_LIMIT', 10);
 
 use google\appengine\api\users\User;
 use google\appengine\api\users\UserService;
@@ -95,6 +95,28 @@ require_once('../vendor/autoload.php');
         </nav>
     </header>
     <!--****************************** Fin Navigation *****************************-->
+
+    <!-- ====================================== Benière ====================================== -->
+    <section class="container-fluid banner">
+        <div class="ban">
+            <video src="medias/La pollution.mp4" type="video/mp4" autoplay="autoplay" loop="loop" muted="muted" >   
+            </video>
+        </div> 
+        <div class="inner-banner">
+            <h3 class="sub_title_ban"><img src="/img/datastore-logo.png"  class="logo_ban" />Detecteur/Analyseur Web des Gaz polluants SDP - IoT</h3>
+            <h1>Know what really exists in the air you breathe</h1>
+            <p class="sub_title_ban"><b>Follow your health closely</b></p>
+            <button type="submit" class="btn btn-primary">
+                                    <?php 
+                                        if(isset($user)) 
+                                            {echo "Go Home<i class='fa fa-arrow-right' style='margin-left: 15px;'></i>";}
+                                        else 
+                                            {echo "See More Content";}
+                                    ?>
+            </button>
+        </div>
+    </section>
+    <!-- =================================== end banière ===================================== -->
         
         <div class="container">  <!-- ========= Pour tout le contenu de notre site======== -->
 
@@ -253,7 +275,7 @@ require_once('../vendor/autoload.php');
         <!-- ============================== Le Map ==================================== -->
             <div>
                 <h2>Where are our sensors?</h2>
-                <div class="map" align="center">
+                <div class="map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d963367.6427555117!2d46.800975397000194!3d-19.40571407254446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21fa8238a95a8965%3A0xe11f2e914a20ec99!2sEcole+Sup%C3%A9rieur+Polytechnique+d&#39;Antananarivo!5e0!3m2!1sfr!2sfr!4v1501594670727" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
             </div>
@@ -263,7 +285,7 @@ require_once('../vendor/autoload.php');
             <div class="row">
                 <div class="col-md-8" >
                     <h2>Results</h2>
-                    <div class="panel panel-default" id="vals_brutes" style="background-color: #cdf;">
+                    <div class="panel panel-default" style="background-color: #cdf;">
                         <div class="panel-body">
 
                             <?php
