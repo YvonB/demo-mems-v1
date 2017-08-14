@@ -120,6 +120,11 @@
         {
             $data_co2[] = $obj_post->co2;
         }
+
+        $jsonTable = json_encode($arr_posts);
+        echo "<pre>";
+        print_r($jsonTable);
+        echo "</pre>";
     ?>
 	
 	<!-- le script de la courbe lui même -->

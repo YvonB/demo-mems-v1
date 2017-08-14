@@ -9,8 +9,8 @@ h1,h2,h3,h4,h5,p,td,small,div
 }
 .logo_ban
 {
-    width: 30px;
-    margin-right: 4px;
+    width: 24px;
+    margin-right: 6px;
 }
 /*banière*/
 .banner
@@ -53,6 +53,17 @@ h1,h2,h3,h4,h5,p,td,small,div
 {
     color: #fff;
     text-shadow: 1px 1px 20px #000;
+}
+
+#video
+{
+    /* Préfixes vendeurs */
+    -webkit-filter: brightness(0.7);
+    -moz-filter: brightness(0.7);
+    -o-filter: brightness(0.7);
+    -ms-filter: brightness(0.7);
+
+    filter: brightness(0.7);
 }
 /*end banière*/
 

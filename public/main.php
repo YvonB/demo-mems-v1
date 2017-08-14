@@ -99,7 +99,7 @@ require_once('../vendor/autoload.php');
     <!-- ====================================== Benière ====================================== -->
     <section class="container-fluid banner">
         <div class="ban">
-            <video src="medias/La pollution.mp4" type="video/mp4" autoplay="autoplay" loop="loop" muted="muted" >   
+            <video id = "video" src="medias/La pollution.mp4" type="video/mp4" autoplay="autoplay" loop="loop" muted="muted" >   
             </video>
         </div> 
         <div class="inner-banner">
@@ -155,8 +155,11 @@ require_once('../vendor/autoload.php');
 
                         // au début 
                         $nbr_co2_na = 0;
+                        $n_co2 = 0;
                         $nbr_co_na = 0;
+                        $n_co = 0;
                         $nbr_nh3_na = 0;
+                        $n_nh3 = 0;
 
                         // Compte tous les posts.
                         $nbr = count($arr_posts); // C'est le N dans le livre
@@ -189,10 +192,13 @@ require_once('../vendor/autoload.php');
                         }
 
                         //calculs les %
-                        $pource_co2 = ($n_co2*100)/$nbr;
-                        $pource_co = ($n_co*100)/$nbr;
-                        $pource_nh3 = ($n_nh3*100)/$nbr;
-                          
+                        if($nbr != 0) // on évite la division par zéro
+                            {   
+                                $pource_co2 = ($n_co2*100)/$nbr;
+                                $pource_co = ($n_co*100)/$nbr;
+                                $pource_nh3 = ($n_nh3*100)/$nbr;
+                            }
+
                         ?>
 
                             <!-- =====script pour afficher les pourcentages de gazs non acceptable sur les compteurs====================         -->
