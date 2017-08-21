@@ -123,6 +123,13 @@ body
   border-radius:  inherit;  
 
 }
+
+.btn-primary
+{
+  background-color: rgb(59, 120, 231);
+  border-color: rgb(59, 120, 231);
+}
+
 .colortextnav
 {
     color: #fff !important;
