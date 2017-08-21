@@ -334,14 +334,17 @@ try
     // =========fin appel de notre modèle
 
    // val ppm
-    $ppm_co2 = $arr_posts->co2;
-    $ppm_co = $arr_posts->co;
-    $ppm_nh3 = $arr_posts->nh3;
+    if(isset($arr_posts->co2) AND isset($arr_posts->co) AND isset($arr_posts->nh3))
+       {
+        $ppm_co2 = $arr_posts->co2;
+        $ppm_co = $arr_posts->co;
+        $ppm_nh3 = $arr_posts->nh3;
 
-    // masse masseVolumique_co2 avec 3 après la virgule comme précision
-    $masseVolumique_co2 = round(($ppm_co2 * (MASSE_MOLAIRE_CO2/VOLUME_MOLAIRE)), 3, PHP_ROUND_HALF_UP);
-    $masseVolumique_co = round(($ppm_co * (MASSE_MOLAIRE_CO/VOLUME_MOLAIRE)), 3, PHP_ROUND_HALF_UP);
-    $masseVolumique_nh3 = round(($ppm_nh3 * (MASSE_MOLAIRE_NH3/VOLUME_MOLAIRE)), 3, PHP_ROUND_HALF_UP);   
+        // masse masseVolumique_co2 avec 3 après la virgule comme précision
+        $masseVolumique_co2 = round(($ppm_co2 * (MASSE_MOLAIRE_CO2/VOLUME_MOLAIRE)), 3, PHP_ROUND_HALF_UP);
+        $masseVolumique_co = round(($ppm_co * (MASSE_MOLAIRE_CO/VOLUME_MOLAIRE)), 3, PHP_ROUND_HALF_UP);
+        $masseVolumique_nh3 = round(($ppm_nh3 * (MASSE_MOLAIRE_NH3/VOLUME_MOLAIRE)), 3, PHP_ROUND_HALF_UP);
+       }    
 }
 catch(\Exception $obj_ex)
 {
@@ -372,7 +375,7 @@ catch(\Exception $obj_ex)
                                                                 }
 
 
-                                                        ?>"><?php echo $masseVolumique_co2 . " ";?><em>[mg/m3]</em></span>
+                                                        ?>"><?php if(isset($masseVolumique_co2)) echo $masseVolumique_co2 . " ";?><em>[mg/m3]</em></span>
           <ul class="features">
             <li class="li_brute">Lorem Ipsum ipsum</li>
             <li class="li_brute">Another lorem ipsum</li>
@@ -400,7 +403,7 @@ catch(\Exception $obj_ex)
                                                                 }
 
 
-                                                        ?>"><?php echo $masseVolumique_co . " ";?><em>[mg/m3]</em></span>
+                                                        ?>"><?php if(isset($masseVolumique_co)) echo $masseVolumique_co . " ";?><em>[mg/m3]</em></span>
           <ul class="features">
             <li class="li_brute">Lorem Ipsum ipsum</li>
             <li class="li_brute">Another lorem ipsum</li>
@@ -428,7 +431,7 @@ catch(\Exception $obj_ex)
                                                                 }
 
 
-                                                        ?>"><?php echo $masseVolumique_nh3 . " ";?><em>[mg/m3]</em></span>
+                                                        ?>"><?php if(isset($masseVolumique_nh3)) echo $masseVolumique_nh3 . " ";?><em>[mg/m3]</em></span>
           <ul class="features">
             <li class="li_brute">Choose the lorem ipsum</li>
             <li class="li_brute">We need lorem ipsum</li>
