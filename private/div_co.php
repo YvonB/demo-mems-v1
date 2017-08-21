@@ -30,7 +30,7 @@
                 // =========fin appel de notre modèle
 
                // val de co en ppm
-                $ppm_co = $arr_posts->co;  
+                if(isset($arr_posts)){$ppm_co = $arr_posts->co;}   
             }
             catch(\Exception $obj_ex)
                 {

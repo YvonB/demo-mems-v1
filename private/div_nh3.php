@@ -30,7 +30,7 @@
                 // =========fin appel de notre modèle
 
                // val de co2 en ppm
-                $ppm_nh3 = $arr_posts->nh3;  
+                if(isset($arr_posts)){$ppm_nh3 = $arr_posts->nh3;}  
             }
             catch(\Exception $obj_ex)
                 {

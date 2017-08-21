@@ -1,3 +1,6 @@
+
+/*color lin nav : ece4e4*/
+
 h1,h2,h3,h4,h5,p,td,small,div 
 {
     font-weight: 200;
@@ -26,6 +29,22 @@ body
     width: 24px;
     margin-right: 6px;
 }
+/*les titres*/
+.titres
+{
+    color: #eaeaea;
+}
+
+}
+/*end titres*/
+/*les pags*/
+.parags
+{
+  color: #d0dbdb !important;
+  font-weight: bold !important;
+
+}
+/*end parag*/
 /*banière*/
 .banner
 {
@@ -129,14 +148,32 @@ body
   background-color: rgb(59, 120, 231);
   border-color: rgb(59, 120, 231);
 }
-
+.btn-primary:hover
+{
+    background-color: rgb(59, 107, 255);
+}
 .colortextnav
 {
-    color: #fff !important;
+    color: #e0dddd !important;
+    transition: color .2s;
+    text-transform: uppercase;
 }
 
-.navbar-default .navbar-nav > li > a {
-    color: #fff;
+.colortextnav:hover
+{
+  color: #fff !important;
+}
+
+.navbar-default .navbar-nav > li > a 
+{
+    color: #e0dddd !important;
+    transition: color .2s;
+    font-weight: bold;
+}
+
+.navbar-default .navbar-nav > li > a:hover 
+{
+    color: #fff !important;
 }
 
 /*header sroll fix*/

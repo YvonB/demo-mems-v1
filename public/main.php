@@ -90,7 +90,7 @@ require_once('../vendor/autoload.php');
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <!-- Page courante -->
               <ul class="nav navbar-nav">
-                <li class="active colortextnav"><a href="#"><b>Welcome</b><span class="sr-only">(current)</span></a></li>
+                <li class="active colortextnav"><a href="#" style="color:black !important;"><b>Welcome</b><span class="sr-only">(current)</span></a></li>
               </ul>
               <!-- Recherche -->
               <form class="navbar-form navbar-left" style="margin-left: 150px;">
@@ -104,9 +104,9 @@ require_once('../vendor/autoload.php');
                 <li class="dropdown colortextnav">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>Options</b><span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="/home/co2"><b>Voir l'état de CO2</a></b></li>
-                    <li><a href="/home/co"><b>Voir l'état de CO</a></b></li>
-                    <li><a href="/home/nh3"><b>Voir l'état de NH3</a></b></li>
+                    <li><a href="/home/co2" style="text-transform: lowercase;"><b>Voir l'état de CO2</a></b></li>
+                    <li><a href="/home/co" style="text-transform: lowercase;"><b>Voir l'état de CO</a></b></li>
+                    <li><a href="/home/nh3" style="text-transform: lowercase;"><b>Voir l'état de NH3</a></b></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="<?php 
                                     $login = "/login";
@@ -129,7 +129,7 @@ require_once('../vendor/autoload.php');
             <!-- =========================== Le logo et le titre ============================ -->
             <div class="row">
                 <div class="col-md-12">
-                    <h1><img src="/img/datastore-logo.png" id="gds-logo" /> PHP & <span class="hidden-xs">Google</span> Cloud Datastore</h1>
+                    <h1 class="titres"><img src="/img/datastore-logo.png" id="gds-logo" /> PHP & <span class="hidden-xs">Google</span> Cloud Datastore</h1>
                 </div>
             </div>
             <!-- ====================================================================== -->
@@ -138,16 +138,16 @@ require_once('../vendor/autoload.php');
             <div class="row">
                 <!-- Définition -->
                 <div class="col-md-8">
-                    <h2>What is it ?</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla est purus,<br> ultrices in porttitor
+                    <h2 class="titres">What is it ?</h2>
+                    <p class="parags">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla est purus,<br> ultrices in porttitor
                     in, accumsan non quam. Nam consectetur porttitor rhoncus.<br> Curabitur eu est et leo feugiat
                     auctor vel quis lorem.</p>
-                    <p>Ut et ligula dolor, sit amet consequat lorem. Aliquam porta eros sed
+                    <p class="parags">Ut et ligula dolor, sit amet consequat lorem. Aliquam porta eros sed
                     velit imperdiet egestas.</p>
                 </div>
                 <!-- Dadhboard -->
                 <div class="col-md-4" >
-                    <h3>Counter Of Gases not acceptable</h3>
+                    <h3 class="titres">Counter Of Gases not acceptable</h3>
                     <div id="chart_div" style="width: 400px; height: 120px;">
 
                         <?php
@@ -286,7 +286,7 @@ require_once('../vendor/autoload.php');
 
         <!-- ============================== Le Map ==================================== -->
             <div>
-                <h2>Where are our sensors?</h2>
+                <h2 class="titres">Where are our sensors?</h2>
                 <div class="my_map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d963367.6427555117!2d46.800975397000194!3d-19.40571407254446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21fa8238a95a8965%3A0xe11f2e914a20ec99!2sEcole+Sup%C3%A9rieur+Polytechnique+d&#39;Antananarivo!5e0!3m2!1sfr!2sfr!4v1501594670727" width="675" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
@@ -317,7 +317,7 @@ require_once('../vendor/autoload.php');
 
 <!-- ========================== Tableau des dernièrs valeurs en mg/m3 ========================== -->
 <div class="brute" id="mg_m3">
-<h2>Notifications</h2>
+<h2 class="titres">Notifications</h2>
 
 <!-- Calculs -->
 
@@ -357,8 +357,8 @@ catch(\Exception $obj_ex)
     <div class="promos">  
         <div class="promo"  style="background: #000000b7">
           <div class="deal">
-            <span>CO2</span>
-            <span>Lorem ipsum lorem ipsum</span>
+            <span class="titres">CO2</span>
+            <span class="parags">Lorem ipsum lorem ipsum</span>
           </div>
           <span class="price" style="background-color: <?php
                                                              if($ppm_co2 <= 396)
@@ -385,8 +385,8 @@ catch(\Exception $obj_ex)
         </div>
         <div class="promo scale" style="background: #000000b7">
           <div class="deal">
-            <span>CO</span>
-            <span>Lorem ipsum lorem ipsum</span>
+            <span class="titres">CO</span>
+            <span class="parags">Lorem ipsum lorem ipsum</span>
           </div>
           <span class="price" style="background-color: <?php
                                                              if($ppm_co <= 3)
@@ -413,8 +413,8 @@ catch(\Exception $obj_ex)
         </div>
         <div class="promo" style="background: #000000b7">
           <div class="deal">
-            <span>NH3</span>
-            <span>Lorem ipsum lorem ipsum</span>
+            <span class="titres">NH3</span>
+            <span class="parags">Lorem ipsum lorem ipsum</span>
           </div>
           <span class="price" style="background-color: <?php
                                                              if($ppm_nh3 <= 5)
@@ -447,7 +447,7 @@ catch(\Exception $obj_ex)
         <!-- ========================== Espace connexion ============================== -->
             <div class="row">
                 <div class="col-md-12">
-                    <h2>See more content</h2>
+                    <h2 class="titres">See more content</h2>
                 </div>
             </div>
             <div class="row">

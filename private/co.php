@@ -66,11 +66,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li class="active colortextnav"><a href="#"><b>CO</b><span class="sr-only">(current)</span></a></li>
+                <li class="active colortextnav"><a href="#" style="color:black !important;"><b>CO</b><span class="sr-only">(current)</span></a></li>
               </ul>
               <form class="navbar-form navbar-left" style="margin-left: 150px;">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search" style="width: 370px;">
+                  <input type="text" class="form-control" placeholder="Search" style="width: 370px;display: none;">
                 </div>
                 <button type="submit" class="btn btn-default" style="display: none;"><b>Chercher</b></button>
               </form>
@@ -79,7 +79,7 @@
                 <li><a href="/home/co2">Gaz Carbonique</a></li>
                 <li><a href="/home/nh3">Amoniaque</a></li>
                 <li class="dropdown colortextnav">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b><?php echo htmlspecialchars($user->getNickname());?></b><span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true" style="margin-right: 0px;"></i><b><?php echo htmlspecialchars($user->getNickname());?></b><span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="/login"><button type="submit" class="btn btn-primary" align="center">Se Deconnecter</button></a></li>
                   </ul>
@@ -124,7 +124,7 @@
                 // =========fin appel de notre modèle
 
                // val ppm
-                $ppm_co = $arr_posts->co;  
+                if(isset($arr_posts)){$ppm_co = $arr_posts->co;} 
             }
             catch(\Exception $obj_ex)
                 {
