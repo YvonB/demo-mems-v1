@@ -375,7 +375,7 @@ catch(\Exception $obj_ex)
                                                                 }
 
 
-                                                        ?>"><?php if(isset($masseVolumique_co2)) echo $masseVolumique_co2 . " ";?><em>[mg/m3]</em></span>
+                                                        ?>"><?php if(isset($masseVolumique_co2)) echo $masseVolumique_co2." ".'<em>mg/m3</em>'; else echo "(^_^)";?></span>
           <ul class="features">
             <li class="li_brute">Lorem Ipsum ipsum</li>
             <li class="li_brute">Another lorem ipsum</li>
@@ -403,7 +403,7 @@ catch(\Exception $obj_ex)
                                                                 }
 
 
-                                                        ?>"><?php if(isset($masseVolumique_co)) echo $masseVolumique_co . " ";?><em>[mg/m3]</em></span>
+                                                        ?>"><?php if(isset($masseVolumique_co)) echo $masseVolumique_co." ".'<em>mg/m3</em>'; else echo "(^_^)";?></span>
           <ul class="features">
             <li class="li_brute">Lorem Ipsum ipsum</li>
             <li class="li_brute">Another lorem ipsum</li>
@@ -431,7 +431,7 @@ catch(\Exception $obj_ex)
                                                                 }
 
 
-                                                        ?>"><?php if(isset($masseVolumique_nh3)) echo $masseVolumique_nh3 . " ";?><em>[mg/m3]</em></span>
+                                                        ?>"><?php if(isset($masseVolumique_nh3)) echo $masseVolumique_nh3." ".'<em>mg/m3</em>'; else echo "(^_^)";?></span>
           <ul class="features">
             <li class="li_brute">Choose the lorem ipsum</li>
             <li class="li_brute">We need lorem ipsum</li>
