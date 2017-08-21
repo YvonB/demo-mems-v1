@@ -8,8 +8,6 @@
 
 namespace GDS\Demo;
 
-define('POST_LIMIT', 10);
-
 use GDS\Schema;
 use GDS\Store;
 
@@ -60,6 +58,24 @@ class Repository
             }
     }
 
+      /**
+     * Pour prendre juste les derniéres valeurs insérées les plus récentes.(pour le tab [mg/m3]) 
+     *
+     * @return array
+     */
+    public function getLatestRecentPost()
+    {
+        $arr_posts = $this->getCache()->get('last');
+
+        if(is_array($arr_posts)) 
+            {
+                return $arr_posts;
+            } 
+        else 
+            {
+                return $this->updateLastCache();
+            }
+    }
     /**
      * Pour prendre TOUS les valeurs insérées les plus récentes.(pour le gauge)
      *
@@ -89,12 +105,29 @@ class Repository
     {
         $obj_store = $this->getStore();
 
-        $arr_posts = $obj_store->query("SELECT * FROM Gas ORDER BY posted DESC")->fetchPage(POST_LIMIT);
+        $arr_posts = $obj_store->query("SELECT * FROM Gas ORDER BY posted DESC")->fetchPage(10);
 
         $this->getCache()->set('recent', $arr_posts);
 
         return $arr_posts;
     }
+
+    /**
+     * Mettre à jour le cache de Datastore (pour l'affichage [mg/m3] des 1 dernières valeurs)
+     *
+     * @return array
+     */
+    private function updateLastCache()
+    {
+        $obj_store = $this->getStore();
+
+        $arr_posts = $obj_store->query("SELECT * FROM Gas ORDER BY posted DESC")->fetchOne();
+
+        $this->getCache()->set('last', $arr_posts);
+
+        return $arr_posts;
+    }
+
 
     /**
      * Mettre à jour le cache de Datastore (pour le gauge)

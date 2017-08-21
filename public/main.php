@@ -2,7 +2,12 @@
 // Définitions des constantes modèles pour l'accès au datatore
 define('GDS_ACCOUNT', ' !! your service account name here !! ');
 define('GDS_KEY_FILE', dirname(__FILE__) . '/key.p12');
-// define('POST_LIMIT', 10);
+
+define('MASSE_MOLAIRE_CO2', 44);
+define('MASSE_MOLAIRE_CO', 28);
+define('MASSE_MOLAIRE_NH3', 17);
+define('VOLUME_MOLAIRE', 22.4); // une mole de gaz occupe toujours le même volume dans les CNTP
+
 
 use google\appengine\api\users\User;
 use google\appengine\api\users\UserService;
@@ -23,6 +28,7 @@ require_once('../vendor/autoload.php');
     <title>Détéction de pollution</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/demo.css">
@@ -42,10 +48,32 @@ require_once('../vendor/autoload.php');
 <!-- end head -->
 
 <body>
-    <!--************************ Début Navigation ************************************-->
-    <header>
-        <nav class="navbar navbar-default navbar-fixed-top colornav">
-          <div class="container-fluid">
+    <!-- ====================================== Benière ====================================== -->
+    <div class="container-fluid banner">
+        <div class="ban">
+            <video id = "video" src="medias/la_pollution.mp4" type="video/mp4" autoplay="autoplay" loop="loop" muted="muted" >   
+            </video>
+        </div> 
+
+        <div class="inner-banner">
+            <h3 class="sub_title_ban"><img src="/img/datastore-logo.png"  class="logo_ban" />Detecteur - Analyseur Web des Gaz polluants SDP - IoT</h3>
+            <h1>Know what really exists in the air you breathe</h1>
+            <p class="sub_title_ban" id="sous_titre"><b>Follow your health closely</b></p>
+            <button type="submit" class="btn btn-primary">
+                                    <?php 
+                                        if(isset($user)) 
+                                            {echo "Go Home<i class='fa fa-arrow-right' style='margin-left: 15px;'></i>";}
+                                        else 
+                                            {echo "See More Content";}
+                                    ?>
+            </button>
+        </div>
+    </div>
+
+<div data-spy="affix" data-offset-top="763.8">
+        <nav class="navbar-default colornav"> 
+
+        <div class="container-fluid">
 
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -65,11 +93,11 @@ require_once('../vendor/autoload.php');
                 <li class="active colortextnav"><a href="#"><b>Welcome</b><span class="sr-only">(current)</span></a></li>
               </ul>
               <!-- Recherche -->
-              <form class="navbar-form navbar-left">
+              <form class="navbar-form navbar-left" style="margin-left: 150px;">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
+                  <input type="text" class="form-control" placeholder="Search" style="width: 370px;">
                 </div>
-                <button type="submit" class="btn btn-default"><b>Chercher</b></button>
+                <button type="submit" class="btn btn-default" style="display: none;"><b>Chercher</b></button>
               </form>
 
               <ul class="nav navbar-nav navbar-right colortextnav">
@@ -89,33 +117,11 @@ require_once('../vendor/autoload.php');
                   </ul>
                 </li>
               </ul>
-
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
-        </nav>
-    </header>
-    <!--****************************** Fin Navigation *****************************-->
-
-    <!-- ====================================== Benière ====================================== -->
-    <section class="container-fluid banner">
-        <div class="ban">
-            <video id = "video" src="medias/La pollution.mp4" type="video/mp4" autoplay="autoplay" loop="loop" muted="muted" >   
-            </video>
-        </div> 
-        <div class="inner-banner">
-            <h3 class="sub_title_ban"><img src="/img/datastore-logo.png"  class="logo_ban" />Detecteur/Analyseur Web des Gaz polluants SDP - IoT</h3>
-            <h1>Know what really exists in the air you breathe</h1>
-            <p class="sub_title_ban"><b>Follow your health closely</b></p>
-            <button type="submit" class="btn btn-primary">
-                                    <?php 
-                                        if(isset($user)) 
-                                            {echo "Go Home<i class='fa fa-arrow-right' style='margin-left: 15px;'></i>";}
-                                        else 
-                                            {echo "See More Content";}
-                                    ?>
-            </button>
-        </div>
-    </section>
+    </nav><!-- end nav -->
+</div>
+    
     <!-- =================================== end banière ===================================== -->
         
         <div class="container">  <!-- ========= Pour tout le contenu de notre site======== -->
@@ -201,7 +207,7 @@ require_once('../vendor/autoload.php');
 
                         ?>
 
-                            <!-- =====script pour afficher les pourcentages de gazs non acceptable sur les compteurs====================         -->
+                <!-- script pour afficher les pourcentages de gazs non acceptable sur les compteurs -->
                             <script type="text/javascript">
                                 google.charts.load('current', {'packages':['gauge']});
                                 google.charts.setOnLoadCallback(drawChart);
@@ -241,9 +247,9 @@ require_once('../vendor/autoload.php');
                                     }, 4000);
                                 }                    
                             </script>
-                            <!-- ================= Fin script affich ===================== % -->
+                    <!-- ================= Fin script affich ===================== % -->
                             
-                            <!-- actualisation automatique,SEULEMENT le div des compteurs-->
+                        <!-- actualisation automatique,SEULEMENT le div des compteurs-->
                             <script type="text/javascript">
                             $(document).ready(function()
                                 {   
@@ -258,11 +264,11 @@ require_once('../vendor/autoload.php');
                                                     {
                                                        $('#chart_div').load('main.php');
                                                        refresh();     
-                                                    }, 5000        // l'actualisation se fait chaque 5 sec 
+                                                    }, 1000        // l'actualisation se fait chaque sec 
                                               );
                                 }
                             </script>
-                            <!-- ======================= fin actu auto ===================== -->
+                        <!-- ======================= fin actu auto ===================== -->
 
                             <?php
                         }
@@ -281,86 +287,158 @@ require_once('../vendor/autoload.php');
         <!-- ============================== Le Map ==================================== -->
             <div>
                 <h2>Where are our sensors?</h2>
-                <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d963367.6427555117!2d46.800975397000194!3d-19.40571407254446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21fa8238a95a8965%3A0xe11f2e914a20ec99!2sEcole+Sup%C3%A9rieur+Polytechnique+d&#39;Antananarivo!5e0!3m2!1sfr!2sfr!4v1501594670727" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <div class="my_map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d963367.6427555117!2d46.800975397000194!3d-19.40571407254446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21fa8238a95a8965%3A0xe11f2e914a20ec99!2sEcole+Sup%C3%A9rieur+Polytechnique+d&#39;Antananarivo!5e0!3m2!1sfr!2sfr!4v1501594670727" width="675" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
             </div>
         <!-- =============================== Fin Map ================================== -->
 
-        <!-- ========== Pour visualiser les 10 derniéres résultats brute en ppm =========== -->
-            <div class="row">
-                <div class="col-md-8" >
-                    <h2>Results</h2>
-                    <div class="panel panel-default" style="background-color: #cdf;">
-                        <div class="panel-body">
 
-                            <?php
-                                try 
-                                    {   
-                                        // On crée un objet de type Repository.
-                                        $obj_repo = new \GDS\Demo\Repository();
-                                        // Chercher les 10 dernières valeurs insérées
-                                        $arr_posts = $obj_repo->getRecentPosts();
+<!-- ====== actualisation automatique,SEULEMENT le div des valeurs en mg/m3  ============ -->
+                            <script type="text/javascript">
+                            $(document).ready(function()
+                                {   
+                                    $('#mg_m3').load('main.php');
+                                    refresh();
+                                });
 
-                                        // Les afficher
-                                        foreach ($arr_posts as $obj_post) 
-                                        {
-
-                                            // Effectuez une belle chaîne d'affichage de date et heure
-                                            $int_posted_date = strtotime($obj_post->posted);
-                                            $int_date_diff = time() - $int_posted_date;
-
-                                            if ($int_date_diff < 3600) 
-                                            {
-                                                $str_date_display = round($int_date_diff / 60) . ' minute(s)';
-                                            } 
-                                            else if ($int_date_diff < (3600 * 24)) 
-                                            {
-                                                $str_date_display = round($int_date_diff / 3600) . ' heure(s)';
-                                            } 
-                                            else 
-                                            {
-                                                $str_date_display = date('\a\t jS M Y, H:i', $int_posted_date);
-                                            }
-
-                                            echo '<div class="post">';
-                                            if(isset($obj_post->co2) AND !empty($obj_post->co2))
-                                                {
-                                                    echo '<div class="gas">Taux de CO2: <strong>', htmlspecialchars($obj_post->co2),'</strong><em>cm³/m³</em>    ', '</div>';
-                                                }
-                                            if(isset($obj_post->co) AND !empty($obj_post->co))
-                                                {
-                                                    echo '<div class="gas">  |  Taux de CO: <strong>', htmlspecialchars($obj_post->co),'</strong><em>cm³/m³</em>    ', '</div>';
-                                                }
-                                            if(isset($obj_post->nh3) AND !empty($obj_post->nh3))
-                                                {
-                                                    echo '<div class="gas">  |  Taux de NH3: <strong>', htmlspecialchars($obj_post->nh3), '</strong><em>cm³/m³</em>    ', '<br><span class="time">', $str_date_display, '</span></div>';
-                                                }
-                                            echo '</div>';
-                                        }
-
-                                        $int_posts = count($arr_posts);
-
-                                        echo '<div class="post"><em>Showing last ', $int_posts, '</em></div>';
-
-                                    } 
-                                catch (\Exception $obj_ex)
-                                {
-                                    syslog(LOG_ERR, $obj_ex->getMessage());
-                                    echo '<em>Whoops, something went wrong!</em>';
+                            function refresh() 
+                                {   
+                                    setTimeout(
+                                                function()
+                                                    {
+                                                       $('#mg_m3').load('main.php');
+                                                       refresh();     
+                                                    }, 1000        // l'actualisation se fait chaque seconde 
+                                              );
                                 }
-                            ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <!-- ================================ Fin Aff brute =============================== -->
+                            </script>
+<!-- ======================= fin actu auto ===================== --> 
 
-        <!-- ==========================pour la courbe=========================== -->
-            <!-- debut courbe brute -->
-                
-                
-        <!-- ==========================fin courbe=============================== -->
+<!-- ========================== Tableau des dernièrs valeurs en mg/m3 ========================== -->
+<div class="brute" id="mg_m3">
+<h2>Notifications</h2>
+
+<!-- Calculs -->
+
+<?php
+try
+{   
+    // ========Appel de notre modèle
+
+    // On crée un objet de type Repository.
+    $obj_repo = new \GDS\Demo\Repository();
+    // Chercher juste les dernières valeurs insérées récemment.
+    $arr_posts = $obj_repo->getLatestRecentPost();
+
+    // =========fin appel de notre modèle
+
+   // val ppm
+    $ppm_co2 = $arr_posts->co2;
+    $ppm_co = $arr_posts->co;
+    $ppm_nh3 = $arr_posts->nh3;
+
+    // masse masseVolumique_co2 avec 3 après la virgule comme précision
+    $masseVolumique_co2 = round(($ppm_co2 * (MASSE_MOLAIRE_CO2/VOLUME_MOLAIRE)), 3, PHP_ROUND_HALF_UP);
+    $masseVolumique_co = round(($ppm_co * (MASSE_MOLAIRE_CO/VOLUME_MOLAIRE)), 3, PHP_ROUND_HALF_UP);
+    $masseVolumique_nh3 = round(($ppm_nh3 * (MASSE_MOLAIRE_NH3/VOLUME_MOLAIRE)), 3, PHP_ROUND_HALF_UP);   
+}
+catch(\Exception $obj_ex)
+{
+    syslog(LOG_ERR, $obj_ex->getMessage());
+    echo '<em>Whoops, something went wrong!</em>';
+}
+?>
+<!-- fin claculs -->
+
+    <div class="promos">  
+        <div class="promo"  style="background: #000000b7">
+          <div class="deal">
+            <span>CO2</span>
+            <span>Lorem ipsum lorem ipsum</span>
+          </div>
+          <span class="price" style="background-color: <?php
+                                                             if($ppm_co2 <= 396)
+                                                                {
+                                                                    echo '#41c12d'; // vert
+                                                                }
+                                                                elseif($ppm_co2 > 396 AND $ppm_co2 <= 496)
+                                                                {
+                                                                    echo '#f08e13'; // jaune orange
+                                                                }
+                                                                elseif($ppm_co2 > 496) 
+                                                                {
+                                                                   echo '#d01f1f'; // rouge == danger
+                                                                }
+
+
+                                                        ?>"><?php echo $masseVolumique_co2 . " ";?><em>[mg/m3]</em></span>
+          <ul class="features">
+            <li class="li_brute">Lorem Ipsum ipsum</li>
+            <li class="li_brute">Another lorem ipsum</li>
+            <li class="li_brute">Lorem ipsum...</li>   
+          </ul>
+          <button class="sign_up">See More</button>
+        </div>
+        <div class="promo scale" style="background: #000000b7">
+          <div class="deal">
+            <span>CO</span>
+            <span>Lorem ipsum lorem ipsum</span>
+          </div>
+          <span class="price" style="background-color: <?php
+                                                             if($ppm_co <= 3)
+                                                                {
+                                                                    echo '#41c12d'; // vert
+                                                                }
+                                                                elseif($ppm_co > 3 AND $ppm_co <= 4 )
+                                                                {
+                                                                    echo '#f08e13'; // jaune orange
+                                                                }
+                                                                elseif($ppm_co > 5) 
+                                                                {
+                                                                   echo '#d01f1f'; // rouge == danger
+                                                                }
+
+
+                                                        ?>"><?php echo $masseVolumique_co . " ";?><em>[mg/m3]</em></span>
+          <ul class="features">
+            <li class="li_brute">Lorem Ipsum ipsum</li>
+            <li class="li_brute">Another lorem ipsum</li>
+            <li class="li_brute">Lorem ipsum...</li>   
+          </ul>
+          <button class="sign_up">See More</button>
+        </div>
+        <div class="promo" style="background: #000000b7">
+          <div class="deal">
+            <span>NH3</span>
+            <span>Lorem ipsum lorem ipsum</span>
+          </div>
+          <span class="price" style="background-color: <?php
+                                                             if($ppm_nh3 <= 5)
+                                                                {
+                                                                    echo '#41c12d'; // vert
+                                                                }
+                                                                elseif($ppm_nh3 > 5 AND $ppm_nh3 <= 6)
+                                                                {
+                                                                    echo '#f08e13'; // jaune orange
+                                                                }
+                                                                elseif($ppm_nh3 > 6) 
+                                                                {
+                                                                   echo '#d01f1f'; // rouge == danger
+                                                                }
+
+
+                                                        ?>"><?php echo $masseVolumique_nh3 . " ";?><em>[mg/m3]</em></span>
+          <ul class="features">
+            <li class="li_brute">Choose the lorem ipsum</li>
+            <li class="li_brute">We need lorem ipsum</li>
+            <li class="li_brute">Lorem ipsem...</li>   
+          </ul>
+          <button class="sign_up">See More</button>
+        </div> 
+    </div>    
+</div>
+<!-- ========================== fin Tab Dèr=============================== -->
 
 
         <!-- ========================== Espace connexion ============================== -->
@@ -507,8 +585,8 @@ require_once('../vendor/autoload.php');
 </footer> 
 <!--*********************************** Fin footer **************************************** -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+   
 </body>
 </html>

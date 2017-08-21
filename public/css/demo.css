@@ -2,6 +2,18 @@ h1,h2,h3,h4,h5,p,td,small,div
 {
     font-weight: 200;
 }
+html{
+    padding: 0;
+    margin: 0;
+}
+body
+{
+    background: url('../../img/background.jpg') no-repeat center center fixed;
+    background-size: cover; 
+    padding: 0;
+    margin: 0;
+}
+
 #gds-logo 
 {
     width: 42px;
@@ -16,27 +28,31 @@ h1,h2,h3,h4,h5,p,td,small,div
 .banner
 {
     width: 100%;
+    height: 100%;
     max-width: 100%;
 
-    padding: 0px;
+    padding: 0px; /*important*/
+    margin: 0px;
 }
 
 .ban
 {
     width: 100%;
+    height: 100%;
     max-width: 100%;   
 }
 
 .ban video
 {
     width: 100%;
+    height: 100%;
     max-width: 100%;
     position: relative;
 }
 
 .inner-banner
 {
-    position: absolute;
+    position:absolute;
     top: 40%;
     width: 100%;
     text-align: center;
@@ -45,7 +61,7 @@ h1,h2,h3,h4,h5,p,td,small,div
 .inner-banner h1 
 {
     color: #fff;
-    font-size: 50px;
+    font-size: 16px;
     text-shadow: 1px 1px 20px #000;
 }
 
@@ -55,15 +71,20 @@ h1,h2,h3,h4,h5,p,td,small,div
     text-shadow: 1px 1px 20px #000;
 }
 
+#sous_titre
+{
+  font-size: 25px;
+}
+
 #video
 {
-    /* Préfixes vendeurs */
-    -webkit-filter: brightness(0.7);
-    -moz-filter: brightness(0.7);
-    -o-filter: brightness(0.7);
-    -ms-filter: brightness(0.7);
+    
+    -webkit-filter: brightness(0.3);
+    -moz-filter: brightness(0.3);
+    -o-filter: brightness(0.3);
+    -ms-filter: brightness(0.3);
 
-    filter: brightness(0.7);
+    filter: brightness(0.3);
 }
 /*end banière*/
 
@@ -91,13 +112,14 @@ h1,h2,h3,h4,h5,p,td,small,div
     font-size: 18px;
     display: inline;
 }
-/*.post .authored {
-    font-size: 18px;
-    display: inline;
-}*/
+
 .colornav
 {
-    background: #3477db;
+  background: rgb(59, 120, 231);
+  border-right: rgb(59, 120, 231);
+  border-bottom: 0px solid rgb(59, 120, 231);
+  border-radius:  inherit;  
+
 }
 .colortextnav
 {
@@ -107,6 +129,20 @@ h1,h2,h3,h4,h5,p,td,small,div
 .navbar-default .navbar-nav > li > a {
     color: #fff;
 }
+
+/*header sroll fix*/
+.affix
+{
+  top: 0;
+  width: 100%;
+  z-index: 9999 !important;
+}
+
+.affix + .container-fluid
+{
+  padding-top: 0px;
+}
+/*end header scroll fix*/
 .time
 {
     font-size: 16px;
@@ -141,11 +177,10 @@ h1,h2,h3,h4,h5,p,td,small,div
 
  /*Fin de slide*/
 
-.map
+.my_map
     {
        margin-left: 40px;
     }
-
 
 p 
 {
@@ -155,6 +190,78 @@ p a
 {
     font-weight: 300;
 }
+
+/*Table brute*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+html {
+  background: rgb(246, 248, 248);
+}
+.promos {
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.promo {
+  width: 250px;
+  background: #0F1012; 
+  color: #f9f9f9;
+  float: left;
+}
+.deal {
+  padding: 10px 0 0 0;
+}
+.deal span {
+  display: block;
+  text-align: center;
+}
+.deal span:first-of-type {
+  font-size: 23px;  
+}
+.deal span:last-of-type {
+  font-size: 13px;
+}
+.promo .price {
+  display: block;
+  width: 250px;  
+  background: #292b2e;
+  margin: 15px 0 10px 0;
+  text-align: center;
+  font-size: 23px;
+  padding: 17px 0 17px 0;
+}
+.features{
+  display: block;
+  margin: 20px 0 10px 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+  color: #999999;
+}
+.li_brute{
+  display: block;
+  margin: 10px 0 0 0;
+}
+.sign_up{
+  border: none;
+  border-radius: 40px;
+  background: #292b2e;
+  color: #f9f9f9;
+  padding: 10px 37px;
+  margin: 10px 0 20px 60px;
+}
+.scale {
+  transform: scale(1.2);
+  box-shadow: 0 0 4px 1px rgba(20, 20, 20, 0.8);
+}
+.scale button {
+  background: #64AAA4;
+}
+/*.scale .price {
+  color: #64AAA4;
+}*/
+/*end Table brute*/
+
+
 /*footer*/
 
 
@@ -165,7 +272,7 @@ p a
 @import url(http://fonts.googleapis.com/css?family=Fjalla+One);
 @import url(http://fonts.googleapis.com/css?family=Gudea);
 .footer1 {
-    background: #fff url("../images/footer/footer-bg.png") repeat scroll left top;
+    background: #ccdd url("../images/footer/footer-bg.png") repeat scroll left top;
     padding-top: 40px;
     padding-right: 0;
     padding-bottom: 20px;
@@ -218,7 +325,6 @@ p a
     width: 3px;
 }
 
-
 .widget_nav_menu ul li {
     font-size: 13px;
     font-weight: 700;
@@ -230,8 +336,6 @@ p a
     padding-bottom: 7px;
     width:95%;
 }
-
-
 
 .title-median {
     color: #636363;
@@ -276,12 +380,8 @@ p a
             }
             .nomargin { margin:0px; padding:0px;}
 
-
-
-
-
 .footer-bottom {
-    background-color: #15224f;
+    background-color: #464F52;
     min-height: 30px;
     width: 100%;
 }
@@ -324,10 +424,6 @@ p a
 }
 @media (min-width: 992px) 
 {
-    body 
-    {
-        margin-top: 40px;
-    }
     #gds-logo 
     {
         width: 70px;

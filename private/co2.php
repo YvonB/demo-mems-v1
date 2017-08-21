@@ -40,10 +40,9 @@
     <link rel="icon" type="image/png" href="/img/datastore-logo.png" />
 
 	<!-- script pour la courbe -->
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<!-- <script src="https://code.highcharts.com/stock/highstock.js"></script>
-	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script> -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
 	<!-- ********************** -->
 
     <!-- font pour home-->
@@ -71,11 +70,11 @@
               <ul class="nav navbar-nav">
                 <li class="active colortextnav"><a href="#"><b>CO2</b><span class="sr-only">(current)</span></a></li>
               </ul>
-              <form class="navbar-form navbar-left">
+              <form class="navbar-form navbar-left" style="margin-left: 150px;">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
+                  <input type="text" class="form-control" placeholder="Search" style="width: 370px;">
                 </div>
-                <button type="submit" class="btn btn-default"><b>Chercher</b></button>
+                <button type="submit" class="btn btn-default" style="display: none;"><b>Chercher</b></button>
               </form>
               <ul class="nav navbar-nav navbar-right colortextnav">
                 <li><a href="/home"><b><i class="fa fa-home" style="margin-right: 4px;"></i>Back Home</b></a></li>
@@ -110,67 +109,113 @@
         <h4>Gaz carbonique</h4>
         <div class="mon_slide">
             <div id="slider">
-            	<!-- <div id="co2" style="height: 400px; min-width: 310px">
-            		
-            	</div> -->
-                <div id="curve_chart" style="min-width: 310px; height: 400px"></div>
-
-            </div>
+            	<div id="co2" style="min-width: 310px; height: 400px;"></div> <!-- div qui va contenir la courbe -->
+           </div>
         </div>
-    </div> 
-    <!-- pour récupérer les valeurs dans la BD -->
+    </div> <!-- fin div courbe -->
+
+<!-- pour récupérer les valeurs dans la BD -->
     <?php
-        foreach ($arr_posts as $obj_post)
-        {   
-            // Effectuez une belle chaîne d'affichage de date et heure
-            $int_posted_date = strtotime($obj_post->posted);
-            $int_date_diff = time() - $int_posted_date;
+        try
+            {   
+                // ========Appel de notre modèle
 
-            if ($int_date_diff < 3600) 
+                // On crée un objet de type Repository.
+                $obj_repo = new \GDS\Demo\Repository();
+                // Chercher juste la dernières valeurs insérées récemment.
+                $arr_posts = $obj_repo->getLatestRecentPost();
+
+                // =========fin appel de notre modèle
+
+               // val ppm
+                $ppm_co2 = $arr_posts->co2;  
+            }
+            catch(\Exception $obj_ex)
                 {
-                    $str_date_display = round($int_date_diff / 60) . ' minute(s)';
-                } 
-            else if ($int_date_diff < (3600 * 24)) 
-                {
-                    $str_date_display = round($int_date_diff / 3600) . ' heure(s)';
-                } 
-            else 
-                {
-                    $str_date_display = date('\a\t jS M Y, H:i', $int_posted_date);
+                    syslog(LOG_ERR, $obj_ex->getMessage());
+                    echo '<em>Whoops, something went wrong!</em>';
                 }
-
-            $sub_array = array();
-            $sub_array[] = array($str_date_display, (float)$obj_post->co2);
-            $row[] =  array($sub_array);
-        }
-
-        $jsonTable = json_encode($row);
-        echo "<pre>";
-        print_r($jsonTable);
-        echo "</pre>";
+     
     ?>
+<!-- fin récupération -->
 	
-	<!-- le script de la courbe lui même -->
-	<script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+<!-- le script de la courbe lui même -->
+<script type="text/javascript">
+   $(document).ready(function () {
+    Highcharts.setOptions({
+        global: {
+            useUTC: false
+        }
+    });
 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable(<?php echo $jsonTable;?>);
+    Highcharts.chart('co2', {
+        chart: {
+            type: 'spline',
+            animation: Highcharts.svg, // Ne pas animer dans l'ancien IE
+            marginRight: 10,
+            events: {
+                load: function () {
 
-        var options = {
-          title: 'Company Performance',
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
+                    // Configurer la mise à jour du graphique chaque 4 seconde
+                    var series = this.series[0];
+                    setInterval(function () {
+                        var x = (new Date()).getTime(), // heure actuelle
+                            y = <?php echo $ppm_co2 ; ?>; // les valeurs en ppm sur l'axe des abscisses
+                        series.addPoint([x, y], true, true);
+                    }, 4000);
+                }
+            }
+        },
+        title: {
+            text: 'Live co2 data'
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150
+        },
+        yAxis: {
+            title: {
+                text: 'Value in ppm'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.series.name + '</b><br/>' +
+                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                    Highcharts.numberFormat(this.y, 2);
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        exporting: {
+            enabled: false
+        },
+        series: [{
+            name: 'co2',
+            data: (function () {
+                var data = [],
+                    time = (new Date()).getTime(),
+                    i;
 
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-        chart.draw(data, options);
-      }
-    </script>
-
-<!-- ***************************************** -->
+                for (i = -19; i <= 0; i += 1) {
+                    data.push({
+                        x: time + i * 1000,
+                        y: <?php echo $ppm_co2 ; ?> // les valeurs en ppm sur l'axe des abscisses
+                    });
+                }
+                return data;
+            }())
+        }]
+    });
+});
+</script>
+<!-- ===================================== fin script ================================ -->
 
 </div> <!-- fin de container de la page --> 
 

@@ -36,10 +36,11 @@
 
     <meta name="author" content="Yvon Benahita">
     <link rel="icon" type="image/png" href="/img/datastore-logo.png" />
+
 	<!-- script pour la courbe -->
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="https://code.highcharts.com/stock/highstock.js"></script>
-	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
 	<!-- ********************** -->
 
     <!-- font -->
@@ -67,11 +68,11 @@
               <ul class="nav navbar-nav">
                 <li class="active colortextnav"><a href="#"><b>CO</b><span class="sr-only">(current)</span></a></li>
               </ul>
-              <form class="navbar-form navbar-left">
+              <form class="navbar-form navbar-left" style="margin-left: 150px;">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
+                  <input type="text" class="form-control" placeholder="Search" style="width: 370px;">
                 </div>
-                <button type="submit" class="btn btn-default"><b>Chercher</b></button>
+                <button type="submit" class="btn btn-default" style="display: none;"><b>Chercher</b></button>
               </form>
               <ul class="nav navbar-nav navbar-right colortextnav">
                 <li><a href="/home"><b><i class="fa fa-home" style="margin-right: 4px;"></i>Back Home</b></a></li>
@@ -104,87 +105,112 @@
         <h4>Monoxyde de Carbone</h4>
          <div class="mon_slide">
             <div id="slider">
-                <div id="co" style="height: 400px; min-width: 310px">
-                    
-                </div>
+                <div id="co" style="height: 400px; min-width: 310px"></div>
             </div>
          </div>
     </div>
 
     <!-- pour récupérer les valeurs dans la BD -->
     <?php
-        foreach ($arr_posts as $obj_post)
-        {
-            $data_co[] = $obj_post->co;
-        }
+        try
+            {   
+                // ========Appel de notre modèle
+
+                // On crée un objet de type Repository.
+                $obj_repo = new \GDS\Demo\Repository();
+                // Chercher juste la dernières valeurs insérées récemment.
+                $arr_posts = $obj_repo->getLatestRecentPost();
+
+                // =========fin appel de notre modèle
+
+               // val ppm
+                $ppm_co = $arr_posts->co;  
+            }
+            catch(\Exception $obj_ex)
+                {
+                    syslog(LOG_ERR, $obj_ex->getMessage());
+                    echo '<em>Whoops, something went wrong!</em>';
+                }
+     
     ?>
+    <!-- fin récupération -->
     
     <!-- le script de la courbe lui même -->
-    <script type="text/javascript">
-        $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=new-intraday.json&callback=?', function (data) 
-        {
+<script type="text/javascript">
+   $(document).ready(function () {
+    Highcharts.setOptions({
+        global: {
+            useUTC: false
+        }
+    });
 
-            // create the chart
-            Highcharts.stockChart('co', {
+    Highcharts.chart('co', {
+        chart: {
+            type: 'spline',
+            animation: Highcharts.svg, // Ne pas animer dans l'ancien IE
+            marginRight: 10,
+            events: {
+                load: function () {
 
+                    // Configurer la mise à jour du graphique chaque 4 seconde
+                    var series = this.series[0];
+                    setInterval(function () {
+                        var x = (new Date()).getTime(), // heure actuelle
+                            y = <?php echo $ppm_co ; ?>; // les valeurs en ppm sur l'axe des abscisses
+                        series.addPoint([x, y], true, true);
+                    }, 4000);
+                }
+            }
+        },
+        title: {
+            text: 'Live co data'
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150
+        },
+        yAxis: {
+            title: {
+                text: 'Value in ppm'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.series.name + '</b><br/>' +
+                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                    Highcharts.numberFormat(this.y, 2);
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        exporting: {
+            enabled: false
+        },
+        series: [{
+            name: 'co',
+            data: (function () {
+                var data = [],
+                    time = (new Date()).getTime(),
+                    i;
 
-                title: {
-                    text: 'Valeurs de Monoxyde de carbone par minute'
-                },
-
-                subtitle: {
-                    text: 'En partie par million (ppm)'
-                },
-
-                xAxis: {
-                    gapGridLineWidth: 0
-                },
-
-                rangeSelector: {
-                    buttons: [{
-                        type: 'hour',
-                        count: 1,
-                        text: '1h'
-                    }, {
-                        type: 'day',
-                        count: 1,
-                        text: '1j'
-                    }, {
-                        type: 'all',
-                        count: 1,
-                        text: 'Tous'
-                    }],
-                    selected: 1,
-                    inputEnabled: false
-                },
-
-                series: [{
-                    name: 'CO',
-                    type: 'area',
-                    data: [<?php echo join($data_co, ',') ?>],
-                    gapSize: 5,
-                    tooltip: {
-                        valueDecimals: 2
-                    },
-                    fillColor: {
-                        linearGradient: {
-                            x1: 0,
-                            y1: 0,
-                            x2: 0,
-                            y2: 1
-                        },
-                        stops: [
-                            [0, Highcharts.getOptions().colors[0]],
-                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                        ]
-                    },
-                    threshold: null
-                }]
-            });
+                for (i = -19; i <= 0; i += 1) {
+                    data.push({
+                        x: time + i * 1000,
+                        y: <?php echo $ppm_co  ; ?> // les valeurs en ppm sur l'axe des abscisses
+                    });
+                }
+                return data;
+            }())
+        }]
+    });
 });
-
-    </script>
-<!-- ***************************************** -->
+</script><!-- finscript courbe-->
 
 </div> <!-- fin de container de la page --> 
 

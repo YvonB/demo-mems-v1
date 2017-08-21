@@ -37,10 +37,11 @@
 
     <meta name="author" content="Yvon Benahita">
     <link rel="icon" type="image/png" href="/img/datastore-logo.png" />
+
 	<!-- script pour la courbe -->
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="https://code.highcharts.com/stock/highstock.js"></script>
-	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
 	<!-- ********************** -->
 
     <!-- font awesome-->
@@ -67,25 +68,12 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li class="active colortextnav"><a href="#"><b>NH3</b><span class="sr-only">(current)</span></a></li>
-                <!-- <li class="colortextnav"><a href="#">Link</a></li>
-                <li class="dropdown colortextnav">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li> -->
               </ul>
-              <form class="navbar-form navbar-left">
+              <form class="navbar-form navbar-left" style="margin-left: 150px;">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
+                  <input type="text" class="form-control" placeholder="Search" style="width: 370px;">
                 </div>
-                <button type="submit" class="btn btn-default"><b>Chercher</b></button>
+                <button type="submit" class="btn btn-default" style="display: none;"><b>Chercher</b></button>
               </form>
               <ul class="nav navbar-nav navbar-right colortextnav">
                 <li><a href="/home"><b><i class="fa fa-home" style="margin-right: 4px;"></i>Back Home</b></a></li>
@@ -95,10 +83,6 @@
                 <li class="dropdown colortextnav">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b><?php echo htmlspecialchars($user->getNickname());?></b><span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <!-- <li><a href="#"><b>Voir l'état de CO2</a></b></li>
-                    <li><a href="#"><b>Voir l'état de CO</a></b></li>
-                    <li><a href="#"><b>Voir l'état de NH3</a></b></li>
-                    <li role="separator" class="divider"></li> -->
                     <li><a href="/login"><button type="submit" class="btn btn-primary" align="center">Se Deconnecter</button></a></li>
                   </ul>
                 </li>
@@ -107,7 +91,7 @@
           </div><!-- /.container-fluid -->
         </nav>
     </header>
-    <!--****************************** Fin Navigation *****************************-->
+<!--****************************** Fin Navigation *****************************-->
 
 <div class="container">  <!-- Pour tout le contenu de notre site -->
 
@@ -123,87 +107,113 @@
         <h4>Amoniaque</h4>
          <div class="mon_slide">
             <div id="slider">
-                <div id="nh3" style="height: 400px; min-width: 310px">
-                    
+                <div id="nh3" style="height: 400px; min-width: 310px"></div>  <!-- div qui va contenir la courbe -->
                 </div>
-            </div>
         </div>
     </div> 
 
-    <!-- pour récupérer les valeurs dans la BD -->
+<!-- pour récupérer les valeurs dans la BD -->
     <?php
-        foreach ($arr_posts as $obj_post)
-        {
-            $data_nh3[] = $obj_post->nh3;
-        }
+        try
+            {   
+                // ========Appel de notre modèle
+
+                // On crée un objet de type Repository.
+                $obj_repo = new \GDS\Demo\Repository();
+                // Chercher juste la dernières valeurs insérées récemment.
+                $arr_posts = $obj_repo->getLatestRecentPost();
+
+                // =========fin appel de notre modèle
+
+               // val ppm
+                $ppm_nh3 = $arr_posts->nh3;  
+            }
+            catch(\Exception $obj_ex)
+                {
+                    syslog(LOG_ERR, $obj_ex->getMessage());
+                    echo '<em>Whoops, something went wrong!</em>';
+                }
+     
     ?>
+<!-- fin récupération -->
     
-    <!-- le script de la courbe lui même -->
-    <script type="text/javascript">
-        $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=new-intraday.json&callback=?', function (data) 
-        {
+<!-- le script de la courbe lui même -->
+<script type="text/javascript">
+   $(document).ready(function () {
+    Highcharts.setOptions({
+        global: {
+            useUTC: false
+        }
+    });
 
-            // create the chart
-            Highcharts.stockChart('nh3', {
+    Highcharts.chart('nh3', {
+        chart: {
+            type: 'spline',
+            animation: Highcharts.svg, // Ne pas animer dans l'ancien IE
+            marginRight: 10,
+            events: {
+                load: function () {
 
+                    // Configurer la mise à jour du graphique chaque 4 seconde
+                    var series = this.series[0];
+                    setInterval(function () {
+                        var x = (new Date()).getTime(), // heure actuelle
+                            y = <?php echo $ppm_nh3 ; ?>; // les valeurs en ppm sur l'axe des abscisses
+                        series.addPoint([x, y], true, true);
+                    }, 4000);
+                }
+            }
+        },
+        title: {
+            text: 'Live nh3 data'
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150
+        },
+        yAxis: {
+            title: {
+                text: 'Value in ppm'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.series.name + '</b><br/>' +
+                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                    Highcharts.numberFormat(this.y, 2);
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        exporting: {
+            enabled: false
+        },
+        series: [{
+            name: 'nh3',
+            data: (function () {
+                var data = [],
+                    time = (new Date()).getTime(),
+                    i;
 
-                title: {
-                    text: 'Valeurs d\'Amoniaque par minute'
-                },
-
-                subtitle: {
-                    text: 'En partie par million (ppm)'
-                },
-
-                xAxis: {
-                    gapGridLineWidth: 0
-                },
-
-                rangeSelector: {
-                    buttons: [{
-                        type: 'hour',
-                        count: 1,
-                        text: '1h'
-                    }, {
-                        type: 'day',
-                        count: 1,
-                        text: '1j'
-                    }, {
-                        type: 'all',
-                        count: 1,
-                        text: 'Tous'
-                    }],
-                    selected: 1,
-                    inputEnabled: false
-                },
-
-                series: [{
-                    name: 'NH3',
-                    type: 'area',
-                    data: [<?php echo join($data_nh3, ',') ?>],
-                    gapSize: 5,
-                    tooltip: {
-                        valueDecimals: 2
-                    },
-                    fillColor: {
-                        linearGradient: {
-                            x1: 0,
-                            y1: 0,
-                            x2: 0,
-                            y2: 1
-                        },
-                        stops: [
-                            [0, Highcharts.getOptions().colors[0]],
-                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                        ]
-                    },
-                    threshold: null
-                }]
-            });
+                for (i = -19; i <= 0; i += 1) {
+                    data.push({
+                        x: time + i * 1000,
+                        y: <?php echo $ppm_nh3 ; ?> // les valeurs en ppm sur l'axe des abscisses
+                    });
+                }
+                return data;
+            }())
+        }]
+    });
 });
-
-    </script>
-<!-- ************************************************************************ -->
+</script>
+<!-- ===================================== fin script ================================ -->
 
 </div> <!-- fin de container de la page --> 
 

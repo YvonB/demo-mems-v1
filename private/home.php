@@ -7,7 +7,6 @@
     // on a pas le droit de voir index si on était pas connecter au préalable.
     if(!$user)
     {   
-
         header("Location: /"); // on rédirige vers l'accueil et 
         exit; // On arrête tout.
     }
@@ -68,11 +67,11 @@
               <ul class="nav navbar-nav">
                 <li class="active colortextnav"><a href="#"><b><i class="fa fa-home" style="margin-right: 4px;"></i>Home</b><span class="sr-only">(current)</span></a></li>
               </ul>
-              <form class="navbar-form navbar-left">
+              <form class="navbar-form navbar-left" style="margin-left: 150px;">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
+                  <input type="text" class="form-control" placeholder="Search" style="width: 370px;">
                 </div>
-                <button type="submit" class="btn btn-default"><b>Chercher</b></button>
+                <button type="submit" class="btn btn-default" style="display: none;"><b>Chercher</b></button>
               </form>
               <ul class="nav navbar-nav navbar-right colortextnav">
                 <li><a href="/home/co2">Gaz Carbonique</a></li>
