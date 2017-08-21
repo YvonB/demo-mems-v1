@@ -109,7 +109,7 @@
         <h4>Gaz carbonique</h4>
         <div class="mon_slide">
             <div id="slider">
-            	<div id="co2" style="min-width: 310px; height: 400px;"></div> <!-- div qui va contenir la courbe -->
+            	<div id="co2" style="min-width: 310px; height: 400px;"><?php if(!isset($arr_posts)) echo 'Courbe en attende des données !' ?></div> <!-- div qui va contenir la courbe -->
            </div>
         </div>
     </div> <!-- fin div courbe -->
@@ -126,9 +126,9 @@
                 $arr_posts = $obj_repo->getLatestRecentPost();
 
                 // =========fin appel de notre modèle
-
+                
                // val ppm
-                $ppm_co2 = $arr_posts->co2;  
+                if(isset($arr_posts)){$ppm_co2 = $arr_posts->co2;} 
             }
             catch(\Exception $obj_ex)
                 {
