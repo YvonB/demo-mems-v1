@@ -90,7 +90,7 @@
     </header>
     <!--****************************** Fin Navigation *****************************-->
         
-<div class="container">  <!-- Pour tout le contenu de notre site -->
+<div class="container" id="contenu">  <!-- Pour tout le contenu de notre site -->
 
 <!-- ===========================Le logo et le titre============================ -->
     <div class="row">
