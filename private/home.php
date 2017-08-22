@@ -118,7 +118,7 @@
                 </div>
                 <!-- ============== -->
                 <div class="col-md-4">
-                    <h2>Gas not accepted</h2>
+                    <h2 align="center">Gas not accepted</h2>
                       <div id="container" style="height: 400px"></div> <!-- div pour contenir le Pie -->
 
                       <?php
@@ -210,22 +210,41 @@
                                   type: 'pie',
                                   name: 'Not acceptable',
                                   data: [
-                                      ['Firefox', 45.0],
-                                      ['IE', 26.8],
+                                      ['co2', 45.0],
+                                      ['co', 26.8],
                                       {
-                                          name: 'Chrome',
+                                          name: 'nh3',
                                           y: 12.8,
                                           sliced: true,
                                           selected: true
                                       } 
-                                      // ['Safari', 8.5],
-                                      // ['Opera', 6.2],
-                                      // ['Others', 0.7]
+              
                                   ]
                               }]
                         });
                         </script>
                         <!-- end script Pie -->
+
+                        <!-- actu auto du div du Pie -->
+                          <script type="text/javascript">
+                            $(document).ready(function()
+                                {   
+                                    $('#container').load('home.php');
+                                    refresh();
+                                });
+
+                            function refresh() 
+                                {   
+                                    setTimeout(
+                                                function()
+                                                    {
+                                                       $('#container').load('home.php');
+                                                       refresh();     
+                                                    }, 1000        // l'actualisation se fait chaque sec 
+                                              );
+                                }
+                            </script>
+                        <!-- end actu auto -->
 
                           <?php
                    }
@@ -236,9 +255,8 @@
                         }
 
                             ?>
-
-                </div>
-            </div>
+                </div> <!-- end coll md 4 -->
+            </div> <!-- end row -->
             <!-- =========================================================================== -->
 
             <!-- ============================= Slide des 03 courbes ======================== -->

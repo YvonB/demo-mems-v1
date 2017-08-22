@@ -249,7 +249,7 @@ require_once('../vendor/autoload.php');
                             </script>
                     <!-- ================= Fin script affich ===================== % -->
                             
-                        <!-- actualisation automatique,SEULEMENT le div des compteurs-->
+                    <!-- actualisation automatique,SEULEMENT le div des compteurs-->
                             <script type="text/javascript">
                             $(document).ready(function()
                                 {   
