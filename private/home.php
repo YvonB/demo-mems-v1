@@ -119,7 +119,7 @@
                 <!-- ============== -->
                 <div class="col-md-4">
                     <h2 align="center">Gas not accepted</h2>
-                      <div id="container" style="height: 400px"></div> <!-- div pour contenir le Pie -->
+                      <div id="container" style="width:100%;height: 400px"></div> <!-- div pour contenir le Pie -->
 
                       <?php
 
@@ -261,6 +261,9 @@
 
             <!-- ============================= Slide des 03 courbes ======================== -->
                   <!-- 1)HTML -->
+                  <div class="col-md-12">
+                  <h2>See all at once</h2>
+                  </div>
                     <div class="mon_slide">
                         <div id="slider">
                           <ul id="slideWrap"> 

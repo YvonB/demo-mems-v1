@@ -1,20 +1,60 @@
 
 /*color lin nav : ece4e4*/
 
-h1,h2,h3,h4,h5,p,td,small,div 
+/*h1,h2,h3,h4,h5,p,td,small,div 
 {
     font-weight: 200;
+}*/
+h1
+{
+  color: #757575;
+  font: 300 34px/40px Roboto, sans-serif;
+  letter-spacing: -.01em;
+  margin:40px 0 20px;
 }
-html{
+h2, h3, h4
+{
+  font: 400 20px/32px Roboto, sans-serif;
+  margin: 32px 0 12px;
+  margin-top: 32px;
+  padding: 0;
+  padding-bottom: 0px;
+  letter-spacing: -.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #212121;
+}
+dd
+{
+  margin:16px 0;
+  padding-left: 40px;
+  color:#212121;
+  font: 400 16px/24px Roboto, sans-serif;
+  text-align: justify;
+}
+
+html
+{
     padding: 0;
     margin: 0;
 }
 body
 {
-    background: url('../../img/background.jpg') no-repeat center center fixed;
-    background-size: cover; 
-    padding: 0;
+  /*  background: url('../../img/background.jpg') no-repeat center center fixed;
+    background-size: cover; */
+
+    /*body de google*/
+    background-color: #fafafa;
+    color: rgba(0,0,0,.987);
+    font-family: 'Roboto',sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: .01em;
+    line-height: 16px;
     margin: 0;
+    padding: 0;
+    overflow: auto;
+
 }
 #contenu
 {padding-top: 50px;}
@@ -29,22 +69,8 @@ body
     width: 24px;
     margin-right: 6px;
 }
-/*les titres*/
-.titres
-{
-    color: #eaeaea;
-}
-
-}
 /*end titres*/
-/*les pags*/
-.parags
-{
-  color: #d0dbdb !important;
-  font-weight: bold !important;
 
-}
-/*end parag*/
 /*banière*/
 .banner
 {
@@ -92,11 +118,6 @@ body
     text-shadow: 1px 1px 20px #000;
 }
 
-#sous_titre
-{
-  font-size: 25px;
-}
-
 #video
 {
     
@@ -140,6 +161,7 @@ body
   border-right: rgb(59, 120, 231);
   border-bottom: 0px solid rgb(59, 120, 231);
   border-radius:  inherit;  
+  box-shadow: 0px 0px 10px 5px #888888;
 
 }
 
@@ -218,6 +240,18 @@ body
     display:none;
  }
 
+ /*Pie*/
+ .highcharts-background
+ {
+  fill: #fafafa;
+ }
+ .highcharts-root
+ {
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+ }
+ /*end Pie*/
+
  /*Slide*/
 
 
@@ -239,7 +273,9 @@ p a
 
 /*Table brute*/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
-html {
+
+html 
+{
   background: rgb(246, 248, 248);
 }
 .promos {
@@ -247,11 +283,13 @@ html {
   margin: 0 auto;
   margin-top: 50px;
 }
-.promo {
+.promo 
+{
   width: 250px;
-  background: #0F1012; 
-  color: #f9f9f9;
+  background: #5C5C5C5C; 
+  color: #4E4E4E;
   float: left;
+  box-shadow: 0 0 4px 1px rgba(20, 20, 20, 0.8);
 }
 .deal {
   padding: 10px 0 0 0;
@@ -281,16 +319,16 @@ html {
   padding: 0;
   list-style-type: none;
   text-align: center;
-  color: #999999;
 }
 .li_brute{
   display: block;
   margin: 10px 0 0 0;
+  color: #5c5c5c;
 }
 .sign_up{
   border: none;
   border-radius: 40px;
-  background: #292b2e;
+  background: rgb(59, 120, 231);
   color: #f9f9f9;
   padding: 10px 37px;
   margin: 10px 0 20px 60px;
@@ -300,7 +338,7 @@ html {
   box-shadow: 0 0 4px 1px rgba(20, 20, 20, 0.8);
 }
 .scale button {
-  background: #64AAA4;
+  background: rgb(59, 120, 231);
 }
 /*.scale .price {
   color: #64AAA4;
