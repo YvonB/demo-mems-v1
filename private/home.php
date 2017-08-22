@@ -43,6 +43,11 @@
 
     <!-- font -->
     <link rel="stylesheet" href="css/font-awesome/font-awesome.css">
+
+    <!-- script pour le Pie -->
+     <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
 </head>
 <!-- end head -->
 
@@ -101,7 +106,7 @@
     </div>
 <!-- ====================================================================== -->
 
-         <!-- =====================La définition et la Réssource===================== -->
+<!-- =====================La définition et la Réssource===================== -->
             <div class="row">
                 <div class="col-md-8">
                     <h2>Lorem Ipsum</h2>
@@ -113,8 +118,125 @@
                 </div>
                 <!-- ============== -->
                 <div class="col-md-4">
-                    <h2>Resources</h2>
-                    <p><a href="https://github.com/YvonB/demo-mems-v1" target="_blank"><span aria-hidden="true" class="glyphicon glyphicon-new-window"></span> Analyseur des gazs polluants(Ce site web)</a></p>
+                    <h2>Gas not accepted</h2>
+                      <div id="container" style="height: 400px"></div> <!-- div pour contenir le Pie -->
+
+                      <?php
+
+                        try
+                        {
+                        // On crée un objet de type Repository.
+                        $obj_repo = new \GDS\Demo\Repository();
+                        // Chercher TOUS 'All' les gazs insérées récemment.
+                        $arr_posts = $obj_repo->getAllRecentPost();
+
+                        // au début 
+                        $nbr_co2_na = 0;
+                        $n_co2 = 0;
+                        $nbr_co_na = 0;
+                        $n_co = 0;
+                        $nbr_nh3_na = 0;
+                        $n_nh3 = 0;
+
+                        // Compte tous les posts.
+                        $nbr = count($arr_posts); // C'est le N dans le livre
+                        
+                        foreach ($arr_posts as $obj_post) 
+                        {
+                            if($obj_post->co2 >= 396)// tous les co2 qui dépasse ou égale à 396ppm
+                                {   
+                                    $nbr_co2_na += 1; // si on est ici c'est qu'il y a des co2 non acceptables, on icremente le nombre $nbr_co2_na alors !
+                                    $n_co2 = $nbr_co2_na;
+                                    // $co2_na = $obj_post->co2;
+                                }
+                            if($obj_post->co >= 3) // tous les co qui dépasse ou égale à 3ppm
+                                {
+                                    // si on est ici c'est qu'il y a des co non acceptables, on icremente le nombre $nbr_co_na alors !
+                                    $nbr_co_na += 1;
+                                    $n_co = $nbr_co_na;
+                                    // $co_na = $obj_post->co;
+                                }
+                            if($obj_post->nh3 >= 5) // tous les nh3 qui dépasse ou égale à 5ppm
+                                    {   
+                                        // si on est ici c'est qu'il y a des nh3 non acceptables, on icremente le nombre $nbr_nh3_na alors !
+                                        $nbr_nh3_na += 1;
+                                        $n_nh3 = $nbr_nh3_na;
+                                    }  
+                            ?>
+                        
+                        <?php 
+
+                        }
+
+                        //calculs les %
+                        if($nbr != 0) // on évite la division par zéro
+                            {   
+                                $pource_co2 = ($n_co2*100)/$nbr;
+                                $pource_co = ($n_co*100)/$nbr;
+                                $pource_nh3 = ($n_nh3*100)/$nbr;
+                            }
+
+                        ?>
+
+                        <!-- script pour afficher le Pie -->
+                        <script type="text/javascript">
+                        Highcharts.chart('container', {
+                              chart: {
+                                  type: 'pie',
+                                  options3d: {
+                                      enabled: true,
+                                      alpha: 45,
+                                      beta: 0
+                                  }
+                              },
+                              title: {
+                                  text: 'Know where you find is livable or not'
+                              },
+                              tooltip: {
+                                  pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                              },
+                              plotOptions: {
+                                  pie: {
+                                      allowPointSelect: true,
+                                      cursor: 'pointer',
+                                      depth: 35,
+                                      dataLabels: {
+                                          enabled: true,
+                                          format: '{point.name}'
+                                      }
+                                  }
+                              },
+                              series: [{
+                                  type: 'pie',
+                                  name: 'Not acceptable',
+                                  data: [
+                                      ['Firefox', 45.0],
+                                      ['IE', 26.8],
+                                      {
+                                          name: 'Chrome',
+                                          y: 12.8,
+                                          sliced: true,
+                                          selected: true
+                                      } 
+                                      // ['Safari', 8.5],
+                                      // ['Opera', 6.2],
+                                      // ['Others', 0.7]
+                                  ]
+                              }]
+                        });
+                        </script>
+                        <!-- end script Pie -->
+
+                          <?php
+                   }
+                    catch(\Exception $obj_ex)
+                        {
+                            syslog(LOG_ERR, $obj_ex->getMessage());
+                            echo '<em>Whoops, something went wrong!</em>';
+                        }
+
+                            ?>
+
                 </div>
             </div>
             <!-- =========================================================================== -->
