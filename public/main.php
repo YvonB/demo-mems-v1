@@ -511,7 +511,7 @@ catch(\Exception $obj_ex)
                 </div><!-- widgets column left end -->
             
                 <!-- 2ème colonne -->
-                <div class="col-lg-3 col-md-3"><!-- widgets column left -->
+                <div class="col-lg-3 col-md-3" style="background: #37424b"><!-- widgets column left -->
                     <ul class="list-unstyled clear-margins"><!-- widgets -->
                         <li class="widget-container widget_nav_menu"><!-- widgets list -->
                             <h1 class="title-widget">Useful links</h1>

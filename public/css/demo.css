@@ -356,7 +356,7 @@ html
 @import url(http://fonts.googleapis.com/css?family=Fjalla+One);
 @import url(http://fonts.googleapis.com/css?family=Gudea);
 .footer1 {
-    background: #ccdd url("../images/footer/footer-bg.png") repeat scroll left top;
+    background: #263238 url("../images/footer/footer-bg.png") repeat scroll left top;
     padding-top: 40px;
     padding-right: 0;
     padding-bottom: 20px;
@@ -465,7 +465,7 @@ html
             .nomargin { margin:0px; padding:0px;}
 
 .footer-bottom {
-    background-color: #464F52;
+    background-color: #455a64;
     min-height: 30px;
     width: 100%;
 }
