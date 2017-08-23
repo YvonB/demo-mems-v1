@@ -326,8 +326,8 @@ html
   color: #5c5c5c;
 }
 .sign_up{
-  border: none;
-  border-radius: 40px;
+ /* border: none;
+  border-radius: 40px;*/
   background: rgb(59, 120, 231);
   color: #f9f9f9;
   padding: 10px 37px;

@@ -386,7 +386,12 @@ catch(\Exception $obj_ex)
             <li class="li_brute">Another lorem ipsum</li>
             <li class="li_brute">Lorem ipsum...</li>   
           </ul>
-          <button class="btn btn-primary sign_up">See More</button>
+          <a href="<?php 
+                                    $login = "/login";
+                                    $logout = "/logout";
+                                    echo(isset($user) ? $logout : $login );
+                                ?>"><button type="submit" class="btn btn-primary sign_up">See More
+                    </button></a>
         </div>
         <div class="promo scale">
           <div class="deal">
@@ -418,7 +423,12 @@ catch(\Exception $obj_ex)
             <li class="li_brute">Another lorem ipsum</li>
             <li class="li_brute">Lorem ipsum...</li>   
           </ul>
-          <button class="btn btn-primary sign_up">See More</button>
+          <a href="<?php 
+                                    $login = "/login";
+                                    $logout = "/logout";
+                                    echo(isset($user) ? $logout : $login );
+                                ?>"><button type="submit" class="btn btn-primary sign_up">See More
+                   </button></a>
         </div>
         <div class="promo">
           <div class= "deal">
@@ -450,7 +460,12 @@ catch(\Exception $obj_ex)
             <li class="li_brute">We need lorem ipsum</li>
             <li class="li_brute">Lorem ipsem...</li>   
           </ul>
-          <button class="btn btn-primary sign_up">See More</button>
+          <a href="<?php 
+                                    $login = "/login";
+                                    $logout = "/logout";
+                                    echo(isset($user) ? $logout : $login );
+                                ?>"><button type="submit" class="btn btn-primary sign_up">See More
+                   </button></a>
         </div> 
     </div>    
 </div>
@@ -511,7 +526,7 @@ catch(\Exception $obj_ex)
                 </div><!-- widgets column left end -->
             
                 <!-- 2ème colonne -->
-                <div class="col-lg-3 col-md-3" style="background: #37424b"><!-- widgets column left -->
+                <div class="col-lg-3 col-md-3" ><!-- widgets column left -->
                     <ul class="list-unstyled clear-margins"><!-- widgets -->
                         <li class="widget-container widget_nav_menu"><!-- widgets list -->
                             <h1 class="title-widget">Useful links</h1>
@@ -549,7 +564,7 @@ catch(\Exception $obj_ex)
                 </div><!-- widgets column left end -->
 
                 <!-- 4éme colonne  -->
-                <div class="col-lg-3 col-md-3"><!-- widgets column center -->
+                 <div class="col-lg-3 col-md-3"><!-- widgets column center -->
                     <ul class="list-unstyled clear-margins"><!-- widgets -->
                         <li class="widget-container widget_recent_news"><!-- widgets list -->
                             <h1 class="title-widget">Contact Detail </h1>
@@ -575,6 +590,8 @@ catch(\Exception $obj_ex)
                             </li>
                         </ul>
                      </div>
+               
+
             </div> <!--end row -->
         </div>
     </footer>
