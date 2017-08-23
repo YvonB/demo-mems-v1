@@ -480,7 +480,7 @@ catch(\Exception $obj_ex)
             </div>
             <div class="row">
                 <div class="col-md-4" id="login_btn">
-                    <div class="well">
+                    <div class="well btn_main_connect">
                         <form method="POST" action="/login">
                             <button type="submit" class="btn btn-primary" align="center">
                                 <?php 
@@ -571,11 +571,11 @@ catch(\Exception $obj_ex)
                                 <!-- 1° Contact Rapide -->
                                 <div class="footerp"> 
                                     <h2 class="title-median">Web Developper Junior</h2>
-                                    <p><b>Email id:</b> <a href="mailto:yvonbenahita@gmail.com">yvonbenahita@gmail.com</a></p>
-                                    <p><b>Helpline Numbers </b>
-                                    <b style="color:#ffc106;">(8AM to 10PM):</b>  +91-8130890090, +91-8130190010  </p>
-                                    <p><b>Corp Office / Postal Address</b></p>
-                                    <p><b>Phone Numbers : </b>7042827160, </p>
+                                    <p>Email id: <a href="mailto:yvonbenahita@gmail.com">yvonbenahita@gmail.com</a></p>
+                                    <p>Helpline Numbers</p> 
+                                    <p>(8AM to 10PM): +91-8130890090, +91-8130190010</p>
+                                    <p>Corp Office / Postal Address</p>
+                                    <p>Phone Numbers : 7042827160, </p>
                                     <p> 011-27568832, 9868387223</p>
                                 </div>
                                 <!-- 2° Réseaux Sociaux -->
