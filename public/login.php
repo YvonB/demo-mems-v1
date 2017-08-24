@@ -26,21 +26,22 @@ else
     <title>Login-SDP</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 <style>
 /*body*/
 body
 {
    /*body de google*/
-    background-color: #fafafa;
-    color: rgba(0,0,0,.987);
-    font-family: 'Roboto',sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: .01em;
-    line-height: 16px;
-    margin: 0;
-    padding: 0;
-    overflow: auto;
+    background-color: #fafafa !important;
+    color: rgba(0,0,0,.987) !important;
+    font-family: 'Roboto',sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    letter-spacing: .01em !important;
+    line-height: 16px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: auto !important;
 
 }
 
@@ -91,7 +92,7 @@ body
     float: right;
     font-size: 28px;
     font-weight: bold;
-    margin-top: 14px;
+    margin-top: 14px !important;
 }
 
 .close:hover,
@@ -110,10 +111,16 @@ body
 
 .modal-body 
 {
-	padding: 2px 16px;
+	padding: 40px 16px;
 	background-color: #fafafa;
 	font: 400 16px/24px Roboto, sans-serif;
 	color: #212121;
+}
+
+.cancelbtn
+{
+	float: right;
+
 }
 
 .modal-footer {
@@ -132,14 +139,15 @@ body
   <div class="modal-content">
     <div class="modal-header">
       <span class="close">&times;</span>
-      	<h2 align="center">SDP - IoT</h2>
+      	<h3 align="center">SDP - IoT</h3>
     </div>
     <div class="modal-body">
       <p align="center">Une connexion à votre compte est requise pour voir le contenu de la page que vous avez demandée !</p>
-      <p align="center">Fermez cette fenêtre ou cliquez en dehors de cette fenêtre et vous serez redirigé à votre espace connexion. Merci !</p>
+      <p align="center">Fermez cette fenêtre ou cliquez en dehors de celle-ci et vous serez redirigé à votre espace connexion. Merci !</p>
+      <button type="button" onclick="document.getElementById('myModal').style.display='none'" class="btn btn-default cancelbtn">Cancel</button>
     </div>
     <div class="modal-footer">
-      <h3 align="center">© 2017, YY, All rights reserved</h3>
+      <h4 align="center">© 2017, YY, All rights reserved</h4>
     </div>
   </div>
 
@@ -175,7 +183,8 @@ window.onclick = function(event) {
 
 </script>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
 
