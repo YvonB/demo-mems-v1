@@ -59,14 +59,19 @@ require_once('../vendor/autoload.php');
             <h3 class="sub_title_ban"><img src="/img/datastore-logo.png"  class="logo_ban" />Detecteur - Analyseur Web des Gaz polluants SDP - IoT</h3>
             <h1>Know what really exists in the air you breathe</h1>
             <h3 class="sub_title_ban" style="padding-bottom: 20px;">Follow your health closely</h3>
-            <button type="submit" class="btn btn-primary">
+             <a href="<?php 
+                                    $home = "/home";
+                                    $login = "/login";
+                                    echo(isset($user) ? $home : $login);
+                                ?>">
+                                <button type="submit" class="btn btn-primary">
                                     <?php 
                                         if(isset($user)) 
                                             {echo "Go Home<i class='fa fa-arrow-right' style='margin-left: 15px;'></i>";}
                                         else 
                                             {echo "See More Content";}
                                     ?>
-            </button>
+                                </button>
         </div>
     </div>
 
@@ -206,6 +211,18 @@ require_once('../vendor/autoload.php');
                             }
 
                         ?>
+                          <!-- // Tant que les données ne sont pas prêtes on affiche un loder   -->
+                         <?php 
+                        
+                        if($pource_co2 == null AND $pource_co == null AND $pource_nh3 == null)
+                        {
+                            ?>
+                            <p>En attente des <strong>données</strong> provenant des <strong>capteurs</strong>...</p>
+                            <div class="loader_compteurs"></div>
+                            <?php
+                        }
+                         ?>
+                         <!-- fin affichage loader -->
 
                 <!-- script pour afficher les pourcentages de gazs non acceptable sur les compteurs -->
                             <script type="text/javascript">
@@ -380,7 +397,15 @@ catch(\Exception $obj_ex)
                                                                 
 
 
-                                                        ?>"><?php if(isset($masseVolumique_co2)) echo $masseVolumique_co2." ".'<em>mg/m3</em>'; else echo "(^_^)";?></span>
+                                                        ?>"><?php 
+                                                        if(isset($masseVolumique_co2)) echo $masseVolumique_co2." ".'<em>mg/m3</em>'; 
+                                                        else 
+                                                            {
+                                                                ?>
+                                                                <div class="loader_notif_co2_nh3"></div>
+                                                                <?php
+                                                            }
+                                                        ?></span>
           <ul class="features">
             <li class="li_brute">Lorem Ipsum ipsum</li>
             <li class="li_brute">Another lorem ipsum</li>
@@ -417,7 +442,16 @@ catch(\Exception $obj_ex)
                                                                 }
 
 
-                                                        ?>"><?php if(isset($masseVolumique_co)) echo $masseVolumique_co." ".'<em>mg/m3</em>'; else echo "(^_^)";?></span>
+                                                        ?>"><?php 
+                                                        if(isset($masseVolumique_co)) 
+                                                            echo $masseVolumique_co." ".'<em>mg/m3</em>';
+                                                        else 
+                                                        {
+                                                            ?>
+                                                                <div class="loader_notif_co"></div>
+                                                            <?php
+                                                        }
+                                                        ?></span>
           <ul class="features">
             <li class="li_brute">Lorem Ipsum ipsum</li>
             <li class="li_brute">Another lorem ipsum</li>
@@ -454,7 +488,16 @@ catch(\Exception $obj_ex)
                                                                 }
 
 
-                                                        ?>"><?php if(isset($masseVolumique_nh3)) echo $masseVolumique_nh3." ".'<em>mg/m3</em>'; else echo "(^_^)";?></span>
+                                                        ?>"><?php 
+                                                        if(isset($masseVolumique_nh3)) 
+                                                            echo $masseVolumique_nh3." ".'<em>mg/m3</em>'; 
+                                                        else 
+                                                           {
+                                                                ?>
+                                                                <div class="loader_notif_co2_nh3"></div>
+                                                                <?php
+                                                           }
+                                                        ?></span>
           <ul class="features">
             <li class="li_brute">Choose the lorem ipsum</li>
             <li class="li_brute">We need lorem ipsum</li>
