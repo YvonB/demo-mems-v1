@@ -15,6 +15,9 @@ if ($user)
 // [START elseuser]
 else 
 {	
+
+	// header('Location: ' . UserService::createLoginURL($_SERVER['REQUEST_URI']));
+
 	?>	
 		<!DOCTYPE html>
 <html>
@@ -93,10 +96,10 @@ else
 </head>
 <body>
 
-<h2>Animated Modal with Header and Footer</h2>
+<!-- <h2>Animated Modal with Header and Footer</h2> -->
 
 <!-- Trigger/Open The Modal -->
-<button id="myBtn">Open Modal</button>
+<!-- <button id="myBtn">Open Modal</button> -->
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -117,13 +120,13 @@ else
   </div>
 
 </div>
-
+<a href="<?php echo UserService::createLoginURL($_SERVER['REQUEST_URI']) ?>" id="lien"></a>
 <script>
 // Get the modal
 var modal = document.getElementById('myModal');
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+// var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
@@ -142,15 +145,17 @@ span.onclick = function() {
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
+        document.getElementById('lien').click()
     }
 }
+
 </script>
+
 
 </body>
 </html>
 
-	<?php
-    // header('Location: ' . UserService::createLoginURL($_SERVER['REQUEST_URI']));
+<?php   
 }
 // [END elseuser]
 
