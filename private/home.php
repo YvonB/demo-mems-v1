@@ -70,7 +70,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li class="active colortextnav"><a href="#"><b><i class="fa fa-home" style="margin-right: 4px;color:black !important;"></i>Home</b><span class="sr-only">(current)</span></a></li>
+                <li class="active colortextnav"><a href=""><b><i class="fa fa-home" style="margin-right: 4px;color:#fafafa !important;"></i>Home</b><span class="sr-only">(current)</span></a></li>
               </ul>
               <form class="navbar-form navbar-left" style="margin-left: 150px;">
                 <div class="form-group">
@@ -110,16 +110,16 @@
             <div class="row">
                 <div class="col-md-8">
                     <h2>Lorem Ipsum</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla est purus,<br> ultrices in porttitor
+                    <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla est purus ultrices in porttitor
                     in, accumsan non quam. Nam consectetur porttitor rhoncus.<br> Curabitur eu est et leo feugiat
-                    auctor vel quis lorem.</p>
-                    <p>Ut et ligula dolor, sit amet consequat lorem. Aliquam porta eros sed
-                    velit imperdiet egestas.</p>
+                    auctor vel quis lorem.
+                    Ut et ligula dolor, sit amet consequat lorem. Aliquam porta eros sed
+                    velit imperdiet egestas.</dd>
                 </div>
                 <!-- ============== -->
                 <div class="col-md-4">
                     <h2 align="center">Gas not accepted</h2>
-                      <div id="container" style="width:100%;height: 400px"></div> <!-- div pour contenir le Pie -->
+                      <div id="container" style="width:100%;height: 400px"> <!-- div pour contenir le Pie -->
 
                       <?php
 
@@ -178,6 +178,19 @@
 
                         ?>
 
+                        <!-- // Tant que les données ne sont pas prêtes on affiche un loader   -->
+                         <?php 
+                        
+                        if($pource_co2 == null AND $pource_co == null AND $pource_nh3 == null)
+                        {
+                            ?>
+                            <p>En attente des <strong>données</strong> provenant des <strong>capteurs</strong>...</p>
+                            <div class="loader_compteurs"></div>
+                            <?php
+                        }
+                         ?>
+                         <!-- fin affichage loader -->
+
                         <!-- script pour afficher le Pie -->
                         <script type="text/javascript">
                         Highcharts.chart('container', {
@@ -210,11 +223,11 @@
                                   type: 'pie',
                                   name: 'Not acceptable',
                                   data: [
-                                      ['co2', 45.0],
-                                      ['co', 26.8],
+                                      ['co2', <?php echo $pource_co2; ?>],
+                                      ['co', <?php echo $pource_co; ?>],
                                       {
                                           name: 'nh3',
-                                          y: 12.8,
+                                          y: <?php echo $pource_nh3; ?>,
                                           sliced: true,
                                           selected: true
                                       } 
@@ -255,6 +268,7 @@
                         }
 
                             ?>
+                   </div> <!-- fin div Pie -->
                 </div> <!-- end coll md 4 -->
             </div> <!-- end row -->
             <!-- =========================================================================== -->

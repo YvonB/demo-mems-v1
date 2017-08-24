@@ -95,7 +95,7 @@ require_once('../vendor/autoload.php');
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <!-- Page courante -->
               <ul class="nav navbar-nav">
-                <li class="active colortextnav"><a href="#" style="color:black !important;"><b>Welcome</b><span class="sr-only">(current)</span></a></li>
+                <li class="active colortextnav"><a href="#" style="color:#fafafa !important;"><b>Welcome</b><span class="sr-only">(current)</span></a></li>
               </ul>
               <!-- Recherche -->
               <form class="navbar-form navbar-left" style="margin-left: 150px;">
@@ -296,9 +296,9 @@ require_once('../vendor/autoload.php');
                         }
 
                             ?>
-                    </div>
-                </div>
-            </div>
+                    </div> <!-- fin div compteurs -->
+                </div> <!-- fin col md 4 -->
+            </div> <!-- fin row -->
         <!-- ========================================================================== -->
 
         <!-- ============================== Le Map ==================================== -->

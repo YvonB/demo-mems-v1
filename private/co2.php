@@ -68,7 +68,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li class="active colortextnav"><a href="#" style="color:black !important;"><b>CO2</b><span class="sr-only">(current)</span></a></li>
+                <li class="active colortextnav"><a href="#" style="color:#fafafa !important;"><b>CO2</b><span class="sr-only">(current)</span></a></li>
               </ul>
               <form class="navbar-form navbar-left" style="margin-left: 150px;">
                 <div class="form-group">
