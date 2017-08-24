@@ -122,19 +122,29 @@ body
 	margin-right: 15px;
 }
 
-.mark_ok
+.mark_ok 
 {
 	background-color: yellow;
 }
 
-.mark_cancel
+.okbtn:hover
 {
-	background-color: #e74c3c;
+	background-color: yellow;
 }
+
 .cancelbtn
 {
 	float: right;
+}
 
+.mark_cancel 
+{
+	background-color: #e74c3c;
+}
+
+.cancelbtn:hover
+{
+	background-color: #e74c3c;
 }
 
 .modal-footer {
