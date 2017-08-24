@@ -19,10 +19,31 @@ else
 	// header('Location: ' . UserService::createLoginURL($_SERVER['REQUEST_URI']));
 
 	?>	
-		<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+    <title>Login-SDP</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+/*body*/
+body
+{
+   /*body de google*/
+    background-color: #fafafa;
+    color: rgba(0,0,0,.987);
+    font-family: 'Roboto',sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: .01em;
+    line-height: 16px;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+
+}
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -35,7 +56,7 @@ else
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
 }
 
 /* Modal Content */
@@ -44,7 +65,7 @@ else
     background-color: #fefefe;
     margin: auto;
     padding: 0;
-    border: 1px solid #888;
+   /* border: 1px solid #888;*/
     width: 80%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
@@ -70,6 +91,7 @@ else
     float: right;
     font-size: 28px;
     font-weight: bold;
+    margin-top: 14px;
 }
 
 .close:hover,
@@ -81,25 +103,27 @@ else
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+   	background-color: #37424b;
+    color: #c8c8c8;
+
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body 
+{
+	padding: 2px 16px;
+	background-color: #fafafa;
+	font: 400 16px/24px Roboto, sans-serif;
+	color: #212121;
+}
 
 .modal-footer {
     padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+    background-color: #37424b;
+    color: #c8c8c8;
 }
 </style>
 </head>
 <body>
-
-<!-- <h2>Animated Modal with Header and Footer</h2> -->
-
-<!-- Trigger/Open The Modal -->
-<!-- <button id="myBtn">Open Modal</button> -->
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -108,14 +132,14 @@ else
   <div class="modal-content">
     <div class="modal-header">
       <span class="close">&times;</span>
-      <h2>Modal Header</h2>
+      	<h2 align="center">SDP - IoT</h2>
     </div>
     <div class="modal-body">
-      <p>Some text in the Modal Body</p>
-      <p>Some other text...</p>
+      <p align="center">Une connexion à votre compte est requise pour voir le contenu de la page que vous avez demandée !</p>
+      <p align="center">Fermez cette fenêtre ou cliquez en dehors de cette fenêtre et vous serez redirigé à votre espace connexion. Merci !</p>
     </div>
     <div class="modal-footer">
-      <h3>Modal Footer</h3>
+      <h3 align="center">© 2017, YY, All rights reserved</h3>
     </div>
   </div>
 
