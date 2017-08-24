@@ -116,7 +116,21 @@ body
 	font: 400 16px/24px Roboto, sans-serif;
 	color: #212121;
 }
+.okbtn
+{
+	float: right;
+	margin-right: 15px;
+}
 
+.mark_ok
+{
+	background-color: yellow;
+}
+
+.mark_cancel
+{
+	background-color: #e74c3c;
+}
 .cancelbtn
 {
 	float: right;
@@ -143,11 +157,14 @@ body
     </div>
     <div class="modal-body">
       <p align="center">Une connexion à votre compte est requise pour voir le contenu de la page que vous avez demandée !</p>
-      <p align="center">Fermez cette fenêtre ou cliquez en dehors de celle-ci et vous serez redirigé à votre espace connexion. Merci !</p>
-      <button type="button" onclick="document.getElementById('myModal').style.display='none'" class="btn btn-default cancelbtn">Cancel</button>
+      <p align="center">Cliuquer sur <mark class="mark_ok">"Ok"</mark> pour <mark class="mark_ok">accepter et continuer</mark> , sinon <mark class="mark_cancel">fermez</mark> cette fenêtre ou cliquez le bouton <mark class="mark_cancel">"Cancel" pour annuler</mark>. Merci !</p>
+     
+      <button type="button" onclick="document.location.href='javascript:history.back()'" class="btn btn-default cancelbtn">Cancel</button>
+       <button type="button" id="ok_btn" class="btn btn-default okbtn">Ok</button>
+
     </div>
     <div class="modal-footer">
-      <h4 align="center">© 2017, YY, All rights reserved</h4>
+      <h4 align="center">© 2017, YvonB All rights reserved</h4>
     </div>
   </div>
 
@@ -158,7 +175,7 @@ body
 var modal = document.getElementById('myModal');
 
 // Get the button that opens the modal
-// var btn = document.getElementById("myBtn");
+var ok = document.getElementById("ok_btn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
@@ -171,14 +188,14 @@ window.onload = function() {
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
+    document.location.href='javascript:history.back()'; //page précédente
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
+ok.onclick = function() 
+{
         modal.style.display = "none";
-        document.getElementById('lien').click()
-    }
+        document.getElementById('lien').click();
 }
 
 </script>
